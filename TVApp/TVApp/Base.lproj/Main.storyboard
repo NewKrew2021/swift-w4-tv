@@ -20,14 +20,24 @@
                                 <rect key="frame" x="20" y="88" width="374" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EBE-yd-ZbU">
+                                <rect key="frame" x="80" y="156" width="254" height="32"/>
+                                <segments>
+                                    <segment title="오리지날"/>
+                                    <segment title="라이브"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6LU-Gc-KUh" secondAttribute="trailing" constant="20" id="8L1-8x-rBK"/>
+                            <constraint firstItem="6LU-Gc-KUh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B7y-p6-wX9"/>
+                            <constraint firstItem="EBE-yd-ZbU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="LEo-bu-76p"/>
                             <constraint firstItem="6LU-Gc-KUh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cTF-7G-kAq"/>
                             <constraint firstItem="6LU-Gc-KUh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fK3-SJ-ZlP"/>
-                            <constraint firstItem="6LU-Gc-KUh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wQJ-D6-Ljo"/>
+                            <constraint firstItem="EBE-yd-ZbU" firstAttribute="top" secondItem="6LU-Gc-KUh" secondAttribute="bottom" constant="12" id="h7e-9g-ule"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EBE-yd-ZbU" secondAttribute="trailing" constant="80" id="zzN-Fh-Sy1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="kakaoTV" id="RG6-MI-3cz"/>
