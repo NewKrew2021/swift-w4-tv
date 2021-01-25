@@ -9,9 +9,14 @@
 import Foundation
 import UIKit
 
-class Program {
+class ProgramView {
     var programList : [UIView] = []
-    
-    func addProgram(){
+    var programJsonData = JsonParsing().getData()
+    init(){
+        for data in programJsonData {
+            if let view = programCell().makeView(data) as! UIView {
+                programList.append(view)
+            }
+        }
     }
 }
