@@ -15,6 +15,10 @@
 		32B9DC2725BEADF3005C4186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32B9DC2525BEADF3005C4186 /* LaunchScreen.storyboard */; };
 		32B9DC3225BEADF3005C4186 /* TVAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC3125BEADF3005C4186 /* TVAppTests.swift */; };
 		32B9DC3D25BEADF3005C4186 /* TVAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC3C25BEADF3005C4186 /* TVAppUITests.swift */; };
+		32B9DC4F25BEB852005C4186 /* Original.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC4E25BEB852005C4186 /* Original.swift */; };
+		32B9DC5725BEC051005C4186 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC5625BEC051005C4186 /* Live.swift */; };
+		32B9DC5C25BEC062005C4186 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC5B25BEC062005C4186 /* Channel.swift */; };
+		32B9DC6125BEC06D005C4186 /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC6025BEC06D005C4186 /* Clip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		32B9DC3825BEADF3005C4186 /* TVAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B9DC3C25BEADF3005C4186 /* TVAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVAppUITests.swift; sourceTree = "<group>"; };
 		32B9DC3E25BEADF3005C4186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32B9DC4E25BEB852005C4186 /* Original.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Original.swift; sourceTree = "<group>"; };
+		32B9DC5625BEC051005C4186 /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
+		32B9DC5B25BEC062005C4186 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		32B9DC6025BEC06D005C4186 /* Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 		32B9DC1925BEADF3005C4186 /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
+				32B9DC4D25BEB840005C4186 /* Model */,
 				32B9DC1A25BEADF3005C4186 /* AppDelegate.swift */,
 				32B9DC1C25BEADF3005C4186 /* SceneDelegate.swift */,
 				32B9DC1E25BEADF3005C4186 /* ViewController.swift */,
@@ -126,6 +135,17 @@
 				32B9DC3E25BEADF3005C4186 /* Info.plist */,
 			);
 			path = TVAppUITests;
+			sourceTree = "<group>";
+		};
+		32B9DC4D25BEB840005C4186 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32B9DC4E25BEB852005C4186 /* Original.swift */,
+				32B9DC5625BEC051005C4186 /* Live.swift */,
+				32B9DC5B25BEC062005C4186 /* Channel.swift */,
+				32B9DC6025BEC06D005C4186 /* Clip.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B9DC1F25BEADF3005C4186 /* ViewController.swift in Sources */,
+				32B9DC6125BEC06D005C4186 /* Clip.swift in Sources */,
+				32B9DC5C25BEC062005C4186 /* Channel.swift in Sources */,
 				32B9DC1B25BEADF3005C4186 /* AppDelegate.swift in Sources */,
+				32B9DC4F25BEB852005C4186 /* Original.swift in Sources */,
+				32B9DC5725BEC051005C4186 /* Live.swift in Sources */,
 				32B9DC1D25BEADF3005C4186 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
