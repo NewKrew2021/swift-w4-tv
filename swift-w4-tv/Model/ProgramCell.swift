@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import UIKit
+
+class programCell {
+    var Image = UIImageView()
+    var title = UILabel()
+    var name = UILabel()
+    var url = UILabel()
+    var visitCountImage = UIImageView()
+    var visitCount = UILabel    ()
+    var createTimeImage = UIImageView()
+    var createTime = UILabel()
+    
+    func makeView(){
+        // make program cell
+    }
+}
