@@ -15,6 +15,9 @@
 		D251F5D225BE63A800E8783B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D251F5D025BE63A800E8783B /* LaunchScreen.storyboard */; };
 		D251F5DD25BE63A800E8783B /* TVAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251F5DC25BE63A800E8783B /* TVAppTests.swift */; };
 		D251F5E825BE63A800E8783B /* TVAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251F5E725BE63A800E8783B /* TVAppUITests.swift */; };
+		D263E90025BEB4DD001F4F30 /* original.json in Resources */ = {isa = PBXBuildFile; fileRef = D263E8FF25BEB4DD001F4F30 /* original.json */; };
+		D263E90525BEB4E2001F4F30 /* live.json in Resources */ = {isa = PBXBuildFile; fileRef = D263E90425BEB4E2001F4F30 /* live.json */; };
+		D263E90A25BEB570001F4F30 /* TVCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E90925BEB570001F4F30 /* TVCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		D251F5E325BE63A800E8783B /* TVAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D251F5E725BE63A800E8783B /* TVAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVAppUITests.swift; sourceTree = "<group>"; };
 		D251F5E925BE63A800E8783B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D263E8FF25BEB4DD001F4F30 /* original.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = original.json; sourceTree = "<group>"; };
+		D263E90425BEB4E2001F4F30 /* live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = live.json; sourceTree = "<group>"; };
+		D263E90925BEB570001F4F30 /* TVCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,13 @@
 		D251F5C425BE63A500E8783B /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
+				D263E8FE25BEB4CA001F4F30 /* JSON */,
 				D263E8DF25BE6452001F4F30 /* Protocol */,
 				D263E8DE25BE644B001F4F30 /* Controller */,
 				D263E8DD25BE6445001F4F30 /* View */,
 				D263E8DC25BE6440001F4F30 /* Model */,
 				D251F5C525BE63A500E8783B /* AppDelegate.swift */,
 				D251F5C725BE63A500E8783B /* SceneDelegate.swift */,
-				D251F5C925BE63A500E8783B /* ViewController.swift */,
 				D251F5CB25BE63A500E8783B /* Main.storyboard */,
 				D251F5CE25BE63A800E8783B /* Assets.xcassets */,
 				D251F5D025BE63A800E8783B /* LaunchScreen.storyboard */,
@@ -135,6 +141,7 @@
 		D263E8DC25BE6440001F4F30 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D263E90925BEB570001F4F30 /* TVCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 		D263E8DE25BE644B001F4F30 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D251F5C925BE63A500E8783B /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -158,6 +166,15 @@
 			children = (
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D263E8FE25BEB4CA001F4F30 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				D263E90425BEB4E2001F4F30 /* live.json */,
+				D263E8FF25BEB4DD001F4F30 /* original.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +282,8 @@
 			files = (
 				D251F5D225BE63A800E8783B /* LaunchScreen.storyboard in Resources */,
 				D251F5CF25BE63A800E8783B /* Assets.xcassets in Resources */,
+				D263E90025BEB4DD001F4F30 /* original.json in Resources */,
+				D263E90525BEB4E2001F4F30 /* live.json in Resources */,
 				D251F5CD25BE63A500E8783B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +312,7 @@
 				D251F5CA25BE63A500E8783B /* ViewController.swift in Sources */,
 				D251F5C625BE63A500E8783B /* AppDelegate.swift in Sources */,
 				D251F5C825BE63A500E8783B /* SceneDelegate.swift in Sources */,
+				D263E90A25BEB570001F4F30 /* TVCellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

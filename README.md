@@ -15,3 +15,8 @@
 
 - download Json data
 
+### Create Model
+
+- create protocol : TVCell
+- create model : TVOriginalCell, TVLiveCell
+
