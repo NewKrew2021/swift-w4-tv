@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+struct programOrg {
+    var clipTitle : String
+    var clipThumnailUrl : String
+    var clipDuration : Int
+    var channelName : String
+    var channelVisitCount : Int
+    var channelCreateTime : String
+}
+
+struct programLive {
+    var clipTitle : String
+    var clipThumnailUrl : String
+    var livePlayCount : Int
+    var channelName : String
+    var channelVisitCount : Int
+    var channelCreateTime : String
+}
