@@ -11,7 +11,7 @@ import UIKit
 
 class naviBar {
     
-    var rightButton: UIBarButtonItem = {
+    private var rightButton: UIBarButtonItem = {
         let button = UIBarButtonItem()
         button.image = UIImage(systemName: "heart.fill")
         button.style = .plain
