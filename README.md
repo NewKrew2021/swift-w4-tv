@@ -20,3 +20,8 @@
 - create protocol : TVCell
 - create model : TVOriginalCell, TVLiveCell
 
+### Create new Controller
+
+- TVCollectionViewController
+- extension : adopt UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
+

@@ -18,6 +18,8 @@
 		D263E90025BEB4DD001F4F30 /* original.json in Resources */ = {isa = PBXBuildFile; fileRef = D263E8FF25BEB4DD001F4F30 /* original.json */; };
 		D263E90525BEB4E2001F4F30 /* live.json in Resources */ = {isa = PBXBuildFile; fileRef = D263E90425BEB4E2001F4F30 /* live.json */; };
 		D263E90A25BEB570001F4F30 /* TVCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E90925BEB570001F4F30 /* TVCellModel.swift */; };
+		D263E91F25BEEDE1001F4F30 /* TVCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */; };
+		D263E92425BEEEB1001F4F30 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E92325BEEEB1001F4F30 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		D263E8FF25BEB4DD001F4F30 /* original.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = original.json; sourceTree = "<group>"; };
 		D263E90425BEB4E2001F4F30 /* live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = live.json; sourceTree = "<group>"; };
 		D263E90925BEB570001F4F30 /* TVCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCellModel.swift; sourceTree = "<group>"; };
+		D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCollectionViewController.swift; sourceTree = "<group>"; };
+		D263E92325BEEEB1001F4F30 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				D251F5C925BE63A500E8783B /* ViewController.swift */,
+				D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */,
+				D263E92325BEEEB1001F4F30 /* CollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,6 +315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D263E92425BEEEB1001F4F30 /* CollectionViewController.swift in Sources */,
+				D263E91F25BEEDE1001F4F30 /* TVCollectionViewController.swift in Sources */,
 				D251F5CA25BE63A500E8783B /* ViewController.swift in Sources */,
 				D251F5C625BE63A500E8783B /* AppDelegate.swift in Sources */,
 				D251F5C825BE63A500E8783B /* SceneDelegate.swift in Sources */,
