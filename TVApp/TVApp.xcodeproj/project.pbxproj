@@ -20,6 +20,8 @@
 		D263E90A25BEB570001F4F30 /* TVCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E90925BEB570001F4F30 /* TVCellModel.swift */; };
 		D263E91F25BEEDE1001F4F30 /* TVCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */; };
 		D263E92425BEEEB1001F4F30 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E92325BEEEB1001F4F30 /* CollectionViewController.swift */; };
+		D263E92925BEF328001F4F30 /* TVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E92825BEF328001F4F30 /* TVCollectionViewCell.swift */; };
+		D263E92E25BF0DBA001F4F30 /* TVCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E92D25BF0DBA001F4F30 /* TVCellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		D263E90925BEB570001F4F30 /* TVCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCellModel.swift; sourceTree = "<group>"; };
 		D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCollectionViewController.swift; sourceTree = "<group>"; };
 		D263E92325BEEEB1001F4F30 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		D263E92825BEF328001F4F30 /* TVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCollectionViewCell.swift; sourceTree = "<group>"; };
+		D263E92D25BF0DBA001F4F30 /* TVCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCellData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				D263E90925BEB570001F4F30 /* TVCellModel.swift */,
+				D263E92D25BF0DBA001F4F30 /* TVCellData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 		D263E8DD25BE6445001F4F30 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D263E92825BEF328001F4F30 /* TVCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +327,8 @@
 				D251F5C625BE63A500E8783B /* AppDelegate.swift in Sources */,
 				D251F5C825BE63A500E8783B /* SceneDelegate.swift in Sources */,
 				D263E90A25BEB570001F4F30 /* TVCellModel.swift in Sources */,
+				D263E92925BEF328001F4F30 /* TVCollectionViewCell.swift in Sources */,
+				D263E92E25BF0DBA001F4F30 /* TVCellData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

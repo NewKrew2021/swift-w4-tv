@@ -25,3 +25,13 @@
 - TVCollectionViewController
 - extension : adopt UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 
+### CellModel 수정, CellData 추가
+
+- 파싱하여 저장하기 위한 모델 구조체 수정
+
+  - Channel, Clip, Live, TVOriginal, TVLive
+
+- 파싱하여 모델을 가지고 있는 클래스 생성
+
+  OriginalData, LiveData
+
