@@ -23,7 +23,7 @@ class naviBar {
         view.navigationController?.navigationBar.backgroundColor = .white
         rightButton.target = self
         rightButton.action = #selector(buttonPressed)
-        view.navigationController?.navigationBar.topItem?.title = "emoticon"
+        view.navigationController?.navigationBar.topItem?.title = "kakaoTV"
         view.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
     }
     
