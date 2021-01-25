@@ -16,7 +16,8 @@ class MainViewController: UIViewController {
     }
 
     func initMainViewController(){
-        naviBar().initNavigationBar(view: self)
+        NavigationBar().initNavigationBar(view: self)
+        OriginalProgramScrollView().initOriginalProgramScrollView(view: self)
     }
 }
 
