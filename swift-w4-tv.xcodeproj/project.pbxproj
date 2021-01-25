@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C74A447925BEA7D2007BE4A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A447825BEA7D2007BE4A7 /* AppDelegate.swift */; };
+		C74A447B25BEA7D2007BE4A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A447A25BEA7D2007BE4A7 /* SceneDelegate.swift */; };
+		C74A447D25BEA7D2007BE4A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A447C25BEA7D2007BE4A7 /* ViewController.swift */; };
+		C74A448025BEA7D2007BE4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74A447E25BEA7D2007BE4A7 /* Main.storyboard */; };
+		C74A448225BEA7D4007BE4A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74A448125BEA7D4007BE4A7 /* Assets.xcassets */; };
+		C74A448525BEA7D4007BE4A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74A448325BEA7D4007BE4A7 /* LaunchScreen.storyboard */; };
+		C74A449025BEA7D4007BE4A7 /* swift_w4_tvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A448F25BEA7D4007BE4A7 /* swift_w4_tvTests.swift */; };
+		C74A449B25BEA7D4007BE4A7 /* swift_w4_tvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A449A25BEA7D4007BE4A7 /* swift_w4_tvUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C74A448C25BEA7D4007BE4A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C74A446D25BEA7D2007BE4A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C74A447425BEA7D2007BE4A7;
+			remoteInfo = "swift-w4-tv";
+		};
+		C74A449725BEA7D4007BE4A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C74A446D25BEA7D2007BE4A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C74A447425BEA7D2007BE4A7;
+			remoteInfo = "swift-w4-tv";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C74A447525BEA7D2007BE4A7 /* swift-w4-tv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-w4-tv.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C74A447825BEA7D2007BE4A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C74A447A25BEA7D2007BE4A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C74A447C25BEA7D2007BE4A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C74A447F25BEA7D2007BE4A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C74A448125BEA7D4007BE4A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C74A448425BEA7D4007BE4A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C74A448625BEA7D4007BE4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C74A448B25BEA7D4007BE4A7 /* swift-w4-tvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-w4-tvTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C74A448F25BEA7D4007BE4A7 /* swift_w4_tvTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_w4_tvTests.swift; sourceTree = "<group>"; };
+		C74A449125BEA7D4007BE4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C74A449625BEA7D4007BE4A7 /* swift-w4-tvUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-w4-tvUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C74A449A25BEA7D4007BE4A7 /* swift_w4_tvUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_w4_tvUITests.swift; sourceTree = "<group>"; };
+		C74A449C25BEA7D4007BE4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C74A447225BEA7D2007BE4A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74A448825BEA7D4007BE4A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74A449325BEA7D4007BE4A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C74A446C25BEA7D2007BE4A7 = {
+			isa = PBXGroup;
+			children = (
+				C74A447725BEA7D2007BE4A7 /* swift-w4-tv */,
+				C74A448E25BEA7D4007BE4A7 /* swift-w4-tvTests */,
+				C74A449925BEA7D4007BE4A7 /* swift-w4-tvUITests */,
+				C74A447625BEA7D2007BE4A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C74A447625BEA7D2007BE4A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C74A447525BEA7D2007BE4A7 /* swift-w4-tv.app */,
+				C74A448B25BEA7D4007BE4A7 /* swift-w4-tvTests.xctest */,
+				C74A449625BEA7D4007BE4A7 /* swift-w4-tvUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C74A447725BEA7D2007BE4A7 /* swift-w4-tv */ = {
+			isa = PBXGroup;
+			children = (
+				C74A447825BEA7D2007BE4A7 /* AppDelegate.swift */,
+				C74A447A25BEA7D2007BE4A7 /* SceneDelegate.swift */,
+				C74A447C25BEA7D2007BE4A7 /* ViewController.swift */,
+				C74A447E25BEA7D2007BE4A7 /* Main.storyboard */,
+				C74A448125BEA7D4007BE4A7 /* Assets.xcassets */,
+				C74A448325BEA7D4007BE4A7 /* LaunchScreen.storyboard */,
+				C74A448625BEA7D4007BE4A7 /* Info.plist */,
+			);
+			path = "swift-w4-tv";
+			sourceTree = "<group>";
+		};
+		C74A448E25BEA7D4007BE4A7 /* swift-w4-tvTests */ = {
+			isa = PBXGroup;
+			children = (
+				C74A448F25BEA7D4007BE4A7 /* swift_w4_tvTests.swift */,
+				C74A449125BEA7D4007BE4A7 /* Info.plist */,
+			);
+			path = "swift-w4-tvTests";
+			sourceTree = "<group>";
+		};
+		C74A449925BEA7D4007BE4A7 /* swift-w4-tvUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C74A449A25BEA7D4007BE4A7 /* swift_w4_tvUITests.swift */,
+				C74A449C25BEA7D4007BE4A7 /* Info.plist */,
+			);
+			path = "swift-w4-tvUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C74A447425BEA7D2007BE4A7 /* swift-w4-tv */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C74A449F25BEA7D4007BE4A7 /* Build configuration list for PBXNativeTarget "swift-w4-tv" */;
+			buildPhases = (
+				C74A447125BEA7D2007BE4A7 /* Sources */,
+				C74A447225BEA7D2007BE4A7 /* Frameworks */,
+				C74A447325BEA7D2007BE4A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "swift-w4-tv";
+			productName = "swift-w4-tv";
+			productReference = C74A447525BEA7D2007BE4A7 /* swift-w4-tv.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C74A448A25BEA7D4007BE4A7 /* swift-w4-tvTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C74A44A225BEA7D4007BE4A7 /* Build configuration list for PBXNativeTarget "swift-w4-tvTests" */;
+			buildPhases = (
+				C74A448725BEA7D4007BE4A7 /* Sources */,
+				C74A448825BEA7D4007BE4A7 /* Frameworks */,
+				C74A448925BEA7D4007BE4A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C74A448D25BEA7D4007BE4A7 /* PBXTargetDependency */,
+			);
+			name = "swift-w4-tvTests";
+			productName = "swift-w4-tvTests";
+			productReference = C74A448B25BEA7D4007BE4A7 /* swift-w4-tvTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C74A449525BEA7D4007BE4A7 /* swift-w4-tvUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C74A44A525BEA7D4007BE4A7 /* Build configuration list for PBXNativeTarget "swift-w4-tvUITests" */;
+			buildPhases = (
+				C74A449225BEA7D4007BE4A7 /* Sources */,
+				C74A449325BEA7D4007BE4A7 /* Frameworks */,
+				C74A449425BEA7D4007BE4A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C74A449825BEA7D4007BE4A7 /* PBXTargetDependency */,
+			);
+			name = "swift-w4-tvUITests";
+			productName = "swift-w4-tvUITests";
+			productReference = C74A449625BEA7D4007BE4A7 /* swift-w4-tvUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C74A446D25BEA7D2007BE4A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = "이준형";
+				TargetAttributes = {
+					C74A447425BEA7D2007BE4A7 = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					C74A448A25BEA7D4007BE4A7 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = C74A447425BEA7D2007BE4A7;
+					};
+					C74A449525BEA7D4007BE4A7 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = C74A447425BEA7D2007BE4A7;
+					};
+				};
+			};
+			buildConfigurationList = C74A447025BEA7D2007BE4A7 /* Build configuration list for PBXProject "swift-w4-tv" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C74A446C25BEA7D2007BE4A7;
+			productRefGroup = C74A447625BEA7D2007BE4A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C74A447425BEA7D2007BE4A7 /* swift-w4-tv */,
+				C74A448A25BEA7D4007BE4A7 /* swift-w4-tvTests */,
+				C74A449525BEA7D4007BE4A7 /* swift-w4-tvUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C74A447325BEA7D2007BE4A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C74A448525BEA7D4007BE4A7 /* LaunchScreen.storyboard in Resources */,
+				C74A448225BEA7D4007BE4A7 /* Assets.xcassets in Resources */,
+				C74A448025BEA7D2007BE4A7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74A448925BEA7D4007BE4A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74A449425BEA7D4007BE4A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C74A447125BEA7D2007BE4A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C74A447D25BEA7D2007BE4A7 /* ViewController.swift in Sources */,
+				C74A447925BEA7D2007BE4A7 /* AppDelegate.swift in Sources */,
+				C74A447B25BEA7D2007BE4A7 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74A448725BEA7D4007BE4A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C74A449025BEA7D4007BE4A7 /* swift_w4_tvTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74A449225BEA7D4007BE4A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C74A449B25BEA7D4007BE4A7 /* swift_w4_tvUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C74A448D25BEA7D4007BE4A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C74A447425BEA7D2007BE4A7 /* swift-w4-tv */;
+			targetProxy = C74A448C25BEA7D4007BE4A7 /* PBXContainerItemProxy */;
+		};
+		C74A449825BEA7D4007BE4A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C74A447425BEA7D2007BE4A7 /* swift-w4-tv */;
+			targetProxy = C74A449725BEA7D4007BE4A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C74A447E25BEA7D2007BE4A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C74A447F25BEA7D2007BE4A7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C74A448325BEA7D4007BE4A7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C74A448425BEA7D4007BE4A7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C74A449D25BEA7D4007BE4A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C74A449E25BEA7D4007BE4A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C74A44A025BEA7D4007BE4A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFNDY59DA9;
+				INFOPLIST_FILE = "swift-w4-tv/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kakaocorp.swift-w4-tv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C74A44A125BEA7D4007BE4A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFNDY59DA9;
+				INFOPLIST_FILE = "swift-w4-tv/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kakaocorp.swift-w4-tv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C74A44A325BEA7D4007BE4A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFNDY59DA9;
+				INFOPLIST_FILE = "swift-w4-tvTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kakaocorp.swift-w4-tvTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift-w4-tv.app/swift-w4-tv";
+			};
+			name = Debug;
+		};
+		C74A44A425BEA7D4007BE4A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFNDY59DA9;
+				INFOPLIST_FILE = "swift-w4-tvTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kakaocorp.swift-w4-tvTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift-w4-tv.app/swift-w4-tv";
+			};
+			name = Release;
+		};
+		C74A44A625BEA7D4007BE4A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFNDY59DA9;
+				INFOPLIST_FILE = "swift-w4-tvUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kakaocorp.swift-w4-tvUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "swift-w4-tv";
+			};
+			name = Debug;
+		};
+		C74A44A725BEA7D4007BE4A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFNDY59DA9;
+				INFOPLIST_FILE = "swift-w4-tvUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kakaocorp.swift-w4-tvUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "swift-w4-tv";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C74A447025BEA7D2007BE4A7 /* Build configuration list for PBXProject "swift-w4-tv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C74A449D25BEA7D4007BE4A7 /* Debug */,
+				C74A449E25BEA7D4007BE4A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C74A449F25BEA7D4007BE4A7 /* Build configuration list for PBXNativeTarget "swift-w4-tv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C74A44A025BEA7D4007BE4A7 /* Debug */,
+				C74A44A125BEA7D4007BE4A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C74A44A225BEA7D4007BE4A7 /* Build configuration list for PBXNativeTarget "swift-w4-tvTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C74A44A325BEA7D4007BE4A7 /* Debug */,
+				C74A44A425BEA7D4007BE4A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C74A44A525BEA7D4007BE4A7 /* Build configuration list for PBXNativeTarget "swift-w4-tvUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C74A44A625BEA7D4007BE4A7 /* Debug */,
+				C74A44A725BEA7D4007BE4A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C74A446D25BEA7D2007BE4A7 /* Project object */;
+}
