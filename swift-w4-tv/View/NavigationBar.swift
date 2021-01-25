@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class naviBar {
+class NavigationBar {
     
     private var rightButton: UIBarButtonItem = {
         let button = UIBarButtonItem()
