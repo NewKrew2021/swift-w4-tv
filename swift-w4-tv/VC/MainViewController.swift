@@ -18,6 +18,23 @@ class MainViewController: UIViewController {
     func initMainViewController(){
         NavigationBar().initNavigationBar(view: self)
         OriginalProgramScrollView().initOriginalProgramScrollView(view: self)
+        SearchBar().initSearchBar(view: self)
+        //segment view
+        //search bar
     }
 }
 
+
+extension UIViewController {
+    var topbarHeight: CGFloat {
+        var statusBarHeight: CGFloat
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            statusBarHeight = UIApplication.shared.statusBarFrame.height
+        }
+        return statusBarHeight +
+            (self.navigationController?.navigationBar.frame.height ?? 0.0)
+    }
+}
