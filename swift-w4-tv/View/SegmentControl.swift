@@ -15,7 +15,7 @@ class SegmentControl {
     private let screenHeight = UIScreen.main.bounds.size.height
     
     
-    func initSearchBar(view : UIViewController){
+    func initSegmentControl(view : UIViewController){
         sc.frame = CGRect(x: screenWidth * 0.1, y: view.topbarHeight + screenHeight / 20 , width: screenWidth * 0.8, height: screenHeight / 30 )
         sc.selectedSegmentIndex = 0
         sc.addTarget(self, action: #selector(BtnPressed(_:)), for: .valueChanged)

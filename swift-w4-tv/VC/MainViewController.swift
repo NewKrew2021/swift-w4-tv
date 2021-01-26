@@ -19,9 +19,12 @@ class MainViewController: UIViewController {
         NavigationBar().initNavigationBar(view: self)
         OriginalProgramScrollView().initOriginalProgramScrollView(view: self)
         SearchBar().initSearchBar(view: self)
+        SegmentControl().initSegmentControl(view: self)
         //segment view
         //search bar
     }
+    
+    
 }
 
 
