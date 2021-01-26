@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		F73A00AD25BE79FE00A7F70A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A00AC25BE79FE00A7F70A /* AppDelegate.swift */; };
 		F73A00AF25BE79FE00A7F70A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A00AE25BE79FE00A7F70A /* SceneDelegate.swift */; };
-		F73A00B125BE79FE00A7F70A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A00B025BE79FE00A7F70A /* ViewController.swift */; };
+		F73A00B125BE79FE00A7F70A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A00B025BE79FE00A7F70A /* MainViewController.swift */; };
 		F73A00B425BE79FE00A7F70A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73A00B225BE79FE00A7F70A /* Main.storyboard */; };
 		F73A00B625BE7A0100A7F70A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73A00B525BE7A0100A7F70A /* Assets.xcassets */; };
 		F73A00B925BE7A0100A7F70A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73A00B725BE7A0100A7F70A /* LaunchScreen.storyboard */; };
+		F73A010325BEC46200A7F70A /* LiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A010225BEC46200A7F70A /* LiveCell.swift */; };
+		F73A010A25BEC8DE00A7F70A /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A010925BEC8DE00A7F70A /* Live.swift */; };
+		F73A010E25BEC98900A7F70A /* OriginalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A010D25BEC98900A7F70A /* OriginalCell.swift */; };
+		F73A011125BEC99100A7F70A /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A011025BEC99100A7F70A /* Clip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F73A00A925BE79FE00A7F70A /* TVApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73A00AC25BE79FE00A7F70A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F73A00AE25BE79FE00A7F70A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F73A00B025BE79FE00A7F70A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F73A00B025BE79FE00A7F70A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F73A00B325BE79FE00A7F70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F73A00B525BE7A0100A7F70A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F73A00B825BE7A0100A7F70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F73A00BA25BE7A0100A7F70A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F73A010225BEC46200A7F70A /* LiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCell.swift; sourceTree = "<group>"; };
+		F73A010925BEC8DE00A7F70A /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
+		F73A010D25BEC98900A7F70A /* OriginalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalCell.swift; sourceTree = "<group>"; };
+		F73A011025BEC99100A7F70A /* Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +64,10 @@
 		F73A00AB25BE79FE00A7F70A /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
-				F73A00B025BE79FE00A7F70A /* ViewController.swift */,
+				F73A00FF25BEC43C00A7F70A /* Protocol */,
+				F73A00FE25BEC41400A7F70A /* Model */,
+				F73A00FD25BEC40D00A7F70A /* Controller */,
+				F73A00FC25BEC40700A7F70A /* View */,
 				F73A00AC25BE79FE00A7F70A /* AppDelegate.swift */,
 				F73A00AE25BE79FE00A7F70A /* SceneDelegate.swift */,
 				F73A00B225BE79FE00A7F70A /* Main.storyboard */,
@@ -65,6 +76,39 @@
 				F73A00BA25BE7A0100A7F70A /* Info.plist */,
 			);
 			path = TVApp;
+			sourceTree = "<group>";
+		};
+		F73A00FC25BEC40700A7F70A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F73A00FD25BEC40D00A7F70A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F73A00B025BE79FE00A7F70A /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F73A00FE25BEC41400A7F70A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F73A010225BEC46200A7F70A /* LiveCell.swift */,
+				F73A010925BEC8DE00A7F70A /* Live.swift */,
+				F73A010D25BEC98900A7F70A /* OriginalCell.swift */,
+				F73A011025BEC99100A7F70A /* Clip.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F73A00FF25BEC43C00A7F70A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F73A00B125BE79FE00A7F70A /* ViewController.swift in Sources */,
+				F73A00B125BE79FE00A7F70A /* MainViewController.swift in Sources */,
+				F73A010325BEC46200A7F70A /* LiveCell.swift in Sources */,
+				F73A011125BEC99100A7F70A /* Clip.swift in Sources */,
 				F73A00AD25BE79FE00A7F70A /* AppDelegate.swift in Sources */,
 				F73A00AF25BE79FE00A7F70A /* SceneDelegate.swift in Sources */,
+				F73A010E25BEC98900A7F70A /* OriginalCell.swift in Sources */,
+				F73A010A25BEC8DE00A7F70A /* Live.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
