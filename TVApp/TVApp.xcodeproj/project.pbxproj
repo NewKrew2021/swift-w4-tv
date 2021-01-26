@@ -21,6 +21,7 @@
 		F73A012525BFDCE200A7F70A /* ViewCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A012425BFDCE200A7F70A /* ViewCollectionViewLayout.swift */; };
 		F73A012925BFDD2800A7F70A /* VideoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A012825BFDD2800A7F70A /* VideoCollectionView.swift */; };
 		F73A012C25C000C100A7F70A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A012B25C000C100A7F70A /* Channel.swift */; };
+		F73A013125C019D900A7F70A /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A013025C019D900A7F70A /* Int+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		F73A012425BFDCE200A7F70A /* ViewCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCollectionViewLayout.swift; sourceTree = "<group>"; };
 		F73A012825BFDD2800A7F70A /* VideoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionView.swift; sourceTree = "<group>"; };
 		F73A012B25C000C100A7F70A /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		F73A013025C019D900A7F70A /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		F73A00AB25BE79FE00A7F70A /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
+				F73A012F25C019C900A7F70A /* Extension */,
 				F73A012325BFDCAD00A7F70A /* Layout */,
 				F73A00FF25BEC43C00A7F70A /* Protocol */,
 				F73A00FE25BEC41400A7F70A /* Model */,
@@ -129,6 +132,14 @@
 				F73A012425BFDCE200A7F70A /* ViewCollectionViewLayout.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		F73A012F25C019C900A7F70A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F73A013025C019D900A7F70A /* Int+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 				F73A012525BFDCE200A7F70A /* ViewCollectionViewLayout.swift in Sources */,
 				F73A012125BFD38100A7F70A /* VideoCollectionViewCell.swift in Sources */,
 				F73A010A25BEC8DE00A7F70A /* Live.swift in Sources */,
+				F73A013125C019D900A7F70A /* Int+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
