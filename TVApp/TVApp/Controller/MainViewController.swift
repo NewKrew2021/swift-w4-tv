@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var videoTypeSegmentControl: UISegmentedControl!
     @IBOutlet weak var videoCollectionView: UICollectionView!
     
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         videoTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
         videoTypeSegmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
     }
-
+    
     func getJSON(from: String) {
         let decoder = JSONDecoder()
         guard let json = NSDataAsset(name: from) else {return}
@@ -52,13 +52,13 @@ class ViewController: UIViewController {
             return
         }
     }
-
+    
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return originals.count
+        return originals.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,10 +86,19 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width - 20
-        let height = collectionView.frame.height/2
-
-        let size = CGSize(width: width, height: height)
+        var width: CGFloat
+        var height: CGFloat
+        var size: CGSize
+        if(UIDevice.current.userInterfaceIdiom == .pad){
+            width = (collectionView.frame.width - 20)/2.1
+            height = collectionView.frame.height/3
+            size = CGSize(width: width, height: height)
+        }
+        else{
+            width = collectionView.frame.width - 20
+            height = collectionView.frame.height/2
+            size = CGSize(width: width, height: height)
+        }
         return size
     }
 }
