@@ -20,6 +20,8 @@
 		433B075C25BFAE83003B9CE1 /* OriginalTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075B25BFAE83003B9CE1 /* OriginalTV.swift */; };
 		433B075E25BFB014003B9CE1 /* LiveTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075D25BFB014003B9CE1 /* LiveTV.swift */; };
 		433B076125BFB656003B9CE1 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B076025BFB656003B9CE1 /* MainVC.swift */; };
+		433B076425BFBAAE003B9CE1 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B076325BFBAAE003B9CE1 /* MainCollectionViewCell.swift */; };
+		433B076625C00C59003B9CE1 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B076525C00C59003B9CE1 /* SampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		433B075B25BFAE83003B9CE1 /* OriginalTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTV.swift; sourceTree = "<group>"; };
 		433B075D25BFB014003B9CE1 /* LiveTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTV.swift; sourceTree = "<group>"; };
 		433B076025BFB656003B9CE1 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		433B076325BFBAAE003B9CE1 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		433B076525C00C59003B9CE1 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 		433B071F25BE5855003B9CE1 /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
+				433B076225BFBA36003B9CE1 /* MainCollectionView */,
 				433B075F25BFB61B003B9CE1 /* ViewController */,
 				433B075025BEBE2A003B9CE1 /* Model */,
 				433B072025BE5855003B9CE1 /* AppDelegate.swift */,
@@ -147,6 +152,7 @@
 				433B075125BEBE71003B9CE1 /* Channel.swift */,
 				433B075325BEBE80003B9CE1 /* Clip.swift */,
 				433B075525BEBE8C003B9CE1 /* Live.swift */,
+				433B076525C00C59003B9CE1 /* SampleData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +163,14 @@
 				433B076025BFB656003B9CE1 /* MainVC.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		433B076225BFBA36003B9CE1 /* MainCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				433B076325BFBAAE003B9CE1 /* MainCollectionViewCell.swift */,
+			);
+			path = MainCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,7 +305,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				433B075E25BFB014003B9CE1 /* LiveTV.swift in Sources */,
+				433B076425BFBAAE003B9CE1 /* MainCollectionViewCell.swift in Sources */,
 				433B075225BEBE71003B9CE1 /* Channel.swift in Sources */,
+				433B076625C00C59003B9CE1 /* SampleData.swift in Sources */,
 				433B075425BEBE80003B9CE1 /* Clip.swift in Sources */,
 				433B075C25BFAE83003B9CE1 /* OriginalTV.swift in Sources */,
 				433B072125BE5855003B9CE1 /* AppDelegate.swift in Sources */,
