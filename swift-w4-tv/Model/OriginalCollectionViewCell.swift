@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
-    static var cellIdentifier = "myCell"
+class OriginalCollectionViewCell: UICollectionViewCell {
+    static var cellIdentifier = "myOriginalCell"
     
     private var tvImage = UIImageView()
     private var titleLabel = UILabel(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
