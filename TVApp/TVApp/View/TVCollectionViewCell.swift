@@ -14,14 +14,12 @@ class TVCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-//        setTvImage(standardView: contentView, padding: 10)
-//        setTitleLabel(standardView: contentView, padding: 10)
+        
+        setTvImage(standardView: contentView, padding: 10)
+        setTitleLabel(standardView: contentView, padding: 10)
     }
     
     func setSubViews() {
-        contentView.layer.borderWidth = 1
-        setTvImage(standardView: contentView, padding: 10)
-        setTitleLabel(standardView: contentView, padding: 10)
     }
     
     func setTitleLabel(standardView : UIView, padding : CGFloat) {

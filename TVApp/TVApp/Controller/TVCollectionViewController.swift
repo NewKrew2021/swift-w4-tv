@@ -15,7 +15,6 @@ class TVCollectionViewController: UIViewController {
 
         TVCollectionView.delegate = self
         TVCollectionView.dataSource = self
-        // Do any additional setup after loading the view.
     }
     
 

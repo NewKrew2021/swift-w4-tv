@@ -7,38 +7,63 @@
 
 import Foundation
 
-class OriginalData {
-    static let shared = OriginalData()
-    private var dataArray : [TVOriginal] = []
+class CellData {
+    class var resourceName : String {
+        return ""
+    }
     
-    private init() {
-        guard let path = Bundle.main.path(forResource: "original", ofType: "json") else { return }
-        guard let StringData = try? String(contentsOfFile: path) else { return }
-        guard let data = StringData.data(using: .utf8) else { return }
+    func initializeData<T : CellData, T2 : Codable>(_ type : T.Type, _ outputType : T2.Type) -> [T2]{
+        guard let path = Bundle.main.path(forResource: T.resourceName, ofType: "json") else { return [] }
+        guard let StringData = try? String(contentsOfFile: path) else { return [] }
+        guard let data = StringData.data(using: .utf8) else { return [] }
         do {
-            let result : [TVOriginal] = try JSONDecoder().decode([TVOriginal].self, from: data)
-            dataArray = result
+            let result : [T2] = try JSONDecoder().decode([T2].self, from: data)
+            return result
         }
-        catch let error {
-            print(error)
+        catch {
+            return []
         }
     }
 }
 
-class LiveData {
+class OriginalData : CellData{
+    static let shared = OriginalData()
+    private var dataArray : [TVOriginal] = []
+    override class var resourceName: String {
+        return "original"
+    }
+    
+    private override init() {
+        super.init()
+        dataArray = initializeData(OriginalData.self, TVOriginal.self)
+    }
+    
+    func count() -> Int {
+        return dataArray.count
+    }
+    
+    func getData(index : Int) -> TVOriginal {
+        return dataArray[index]
+    }
+}
+
+class LiveData : CellData{
     static let shared = LiveData()
     private var dataArray : [TVLive] = []
+    override class var resourceName: String {
+        return "live"
+    }
     
-    private init() {
-        guard let path = Bundle.main.path(forResource: "live", ofType: "json") else { return }
-        guard let StringData = try? String(contentsOfFile: path) else { return }
-        guard let data = StringData.data(using: .utf8) else { return }
-        do {
-            let result: [TVLive] = try JSONDecoder().decode([TVLive].self, from: data)
-            dataArray = result
-        }
-        catch let error {
-            print(error)
-        }
+    private override init() {
+        super.init()
+        dataArray = initializeData(LiveData.self, TVLive.self)
+    }
+    
+    func count() -> Int {
+        return dataArray.count
+    }
+
+    func getData(index : Int) -> TVLive {
+        return dataArray[index]
     }
 }
