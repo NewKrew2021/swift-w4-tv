@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3276442025BFA8F2002A935C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3276441F25BFA8F2002A935C /* CollectionViewCell.swift */; };
 		32B9DC1B25BEADF3005C4186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC1A25BEADF3005C4186 /* AppDelegate.swift */; };
 		32B9DC1D25BEADF3005C4186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC1C25BEADF3005C4186 /* SceneDelegate.swift */; };
 		32B9DC1F25BEADF3005C4186 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC1E25BEADF3005C4186 /* MainViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3276441F25BFA8F2002A935C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		32B9DC1725BEADF3005C4186 /* TVApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B9DC1A25BEADF3005C4186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32B9DC1C25BEADF3005C4186 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3276441E25BFA8D5002A935C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3276441F25BFA8F2002A935C /* CollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		32B9DC0E25BEADF3005C4186 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		32B9DC1925BEADF3005C4186 /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
+				3276441E25BFA8D5002A935C /* View */,
 				32B9DC6E25BEC7BD005C4186 /* ViewController */,
 				32B9DC4D25BEB840005C4186 /* Model */,
 				32B9DC1A25BEADF3005C4186 /* AppDelegate.swift */,
@@ -288,6 +299,7 @@
 			files = (
 				32B9DC1F25BEADF3005C4186 /* MainViewController.swift in Sources */,
 				32B9DC6125BEC06D005C4186 /* Clip.swift in Sources */,
+				3276442025BFA8F2002A935C /* CollectionViewCell.swift in Sources */,
 				32B9DC5C25BEC062005C4186 /* Channel.swift in Sources */,
 				32B9DC1B25BEADF3005C4186 /* AppDelegate.swift in Sources */,
 				32B9DC4F25BEB852005C4186 /* Original.swift in Sources */,
