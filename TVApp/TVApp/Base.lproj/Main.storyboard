@@ -32,21 +32,48 @@
                                 <rect key="frame" x="20" y="191" width="374" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NEU-Mp-fQQ">
-                                    <size key="itemSize" width="374" height="220"/>
+                                    <size key="itemSize" width="333" height="262"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="OLx-ZI-c8l" customClass="CollectionViewCell" customModule="TVApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="220"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="evY-42-zee">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="220"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" reuseIdentifier="collectionViewCell" id="OLx-ZI-c8l" customClass="CollectionViewCell" customModule="TVApp" customModuleProvider="target">
+                                        <rect key="frame" x="20.5" y="0.0" width="333" height="262"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="W1F-se-rg3">
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="262"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMn-yb-W46">
+                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="196"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="187" id="17B-kP-K4j"/>
+                                                        <constraint firstAttribute="width" secondItem="XMn-yb-W46" secondAttribute="height" multiplier="1.7:1" id="HnJ-0A-gol"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLL-lu-PJT">
+                                                    <rect key="frame" x="0.0" y="204" width="333" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XMn-yb-W46" firstAttribute="leading" secondItem="W1F-se-rg3" secondAttribute="leading" id="0K5-OU-JQi"/>
+                                                <constraint firstItem="XMn-yb-W46" firstAttribute="top" secondItem="W1F-se-rg3" secondAttribute="top" id="Ark-wX-KxG"/>
+                                                <constraint firstItem="zLL-lu-PJT" firstAttribute="leading" secondItem="W1F-se-rg3" secondAttribute="leading" id="a8B-Oe-HCg"/>
+                                                <constraint firstAttribute="trailing" secondItem="XMn-yb-W46" secondAttribute="trailing" id="dSd-xE-ljl"/>
+                                                <constraint firstAttribute="trailing" secondItem="zLL-lu-PJT" secondAttribute="trailing" id="pze-sS-hxV"/>
+                                                <constraint firstItem="zLL-lu-PJT" firstAttribute="top" secondItem="XMn-yb-W46" secondAttribute="bottom" constant="8" id="yQa-06-eH1"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="374" height="220"/>
+                                        <size key="customSize" width="333" height="262"/>
+                                        <connections>
+                                            <outlet property="thumbnailImageView" destination="XMn-yb-W46" id="Fcv-ej-I4y"/>
+                                            <outlet property="titleLabel" destination="zLL-lu-PJT" id="WyC-Aa-3wI"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
