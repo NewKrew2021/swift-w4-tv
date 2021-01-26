@@ -15,7 +15,6 @@ class JsonParsing  {
     var getOrgCnt : Int {
         if originalPrograms == nil {
             return 0
-            
         }
         return originalPrograms.count
     }
@@ -23,7 +22,6 @@ class JsonParsing  {
     var getliveCnt : Int {
         if livePrograms == nil {
             return 0
-            
         }
         return livePrograms.count
     }
@@ -44,10 +42,8 @@ class JsonParsing  {
             decoder.dateDecodingStrategy = .iso8601
             
                 if type == "original" {
-
                     do {
-                        originalPrograms  = try decoder.decode([ProgramOrgElement].self, from: contents)
-                        print(originalPrograms.count)
+                        originalPrograms = try decoder.decode([ProgramOrgElement].self, from: contents)
                     } catch {
                         originalPrograms = nil
                     }
@@ -55,7 +51,6 @@ class JsonParsing  {
                 else {
                     do {
                         livePrograms = try decoder.decode([ProgramLiveElement].self, from: contents)
-                        print(livePrograms.count)
                     } catch {
                         livePrograms = nil
                     }
