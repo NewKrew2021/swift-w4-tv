@@ -28,10 +28,16 @@ class VideoCollectionViewCell: UICollectionViewCell {
     }
     
     func setChannelViewCount(viewCount: Int){
-        channelViewCount.text = "▶︎ " + String(viewCount)
+        channelViewCount.text = "▶︎ " + makeNumberWithCommaFormat(number: viewCount)
     }
     
     func setVideoCreateTime(createTime: String){
         videoCreateTime.text = "• " + createTime
+    }
+    
+    func makeNumberWithCommaFormat(number: Int) -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: number)) ?? ""
     }
 }
