@@ -8,7 +8,7 @@
 import Foundation
 
 struct OriginalCell: Codable {
-    let clipId: Int
-    let displayTitle, createTime: String
+    let displayTitle: String
     let clip: Clip
+    let channel: Channel
 }

@@ -8,7 +8,6 @@
 import Foundation
 
 struct Live: Codable {
-    let playCount: Int
-    let thumbnailUrl: String
-    let duration: Int
+    let playCount, duration: Int
+    let thumbnailUrl, createTime: String
 }

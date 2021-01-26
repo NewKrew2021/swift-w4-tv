@@ -8,7 +8,7 @@
 import Foundation
 
 struct LiveCell: Codable {
-    let liveId: Int
-    let displayTitle, createTime: String
+    let displayTitle: String
+    let channel: Channel
     let live: Live
 }

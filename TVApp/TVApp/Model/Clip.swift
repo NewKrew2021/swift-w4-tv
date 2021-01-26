@@ -7,9 +7,8 @@
 
 import Foundation
 
-
 struct Clip: Codable {
     let duration: Int
     let thumbnailUrl: String
-    let playCount: Int
+    let createTime: String
 }
