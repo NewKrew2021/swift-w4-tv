@@ -42,6 +42,6 @@
 
 ### CellDataModel 수정
 
-- generic 활용하여 initializetData 메소드를 하나로 구현
+- generic 활용하여 initializeData 메소드를 하나로 구현
 - OriginalData, LiveData에 CollectionViewDataSource에서 데이터를 제공하기 위해 count, getData 구현
 
