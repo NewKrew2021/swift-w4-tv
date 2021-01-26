@@ -64,5 +64,15 @@
 
 ![image-20210126170027232](README.assets/image-20210126170027232.png)
 
+### Day2 마무리
+
+- 동적으로 받은 데이터 출력 형식에 맞게 변경
+- 네비게이션바에 하트 Image 추가
+- original, live따라 컬렉션 뷰 재구성
+
+![image-20210126225401111](README.assets/image-20210126225401111.png)
+
+![image-20210126225407059](README.assets/image-20210126225407059.png)
+
 
 
