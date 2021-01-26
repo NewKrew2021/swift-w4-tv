@@ -18,6 +18,7 @@ class SearchBar {
     
     func initSearchBar(view : UIViewController){
         searchBar.frame = CGRect(x: 0, y: view.topbarHeight, width: screenWidth, height: screenHeight / 20 )
+        searchBar.placeholder = "Search"
         searchBar.backgroundColor = .white
         view.view.addSubview(searchBar)
     }
