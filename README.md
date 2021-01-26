@@ -35,3 +35,8 @@
 
   OriginalData, LiveData
 
+### CellModel 수정2
+
+- 모델을 셀에서 사용하기 위해 getter 메소드 구현
+- 셀의 크기를 지정한 후 서브뷰둘의 오토레이아웃 지정...ing
+
