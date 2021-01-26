@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		433B072125BE5855003B9CE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B072025BE5855003B9CE1 /* AppDelegate.swift */; };
 		433B072325BE5855003B9CE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B072225BE5855003B9CE1 /* SceneDelegate.swift */; };
-		433B072525BE5855003B9CE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B072425BE5855003B9CE1 /* ViewController.swift */; };
 		433B072825BE5855003B9CE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433B072625BE5855003B9CE1 /* Main.storyboard */; };
 		433B072A25BE5857003B9CE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433B072925BE5857003B9CE1 /* Assets.xcassets */; };
 		433B072D25BE5857003B9CE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433B072B25BE5857003B9CE1 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,7 @@
 		433B075625BEBE8C003B9CE1 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075525BEBE8C003B9CE1 /* Live.swift */; };
 		433B075C25BFAE83003B9CE1 /* OriginalTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075B25BFAE83003B9CE1 /* OriginalTV.swift */; };
 		433B075E25BFB014003B9CE1 /* LiveTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075D25BFB014003B9CE1 /* LiveTV.swift */; };
+		433B076125BFB656003B9CE1 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B076025BFB656003B9CE1 /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 		433B071D25BE5855003B9CE1 /* TVApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433B072025BE5855003B9CE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433B072225BE5855003B9CE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		433B072425BE5855003B9CE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		433B072725BE5855003B9CE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		433B072925BE5857003B9CE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		433B072C25BE5857003B9CE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		433B075525BEBE8C003B9CE1 /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
 		433B075B25BFAE83003B9CE1 /* OriginalTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTV.swift; sourceTree = "<group>"; };
 		433B075D25BFB014003B9CE1 /* LiveTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTV.swift; sourceTree = "<group>"; };
+		433B076025BFB656003B9CE1 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +109,10 @@
 		433B071F25BE5855003B9CE1 /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
+				433B075F25BFB61B003B9CE1 /* ViewController */,
 				433B075025BEBE2A003B9CE1 /* Model */,
 				433B072025BE5855003B9CE1 /* AppDelegate.swift */,
 				433B072225BE5855003B9CE1 /* SceneDelegate.swift */,
-				433B072425BE5855003B9CE1 /* ViewController.swift */,
 				433B072625BE5855003B9CE1 /* Main.storyboard */,
 				433B072925BE5857003B9CE1 /* Assets.xcassets */,
 				433B072B25BE5857003B9CE1 /* LaunchScreen.storyboard */,
@@ -149,6 +149,14 @@
 				433B075525BEBE8C003B9CE1 /* Live.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		433B075F25BFB61B003B9CE1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				433B076025BFB656003B9CE1 /* MainVC.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,12 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				433B072525BE5855003B9CE1 /* ViewController.swift in Sources */,
 				433B075E25BFB014003B9CE1 /* LiveTV.swift in Sources */,
 				433B075225BEBE71003B9CE1 /* Channel.swift in Sources */,
 				433B075425BEBE80003B9CE1 /* Clip.swift in Sources */,
 				433B075C25BFAE83003B9CE1 /* OriginalTV.swift in Sources */,
 				433B072125BE5855003B9CE1 /* AppDelegate.swift in Sources */,
+				433B076125BFB656003B9CE1 /* MainVC.swift in Sources */,
 				433B072325BE5855003B9CE1 /* SceneDelegate.swift in Sources */,
 				433B075625BEBE8C003B9CE1 /* Live.swift in Sources */,
 			);
