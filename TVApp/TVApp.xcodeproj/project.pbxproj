@@ -15,6 +15,11 @@
 		433B072D25BE5857003B9CE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433B072B25BE5857003B9CE1 /* LaunchScreen.storyboard */; };
 		433B073825BE5858003B9CE1 /* TVAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B073725BE5858003B9CE1 /* TVAppTests.swift */; };
 		433B074325BE5858003B9CE1 /* TVAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B074225BE5858003B9CE1 /* TVAppUITests.swift */; };
+		433B075225BEBE71003B9CE1 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075125BEBE71003B9CE1 /* Channel.swift */; };
+		433B075425BEBE80003B9CE1 /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075325BEBE80003B9CE1 /* Clip.swift */; };
+		433B075625BEBE8C003B9CE1 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075525BEBE8C003B9CE1 /* Live.swift */; };
+		433B075C25BFAE83003B9CE1 /* OriginalTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075B25BFAE83003B9CE1 /* OriginalTV.swift */; };
+		433B075E25BFB014003B9CE1 /* LiveTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B075D25BFB014003B9CE1 /* LiveTV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		433B073E25BE5858003B9CE1 /* TVAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		433B074225BE5858003B9CE1 /* TVAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVAppUITests.swift; sourceTree = "<group>"; };
 		433B074425BE5858003B9CE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		433B075125BEBE71003B9CE1 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		433B075325BEBE80003B9CE1 /* Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
+		433B075525BEBE8C003B9CE1 /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
+		433B075B25BFAE83003B9CE1 /* OriginalTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTV.swift; sourceTree = "<group>"; };
+		433B075D25BFB014003B9CE1 /* LiveTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,7 @@
 		433B071F25BE5855003B9CE1 /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
+				433B075025BEBE2A003B9CE1 /* Model */,
 				433B072025BE5855003B9CE1 /* AppDelegate.swift */,
 				433B072225BE5855003B9CE1 /* SceneDelegate.swift */,
 				433B072425BE5855003B9CE1 /* ViewController.swift */,
@@ -126,6 +137,18 @@
 				433B074425BE5858003B9CE1 /* Info.plist */,
 			);
 			path = TVAppUITests;
+			sourceTree = "<group>";
+		};
+		433B075025BEBE2A003B9CE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				433B075B25BFAE83003B9CE1 /* OriginalTV.swift */,
+				433B075D25BFB014003B9CE1 /* LiveTV.swift */,
+				433B075125BEBE71003B9CE1 /* Channel.swift */,
+				433B075325BEBE80003B9CE1 /* Clip.swift */,
+				433B075525BEBE8C003B9CE1 /* Live.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +283,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				433B072525BE5855003B9CE1 /* ViewController.swift in Sources */,
+				433B075E25BFB014003B9CE1 /* LiveTV.swift in Sources */,
+				433B075225BEBE71003B9CE1 /* Channel.swift in Sources */,
+				433B075425BEBE80003B9CE1 /* Clip.swift in Sources */,
+				433B075C25BFAE83003B9CE1 /* OriginalTV.swift in Sources */,
 				433B072125BE5855003B9CE1 /* AppDelegate.swift in Sources */,
 				433B072325BE5855003B9CE1 /* SceneDelegate.swift in Sources */,
+				433B075625BEBE8C003B9CE1 /* Live.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
