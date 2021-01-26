@@ -14,26 +14,29 @@ class MainViewController: UIViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
-    private var originals : [Original] = []
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    private var originals : [Video] = []
+    private var currentType : VideoType = .original
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        decodeData(type: .original)
+        loadData(type: currentType)
+        segmentControl.addTarget(self, action: #selector(segconChanged(segCon:)), for: UIControl.Event.valueChanged)
     }
     
-    func decodeData(type : VideoType) {
+    func loadData(type : VideoType) {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let originalDataAsset: NSDataAsset = NSDataAsset.init(name: "original") else {return}
         guard let liveDataAsset: NSDataAsset = NSDataAsset.init(name: "live") else {return}
 
         do {
             if type == .original {
-                originals =  try jsonDecoder.decode([Original].self, from: originalDataAsset.data)
+                originals =  try jsonDecoder.decode([Video].self, from: originalDataAsset.data)
             } else if type == .live {
-                originals = try jsonDecoder.decode([Original].self, from: liveDataAsset.data)
+                originals = try jsonDecoder.decode([Video].self, from: liveDataAsset.data)
             }
             collectionView.reloadData()
         } catch let error {
@@ -41,6 +44,18 @@ class MainViewController: UIViewController {
         }
     }
     
+    @objc func segconChanged(segCon: UISegmentedControl) {
+        switch segCon.selectedSegmentIndex {
+        case 0:
+            currentType = .original
+            loadData(type: currentType)
+        case 1:
+            currentType = .live
+            loadData(type: currentType)
+        default:
+            return
+        }
+    }
 }
 
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -50,12 +65,15 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-        cell.setData(original: originals[indexPath.row])
+        if (self.currentType == .original) {
+            cell.setOriginalData(video: originals[indexPath.row])
+        } else {
+            cell.setLiveData(video: originals[indexPath.row])
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // 208 166
         let width = self.collectionView.frame.size.width
         return CGSize(width: width, height: width * 0.79)
     }

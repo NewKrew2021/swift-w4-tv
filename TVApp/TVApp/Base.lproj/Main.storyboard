@@ -127,6 +127,7 @@
                     <navigationItem key="navigationItem" title="kakaoTV" id="RG6-MI-3cz"/>
                     <connections>
                         <outlet property="collectionView" destination="OZo-CX-j2n" id="q71-Or-w7L"/>
+                        <outlet property="segmentControl" destination="EBE-yd-ZbU" id="UIp-gr-K6B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -11,4 +11,5 @@ struct Live : Codable {
     let title : String
     let thumbnailUrl : String
     let playCount : Int
+    let createTime: String
 }

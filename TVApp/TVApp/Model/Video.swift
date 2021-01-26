@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Original : Codable {
+struct Video : Codable {
     let id : Int
     let channelId : Int
     let clipId : Int?

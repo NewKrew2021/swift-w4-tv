@@ -14,11 +14,18 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var durationLabel: DurationUILabel!
     @IBOutlet weak var subInfoLabel: UILabel!
     
-    func setData(original: Original) {
-        thumbnailImageView.image = UIImage(named: original.clip?.thumbnailUrl ?? "")
-        titleLabel.text = original.clip?.title
-        durationLabel.setText(text: convertDuration(duration: original.clip?.duration ?? 0))
-        subInfoLabel.text = "\(original.channel.name)  ▶︎ \(convertVisitCount(visitCount: original.channel.visitCount))  • \(convertCreateTime(createTime: original.createTime))"
+    func setOriginalData(video: Video) {
+        thumbnailImageView.image = UIImage(named: video.clip?.thumbnailUrl ?? "")
+        titleLabel.text = video.clip?.title
+        durationLabel.setText(text: convertDuration(duration: video.clip?.duration ?? 0))
+        subInfoLabel.text = "\(video.channel.name)  ▶︎ \(convertVisitCount(visitCount: video.channel.visitCount))  • \(convertCreateTime(createTime: video.createTime))"
+    }
+    
+    func setLiveData(video: Video) {
+        thumbnailImageView.image = UIImage(named: video.live?.thumbnailUrl ?? "")
+        titleLabel.text = video.live?.title
+        durationLabel.setText(text: "🎧\(video.live?.playCount ?? 0)")
+        subInfoLabel.text = "\(video.channel.name)  ▶︎ \(convertVisitCount(visitCount: video.channel.visitCount))  • \(convertCreateTime(createTime: video.live!.createTime))"
     }
     
     func convertDuration(duration: Int) -> String {
