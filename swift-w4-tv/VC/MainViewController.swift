@@ -13,10 +13,13 @@ class MainViewController: UIViewController {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
-    var myCollectionView: UICollectionView!
-    var jsonData = JsonParsing()
+    private var jsonData = JsonParsing()
+    private var programType : String = "Original"
     
-    var programType : String = "Original"
+    private let myNaviBar = NavigationBar()
+    private let mySearchBar = SearchBar()
+    private let mySegmentBar = SegmentControl()
+    private let myCollectionView = CollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,22 +27,10 @@ class MainViewController: UIViewController {
     }
     
     func initMainViewController(){
-        NavigationBar().initNavigationBar(view: self)
-        SearchBar().initSearchBar(view: self)
-        SegmentControl().initSegmentControl(view: self)
-        initCollectionView()
-    }
-    
-    func initCollectionView(){
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        myCollectionView = UICollectionView(frame: CGRect(x: 0, y: self.screenHeight/5, width: self.screenWidth, height: self.screenHeight*4/5), collectionViewLayout: flowLayout)
-        myCollectionView.delegate = self
-        myCollectionView.dataSource = self
-        myCollectionView.backgroundColor = .white
-        myCollectionView.register(OriginalCollectionViewCell.self, forCellWithReuseIdentifier: OriginalCollectionViewCell.cellIdentifier)
-        myCollectionView.register(LiveCollectionViewCell.self, forCellWithReuseIdentifier: LiveCollectionViewCell.cellIdentifier)
-        view.addSubview(self.myCollectionView)
+        myNaviBar.initNavigationBar(view: self)
+        mySearchBar.initSearchBar(view: self)
+        mySegmentBar.initSegmentControl(view: self)
+        myCollectionView.initCollectionVIew(view: self)
     }
     
     @objc func segmentBtnPressed(_ sender: UISegmentedControl){
