@@ -45,9 +45,17 @@
 - generic 활용하여 initializeData 메소드를 하나로 구현
 - OriginalData, LiveData에 CollectionViewDataSource에서 데이터를 제공하기 위해 count, getData 구현
 
-### Thumbnail 추가
+### Thumbnail Data추가
 
 - Assets에 live, vod 썸네일 추가
+
+### CollectionViewCell Subviews 세팅
+
+- 이미지, 라벨 생성 및 세팅
+- 오토레이아웃 적용
+- 글자 크기 지정 및 기본글자 기입
+
+![image-20210126134023689](README.assets/image-20210126134023689.png)
 
 
 
