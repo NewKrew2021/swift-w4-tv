@@ -16,4 +16,5 @@ struct Original : Codable {
     let clip : Clip?
     let live : Live?
     let videoType : String
+    let createTime : String
 }

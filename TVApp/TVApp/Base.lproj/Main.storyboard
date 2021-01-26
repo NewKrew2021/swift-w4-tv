@@ -70,19 +70,29 @@
                                                         <constraint firstItem="XMn-yb-W46" firstAttribute="leading" secondItem="QCx-zD-9vq" secondAttribute="leading" id="CxL-I2-nbr"/>
                                                         <constraint firstItem="XMn-yb-W46" firstAttribute="top" secondItem="QCx-zD-9vq" secondAttribute="top" id="GNv-8e-3Qh"/>
                                                         <constraint firstAttribute="width" secondItem="QCx-zD-9vq" secondAttribute="height" multiplier="1.7:1" id="Urb-is-1MQ"/>
+                                                        <constraint firstItem="z4S-cu-YMh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QCx-zD-9vq" secondAttribute="leading" constant="8" id="bac-MD-KsW"/>
                                                         <constraint firstAttribute="bottom" secondItem="z4S-cu-YMh" secondAttribute="bottom" constant="8" id="bxd-j9-oT2"/>
                                                         <constraint firstAttribute="trailing" secondItem="z4S-cu-YMh" secondAttribute="trailing" constant="8" id="mGf-VT-MuP"/>
                                                         <constraint firstAttribute="bottom" secondItem="XMn-yb-W46" secondAttribute="bottom" id="rom-9I-WWl"/>
                                                         <constraint firstAttribute="trailing" secondItem="XMn-yb-W46" secondAttribute="trailing" id="ttb-Nw-uRp"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDY-tL-6yN">
+                                                    <rect key="frame" x="0.0" y="232" width="333" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="tDY-tL-6yN" secondAttribute="trailing" id="9EI-kP-jFc"/>
                                                 <constraint firstItem="QCx-zD-9vq" firstAttribute="leading" secondItem="W1F-se-rg3" secondAttribute="leading" id="FkT-mO-QSW"/>
+                                                <constraint firstItem="tDY-tL-6yN" firstAttribute="leading" secondItem="W1F-se-rg3" secondAttribute="leading" id="M8E-iN-AID"/>
                                                 <constraint firstItem="zLL-lu-PJT" firstAttribute="leading" secondItem="W1F-se-rg3" secondAttribute="leading" id="a8B-Oe-HCg"/>
                                                 <constraint firstItem="QCx-zD-9vq" firstAttribute="top" secondItem="W1F-se-rg3" secondAttribute="top" id="aA1-CL-vTk"/>
                                                 <constraint firstAttribute="trailing" secondItem="QCx-zD-9vq" secondAttribute="trailing" id="c8o-Ks-WWB"/>
                                                 <constraint firstAttribute="trailing" secondItem="zLL-lu-PJT" secondAttribute="trailing" id="pze-sS-hxV"/>
+                                                <constraint firstItem="tDY-tL-6yN" firstAttribute="top" secondItem="zLL-lu-PJT" secondAttribute="bottom" constant="7.5" id="yRJ-bL-TFo"/>
                                                 <constraint firstItem="zLL-lu-PJT" firstAttribute="top" secondItem="QCx-zD-9vq" secondAttribute="bottom" constant="8" id="zIw-Il-p4T"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -90,6 +100,7 @@
                                         <size key="customSize" width="333" height="262"/>
                                         <connections>
                                             <outlet property="durationLabel" destination="z4S-cu-YMh" id="WOq-wH-6Uq"/>
+                                            <outlet property="subInfoLabel" destination="tDY-tL-6yN" id="5uM-sY-Z9d"/>
                                             <outlet property="thumbnailImageView" destination="XMn-yb-W46" id="Fcv-ej-I4y"/>
                                             <outlet property="titleLabel" destination="zLL-lu-PJT" id="WyC-Aa-3wI"/>
                                         </connections>
