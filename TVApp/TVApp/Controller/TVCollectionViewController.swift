@@ -8,6 +8,8 @@
 import UIKit
 
 class TVCollectionViewController: UIViewController {
+    private let originalData = OriginalData.shared
+    private let liveData = LiveData.shared
 
     @IBOutlet weak var TVCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -32,15 +34,15 @@ class TVCollectionViewController: UIViewController {
 
 extension TVCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        originalData.count()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TVCell", for: indexPath) as! TVCollectionViewCell
-        cell.setSubViews()
         // Configure the cell
         cell.layer.borderWidth = 1
-    
+        let cellData = originalData.getData(index: indexPath.row)
+        cell.setCellData(thumbnailImageName: cellData.getClipThumbnailUrl(), durationOrPlayCount: cellData.getClipDuration(), title: cellData.getClipTitle(), channelName: cellData.getChannelName(), channelVisitCount: cellData.getVisitCount(), channelCreateTime: cellData.getCreateTime())
         return cell
     }
     

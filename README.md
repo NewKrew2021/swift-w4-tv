@@ -57,5 +57,12 @@
 
 ![image-20210126134023689](README.assets/image-20210126134023689.png)
 
+### CollectionViewCell  Subview Data 동적으로 받기
+
+- Image를 제외한 모든 데이터 통적으로 DataSource를 통해 받는다
+- Image를 넣으면 오토레이아웃이 깨지는 현상은 일단 보류...
+
+![image-20210126170027232](README.assets/image-20210126170027232.png)
+
 
 
