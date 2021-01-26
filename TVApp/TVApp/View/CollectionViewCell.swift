@@ -11,12 +11,12 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var durationLabel: DurationUILabel!
     
     func setData(original: Original) {
         thumbnailImageView.image = UIImage(named: original.clip?.thumbnailUrl ?? "")
         titleLabel.text = original.clip?.title
-        durationLabel.text = conVertDuration(duration: original.clip?.duration ?? 0)
+        durationLabel.setText(text: conVertDuration(duration: original.clip?.duration ?? 0))
     }
     
     func conVertDuration(duration: Int) -> String {
