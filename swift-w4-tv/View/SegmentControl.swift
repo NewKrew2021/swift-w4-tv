@@ -9,23 +9,22 @@
 import Foundation
 import UIKit
 
-class SegmentControl {
+class SegmentControl : UIControl{
     private var sc = UISegmentedControl(items: ["Original", "Live"])
+    
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
     
-    func initSegmentControl(view : UIViewController){
+    func initSegmentControl(view : MainViewController){
         sc.frame = CGRect(x: screenWidth * 0.1, y: view.topbarHeight + screenHeight / 20 , width: screenWidth * 0.8, height: screenHeight / 30 )
         sc.selectedSegmentIndex = 0
-        sc.addTarget(self, action: #selector(BtnPressed(_:)), for: .valueChanged)
+        sc.addTarget(view, action: #selector(view.segmentBtnPressed(_:)), for: .valueChanged)
         view.view.addSubview(sc)
     }
     
-    @objc func BtnPressed(_ sender:UISegmentedControl!){
-        
-    }
     
+       
     
 
 }
