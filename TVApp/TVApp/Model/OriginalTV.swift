@@ -17,7 +17,6 @@ struct OriginalTV: Codable {
     let createTime: String?
     let channel: Channel?
     let clip: Clip?
-    let videoType: String?
-    
+    let videoType: String?    
     
 }
