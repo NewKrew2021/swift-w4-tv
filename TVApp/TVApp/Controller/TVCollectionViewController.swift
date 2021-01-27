@@ -13,6 +13,7 @@ class TVCollectionViewController: UIViewController {
     private var segmentIndex = 0
     private var cellwidth = CGFloat()
     private var cellheight = CGFloat()
+    private var cellcount = 0
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var TVCollectionView: UICollectionView!
@@ -33,6 +34,7 @@ class TVCollectionViewController: UIViewController {
 //            cellwidth = 350
 //            cellheight = cellwidth * 0.8
 //        }
+        cellcount = segmentIndex == 0 ? originalData.count() : liveData.count()
 
         TVCollectionView.delegate = self
         TVCollectionView.dataSource = self
@@ -40,6 +42,7 @@ class TVCollectionViewController: UIViewController {
 
     @IBAction func segmentControlChanged(_ sender: Any) {
         segmentIndex = segmentControl.selectedSegmentIndex
+        cellcount = segmentIndex == 0 ? originalData.count() : liveData.count()
         TVCollectionView.reloadData()
     }
     
@@ -50,7 +53,7 @@ class TVCollectionViewController: UIViewController {
 
 extension TVCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        segmentIndex == 0 ? originalData.count() : liveData.count()
+        return cellcount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
