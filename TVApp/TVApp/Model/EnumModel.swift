@@ -10,9 +10,9 @@ import Foundation
 
 class EnumModel {
     
-    enum VideoType {
-        case original
-        case live
+    enum VideoType: Int {
+        case original = 0
+        case live = 1
     }
     
 }
