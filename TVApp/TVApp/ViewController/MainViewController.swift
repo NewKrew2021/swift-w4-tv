@@ -51,6 +51,10 @@ class MainViewController: UIViewController {
             return
         }
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView.reloadData()
+    }
 }
 
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -69,7 +73,11 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.collectionView.frame.size.width
+        var width = self.collectionView.frame.size.width
+        if (UIDevice.current.orientation.isLandscape) {
+            width = width / 2 - 10
+            return CGSize(width: width, height: width * 0.90)
+        }
         return CGSize(width: width, height: width * 0.85)
     }
 }
