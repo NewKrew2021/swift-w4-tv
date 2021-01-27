@@ -83,3 +83,7 @@
 
 - Channel, Clip, Live, TVOriginal, TVLive 각 변수 let으로 변경
 
+### Cell 클래스 가능한 모든 init 대응
+
+- init(frame : CGRect) 오버라이딩
+

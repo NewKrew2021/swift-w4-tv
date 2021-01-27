@@ -21,7 +21,12 @@ class TVCollectionViewCell: UICollectionViewCell {
         super.init(coder: coder)
         addSubviews()
         setSubViews()
-        
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubviews()
+        setSubViews()
     }
 
     func setSubViews() {
