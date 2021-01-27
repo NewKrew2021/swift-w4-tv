@@ -7,53 +7,46 @@
 //
 
 import Foundation
+import UIKit
 
 class JsonParsing  {
     var originalPrograms : [ProgramOrgElement]!
     var livePrograms : [ProgramLiveElement]!
     
-    var getOrgCnt : Int {
-        if originalPrograms == nil {
-            return 0
+    func getCnt(type: ProgramTypes) -> Int{
+        switch type {
+        case .Original :
+            return originalPrograms.count
+        default:
+            return livePrograms.count
         }
-        return originalPrograms.count
     }
     
-    var getliveCnt : Int {
-        if livePrograms == nil {
-            return 0
-        }
-        return livePrograms.count
-    }
-    
-    private let videoType = ["original", "live"]
-
     init(){
-        for type in videoType {
+        for type in ProgramTypes.programTypes {
             parsingData(type : type)
         }
     }
     
-    func parsingData(type : String){
-        let FullPath = "/Users/harrison.tom/Desktop/Harrison/xcode/swift-w4-tv/swift-w4-tv/swift-w4-tv/"+type+".json"
-
-        if let contents = try? String(contentsOfFile: FullPath).data(using: .utf16){
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            
-                if type == "original" {
-                    do {
-                        originalPrograms = try decoder.decode([ProgramOrgElement].self, from: contents)
-                    } catch {
-                        originalPrograms = nil
-                    }
-                }
-                else {
-                    do {
-                        livePrograms = try decoder.decode([ProgramLiveElement].self, from: contents)
-                    } catch {
-                        livePrograms = nil
-                    }
+    func parsingData(type : ProgramTypes){
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        
+        if type == .Original {
+            do {
+                guard let originalDataAsset = NSDataAsset.init(name: "Original") else { return }
+                originalPrograms = try decoder.decode([ProgramOrgElement].self, from: originalDataAsset.data)
+            } catch {
+                originalPrograms = nil
+            }
+        }
+        else {
+            do {
+                guard let liveDataAsset = NSDataAsset.init(name: "Live") else { return }
+                livePrograms = try decoder.decode([ProgramLiveElement].self, from: liveDataAsset.data)
+            } catch {
+                livePrograms = nil
             }
         }
     }
