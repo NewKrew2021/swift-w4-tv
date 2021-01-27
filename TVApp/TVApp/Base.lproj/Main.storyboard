@@ -38,11 +38,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E98-b8-OMr">
-                                <rect key="frame" x="10" y="54" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jgu-rY-ZzZ">
                                 <rect key="frame" x="122" y="151" width="131" height="32"/>
                                 <segments>
@@ -56,9 +51,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66U-6Q-hY8">
                                 <rect key="frame" x="0.0" y="88" width="375" height="51"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hw6-Jd-fSH">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hw6-Jd-fSH">
                                         <rect key="frame" x="38" y="8" width="298" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -66,6 +60,10 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
+                                    <constraint firstItem="Hw6-Jd-fSH" firstAttribute="leading" secondItem="66U-6Q-hY8" secondAttribute="leading" constant="38" id="Amz-yh-HHp"/>
+                                    <constraint firstItem="Hw6-Jd-fSH" firstAttribute="top" secondItem="66U-6Q-hY8" secondAttribute="top" constant="8" id="DRg-TZ-KgI"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hw6-Jd-fSH" secondAttribute="bottom" constant="9" id="Ysd-nO-vdg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hw6-Jd-fSH" secondAttribute="trailing" constant="39" id="sTn-EF-RpE"/>
                                     <constraint firstAttribute="height" constant="51" id="tyZ-0H-hGB"/>
                                 </constraints>
                             </view>

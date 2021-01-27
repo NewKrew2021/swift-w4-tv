@@ -30,13 +30,12 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
 
     func setSubViews() {
-        let padding = frame.width/30
-        setThumbnailImage(standardView: contentView, padding: padding)
-        setDurationOrPlayCount(standardView: thumbnailImage, fontSize: padding)
-        setTitle(standardView: contentView, padding: padding)
-        setChannelName(standradView: contentView, padding: padding)
-        setChannelVisitCount(standardView: contentView, padding: padding)
-        setChannelCreateTime(standardView: contentView, padding: padding)
+        setThumbnailImage(standardView: contentView, padding: 10)
+        setDurationOrPlayCount(standardView: thumbnailImage)
+        setTitle(standardView: contentView, padding: 10)
+        setChannelName(standradView: contentView, padding: 10)
+        setChannelVisitCount(standardView: contentView, padding: 10)
+        setChannelCreateTime(standardView: contentView, padding: 10)
 
     }
     
@@ -78,7 +77,7 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
     
     func setChannelCreateTime(standardView : UIView, padding : CGFloat) {
-        channelCreateTime.font = UIFont.systemFont(ofSize: padding * 1.3)
+        channelCreateTime.font = UIFont.systemFont(ofSize: 15)
         
         channelCreateTime.translatesAutoresizingMaskIntoConstraints = false
         channelCreateTime.topAnchor.constraint(equalTo: channelName.topAnchor).isActive = true
@@ -89,7 +88,7 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
     
     func setChannelVisitCount(standardView : UIView, padding : CGFloat) {
-        channelVisitCount.font = UIFont.systemFont(ofSize: padding * 1.3)
+        channelVisitCount.font = UIFont.systemFont(ofSize: 15)
         
         channelVisitCount.translatesAutoresizingMaskIntoConstraints = false
         channelVisitCount.topAnchor.constraint(equalTo: channelName.topAnchor).isActive = true
@@ -98,7 +97,7 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
     
     func setChannelName(standradView : UIView, padding : CGFloat) {
-        channelName.font = UIFont.systemFont(ofSize: padding*1.3)
+        channelName.font = UIFont.systemFont(ofSize: 15)
         
         channelName.translatesAutoresizingMaskIntoConstraints = false
         channelName.topAnchor.constraint(equalTo: title.bottomAnchor, constant: padding).isActive = true
@@ -107,20 +106,20 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
     
     func setTitle(standardView : UIView, padding : CGFloat) {
-        title.preferredMaxLayoutWidth = frame.width - 2*padding
+//        title.preferredMaxLayoutWidth = frame.width - 4*padding
         title.lineBreakMode = .byTruncatingTail
         title.numberOfLines = 2
-        title.font = UIFont.systemFont(ofSize: padding * 1.6)
+        title.font = UIFont.systemFont(ofSize: 17)
         
         title.translatesAutoresizingMaskIntoConstraints = false
         title.topAnchor.constraint(equalTo: thumbnailImage.bottomAnchor, constant: padding).isActive = true
         title.leadingAnchor.constraint(equalTo: standardView.leadingAnchor, constant: padding).isActive = true
+        title.trailingAnchor.constraint(equalTo: standardView.trailingAnchor, constant: -padding).isActive = true
         title.sizeToFit()
     }
     
-    func setDurationOrPlayCount(standardView : UIView, fontSize : CGFloat) {
-//        durationOrPlayCount.font = UIFont.systemFont(ofSize: 12)
-        durationOrPlayCount.font = UIFont.systemFont(ofSize: fontSize)
+    func setDurationOrPlayCount(standardView : UIView) {
+        durationOrPlayCount.font = UIFont.systemFont(ofSize: 12)
         durationOrPlayCount.backgroundColor = .systemGray
         durationOrPlayCount.textColor = .white
         
