@@ -87,3 +87,8 @@
 
 - init(frame : CGRect) 오버라이딩
 
+### Util Group 생성
+
+- MyConverter 클래스 생성
+- convertDuration, convertChannelCreateTime, convertChannelVisitCountToString 메소드 옮기고 static으로 설정
+

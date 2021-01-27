@@ -21,6 +21,7 @@
 		D263E91F25BEEDE1001F4F30 /* TVCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */; };
 		D263E92925BEF328001F4F30 /* TVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E92825BEF328001F4F30 /* TVCollectionViewCell.swift */; };
 		D263E92E25BF0DBA001F4F30 /* TVCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E92D25BF0DBA001F4F30 /* TVCellData.swift */; };
+		D2D6FD0425C10A8B00029F0D /* MyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D6FD0325C10A8B00029F0D /* MyConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCollectionViewController.swift; sourceTree = "<group>"; };
 		D263E92825BEF328001F4F30 /* TVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCollectionViewCell.swift; sourceTree = "<group>"; };
 		D263E92D25BF0DBA001F4F30 /* TVCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCellData.swift; sourceTree = "<group>"; };
+		D2D6FD0325C10A8B00029F0D /* MyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		D251F5C425BE63A500E8783B /* TVApp */ = {
 			isa = PBXGroup;
 			children = (
+				D2D6FD0225C10A7200029F0D /* Util */,
 				D263E8FE25BEB4CA001F4F30 /* JSON */,
 				D263E8DF25BE6452001F4F30 /* Protocol */,
 				D263E8DE25BE644B001F4F30 /* Controller */,
@@ -184,6 +187,14 @@
 				D263E8FF25BEB4DD001F4F30 /* original.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		D2D6FD0225C10A7200029F0D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D2D6FD0325C10A8B00029F0D /* MyConverter.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +331,7 @@
 			files = (
 				D263E91F25BEEDE1001F4F30 /* TVCollectionViewController.swift in Sources */,
 				D251F5CA25BE63A500E8783B /* ViewController.swift in Sources */,
+				D2D6FD0425C10A8B00029F0D /* MyConverter.swift in Sources */,
 				D251F5C625BE63A500E8783B /* AppDelegate.swift in Sources */,
 				D251F5C825BE63A500E8783B /* SceneDelegate.swift in Sources */,
 				D263E90A25BEB570001F4F30 /* TVCellModel.swift in Sources */,
