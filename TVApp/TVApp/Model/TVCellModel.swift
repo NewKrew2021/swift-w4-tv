@@ -9,27 +9,27 @@ import Foundation
 
 
 struct Channel : Codable{
-    var name : String
-    var visitCount : Int
-    var createTime : String
+    let name : String
+    let visitCount : Int
+    let createTime : String
     
 }
 
 struct Clip : Codable {
-    var thumbnailUrl : String
-    var duration : Int
-    var title : String
+    let thumbnailUrl : String
+    let duration : Int
+    let title : String
 }
 
 struct Live : Codable {
-    var thumbnailUrl : String
-    var playCount : Int
-    var title : String
+    let thumbnailUrl : String
+    let playCount : Int
+    let title : String
 }
 
 struct TVOriginal : Codable {
-    private var channel : Channel
-    private var clip : Clip
+    private let channel : Channel
+    private let clip : Clip
     
     func getChannelName() -> String {
         return channel.name
@@ -57,8 +57,8 @@ struct TVOriginal : Codable {
 }
 
 struct TVLive : Codable {
-    private var channel : Channel
-    private var live : Live
+    private let channel : Channel
+    private let live : Live
 
     func getChannelName() -> String {
         return channel.name

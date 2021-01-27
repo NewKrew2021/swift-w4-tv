@@ -79,3 +79,7 @@
 - .shared 속성 제거
 - init()생성자 private에서 default로 변경
 
+### Dto 변수 let으로 변경
+
+- Channel, Clip, Live, TVOriginal, TVLive 각 변수 let으로 변경
+
