@@ -27,13 +27,12 @@ class CellData {
 }
 
 class OriginalData : CellData{
-    static let shared = OriginalData()
     private var dataArray : [TVOriginal] = []
     override class var resourceName: String {
         return "original"
     }
     
-    private override init() {
+    override init() {
         super.init()
         dataArray = initializeData(OriginalData.self, TVOriginal.self)
     }
@@ -48,13 +47,12 @@ class OriginalData : CellData{
 }
 
 class LiveData : CellData{
-    static let shared = LiveData()
     private var dataArray : [TVLive] = []
     override class var resourceName: String {
         return "live"
     }
     
-    private override init() {
+    override init() {
         super.init()
         dataArray = initializeData(LiveData.self, TVLive.self)
     }

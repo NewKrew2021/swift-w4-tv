@@ -74,5 +74,8 @@
 
 ![image-20210126225407059](README.assets/image-20210126225407059.png)
 
+### Original Data, Live Data 싱글톤 제거
 
+- .shared 속성 제거
+- init()생성자 private에서 default로 변경
 
