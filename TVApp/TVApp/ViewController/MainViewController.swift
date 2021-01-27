@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "suit.heart.fill"), style: .plain, target: self, action: #selector(clickedFavorite))
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -54,6 +56,10 @@ class MainViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.reloadData()
+    }
+    
+    @objc func clickedFavorite() {
+        
     }
 }
 
