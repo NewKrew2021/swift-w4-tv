@@ -113,6 +113,9 @@
                                     <segment title="오리지날"/>
                                     <segment title="라이브"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="z4q-w6-SNx"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

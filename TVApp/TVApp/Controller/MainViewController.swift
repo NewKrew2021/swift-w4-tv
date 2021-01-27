@@ -12,11 +12,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var videoTypeSegmentControl: UISegmentedControl!
     @IBOutlet weak var videoCollectionView: UICollectionView!
     let videoManager = VideoManager.instance
-
+    var videoType: Video.VideoType = .CLIP
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
-//        originals[0].getFormattedCreateTime()
     }
     
     func initView() {
@@ -26,26 +26,32 @@ class MainViewController: UIViewController {
         videoTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
         videoTypeSegmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
     }
+    @IBAction func changeSegment(_ sender: Any) {
+        videoType = videoType == .CLIP ? .LIVE : .CLIP
+        videoCollectionView.reloadData()
+    }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videoManager.originalCount
+        return videoType == Video.VideoType.CLIP ? videoManager.originalCount : videoManager.liveCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath)
         guard let videoCell = cell as? VideoCollectionViewCell else {return cell}
-        if let original = videoManager.getOriginalContent(at: indexPath.item){
-            setOriginalCell(target: videoCell, by: original)
+        switch videoType {
+        case .CLIP:
+            if let original = videoManager.getOriginalContent(at: indexPath.item){
+                setOriginalCell(target: videoCell, by: original)
+            }
+        case .LIVE:
+            if let live = videoManager.getLiveContent(at: indexPath.item){
+                setLiveCell(target: videoCell, by: live)
+            }
         }
-//        videoCell.setThumbnail(thumbnail: UIImage(named: original.clip.thumbnailUrl))
-//        videoCell.title.sizeToFit()
-//        videoCell.setTitle(title: original.displayTitle)
-//        videoCell.setChannelName(channelName: original.channel.name)
-//        videoCell.setChannelViewCount(viewCount: original.channel.visitCount)
-//        videoCell.setVideoCreateTime(createTime: original.clip.createTime)
+
         return videoCell
     }
     
