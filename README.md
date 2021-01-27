@@ -1,4 +1,4 @@
-# swift-w4-tv
+# ㅎswift-w4-tv
 모바일 4주차 TV 저장소
 
 
@@ -73,6 +73,48 @@
 ![image-20210126225401111](README.assets/image-20210126225401111.png)
 
 ![image-20210126225407059](README.assets/image-20210126225407059.png)
+
+### Original Data, Live Data 싱글톤 제거
+
+- .shared 속성 제거
+- init()생성자 private에서 default로 변경
+
+### Dto 변수 let으로 변경
+
+- Channel, Clip, Live, TVOriginal, TVLive 각 변수 let으로 변경
+
+### Cell 클래스 가능한 모든 init 대응
+
+- init(frame : CGRect) 오버라이딩
+
+### Util Group 생성
+
+- MyConverter 클래스 생성
+- convertDuration, convertChannelCreateTime, convertChannelVisitCountToString 메소드 옮기고 static으로 설정
+
+### cellCount 변수 생성
+
+- collectionView가 호출될 때마다 segnemtIndex를 비교하여 count method를 호출하던 방식에서 index를 비교하고 count method를 계속 호출하는 문제점을 보완하기 위해 viewDidLoad()와 segmentControlChanged() 메소드에 옮김으로써 비교와 메소드 호출을 줄임
+
+### ColectionViewCell의 InnerView들의 값 조정
+
+- UIImage의 높이 이미지 비율에 맞게 수정
+- UILabel의 fontSize 또한 미리 지정된 padding에 맞게 동적으로 설정
+
+![image-20210127165917416](README.assets/image-20210127165917416.png)
+
+### 회전, 아이패드 화면 대응
+
+- 아이패드로 할 경우 세로모드에 2개씩, 가로모드에 3개씩 셀 출력하도록 셀 크기 조정
+- 일반 휴대폰으로 할 경우 세로모드에 1개씩, 가로모드에 2개씩 셀 출력하도록 셀 크기 조정
+
+![image-20210127212121140](README.assets/image-20210127212121140.png)
+
+![image-20210127212128764](README.assets/image-20210127212128764.png)
+
+![image-20210127212155776](README.assets/image-20210127212155776.png)
+
+![image-20210127212215048](README.assets/image-20210127212215048.png)
 
 
 
