@@ -16,10 +16,6 @@ enum ProgramTypes : String {
 }
 
 class MainViewController: UIViewController {
-    
-    private let screenWidth = UIScreen.main.bounds.size.width
-    private let screenHeight = UIScreen.main.bounds.size.height
-    
     private var type : ProgramTypes = .Original
     private var jsonData = JsonParsing()
     
@@ -27,13 +23,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mySegmentBar: UISegmentedControl!
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    
     private var cellwidth = CGFloat()
     private var cellheight = CGFloat()
     
     private var flag = true
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
