@@ -107,5 +107,6 @@ iOSInjectionProject/
 
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
-
+/*.DS_Store
+/*.xcodeproj/project.xcworkspace/xcuserdata/junsu.xcuserdatad/UserInterfaceState.xcuserstate
 # End of https://www.gitignore.io/api/xcode,swift,cocoapods
