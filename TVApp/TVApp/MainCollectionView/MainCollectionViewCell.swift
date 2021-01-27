@@ -16,15 +16,16 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var channelLabel: UILabel!
     @IBOutlet weak var visitCountLabel: UILabel!
     @IBOutlet weak var createTimeLabel: UILabel!
+    var present = MainCollectionViewPresent()
     
     func updateOriginalTV(originalTV: OriginalTV) {
         
         thumnbnailImageView.image = UIImage(named: (originalTV.clip?.thumbnailUrl!)!)
         titleLabel.text = originalTV.clip?.title
-        thumbnailLabel.text = String((originalTV.clip?.duration)! as Int)
+        thumbnailLabel.text = present.getDuration((originalTV.clip?.duration)!)
         channelLabel.text = originalTV.channel?.name
-        visitCountLabel.text = "▶︎"+String((originalTV.channel?.visitCount)! as Int)
-        createTimeLabel.text = originalTV.createTime
+        visitCountLabel.text = "▶︎ \(String((originalTV.channel?.visitCount)! as Int))"
+        createTimeLabel.text = present.getCreateTime(originalTV.createTime!)
         
     }
     
@@ -32,10 +33,10 @@ class MainCollectionViewCell: UICollectionViewCell {
         
         thumnbnailImageView.image = UIImage(named: (liveTV.live?.thumbnailUrl!)!)
         titleLabel.text = liveTV.live?.title
-        thumbnailLabel.text = String((liveTV.live?.duration)! as Int)
+        thumbnailLabel.text = present.getDuration((liveTV.live?.duration)!)
         channelLabel.text = liveTV.channel?.name
-        visitCountLabel.text = "▶︎"+String((liveTV.channel?.visitCount)! as Int)
-        createTimeLabel.text = liveTV.createTime
+        visitCountLabel.text = "▶︎ \(String((liveTV.channel?.visitCount)! as Int))"
+        createTimeLabel.text = present.getCreateTime(liveTV.createTime!)
         
     }
     

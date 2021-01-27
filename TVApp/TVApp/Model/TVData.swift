@@ -9,13 +9,20 @@
 import Foundation
 import UIKit
 
-class TVData {
+protocol TVDataProtocol {
+    var originalTVs: [OriginalTV] { get }
+    var liveTVs: [LiveTV] { get }
+}
+
+class TVData: TVDataProtocol {
     
-    private var originalTVs = [OriginalTV]()
-    private var liveTVs = [LiveTV]()
+    private(set) var originalTVs: [OriginalTV]
+    private(set) var liveTVs: [LiveTV]
     
     init() {
         
+        originalTVs = [OriginalTV]()
+        liveTVs = [LiveTV]()
         let decoder = JSONDecoder()
         if let originalData = NSDataAsset(name: "original", bundle: Bundle.main) {
             do {

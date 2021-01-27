@@ -11,7 +11,7 @@ import Foundation
 
 class MainCollectionView: UICollectionView {
     
-    var sampleData = SampleData()
+    private var TVDatas = TVData()
     var currentSegment = EnumModel.VideoType.original
     
     func initView() {
@@ -19,11 +19,16 @@ class MainCollectionView: UICollectionView {
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.delegate = self
         self.dataSource = self
+        initLayout()
+        
+    }
+    
+    func initLayout() {
         
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             //item 높이: 사진의 높이 + 텍스트 높이 + view 간격 합
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(self.frame.width * 37/62 + 50 + 30))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(self.frame.width * 37/62 + 40 + 25))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: itemSize.heightDimension)
@@ -31,7 +36,6 @@ class MainCollectionView: UICollectionView {
 
             let section = NSCollectionLayoutSection(group: group)
             return section
-
         }
         self.collectionViewLayout = layout
         
@@ -45,9 +49,9 @@ extension MainCollectionView: UICollectionViewDataSource, UICollectionViewDelega
         
         switch currentSegment {
         case .original:
-            return sampleData.originalTVs.count
+            return TVDatas.originalTVs.count
         case .live:
-            return sampleData.liveTVs.count
+            return TVDatas.liveTVs.count
         }
         return 0
         
@@ -59,9 +63,9 @@ extension MainCollectionView: UICollectionViewDataSource, UICollectionViewDelega
         
         switch currentSegment {
         case .original:
-            cell.updateOriginalTV(originalTV: sampleData.originalTVs[indexPath.row])
+            cell.updateOriginalTV(originalTV: TVDatas.originalTVs[indexPath.row])
         case .live:
-            cell.updateLiveTV(liveTV: sampleData.liveTVs[indexPath.row])
+            cell.updateLiveTV(liveTV: TVDatas.liveTVs[indexPath.row])
         }
         return cell
         

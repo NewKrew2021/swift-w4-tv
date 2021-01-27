@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case EnumModel.VideoType.original.rawValue:
             mainCollectionView.currentSegment = .original
-            case EnumModel.VideoType.live.rawValue:
+        case EnumModel.VideoType.live.rawValue:
             mainCollectionView.currentSegment = .live
         default:
             return
