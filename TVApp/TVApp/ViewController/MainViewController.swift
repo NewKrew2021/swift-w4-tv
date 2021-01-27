@@ -15,43 +15,38 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    private var originals : [Video] = []
+    private var video : [Video] = []
     private var currentType : VideoType = .original
+    private let json = Json()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        loadData(type: currentType)
+        
+        NotificationCenter.default.addObserver(self,
+                    selector: #selector(completedJsonParsing),
+                    name: NSNotification.Name(rawValue: "jsonParsing"),
+                    object: nil)
+        
+        json.parsing(type: currentType)
         segmentControl.addTarget(self, action: #selector(segconChanged(segCon:)), for: UIControl.Event.valueChanged)
     }
     
-    func loadData(type : VideoType) {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let originalDataAsset: NSDataAsset = NSDataAsset.init(name: "original") else {return}
-        guard let liveDataAsset: NSDataAsset = NSDataAsset.init(name: "live") else {return}
-
-        do {
-            if type == .original {
-                originals =  try jsonDecoder.decode([Video].self, from: originalDataAsset.data)
-            } else if type == .live {
-                originals = try jsonDecoder.decode([Video].self, from: liveDataAsset.data)
-            }
-            collectionView.reloadData()
-        } catch let error {
-            print("error: ", error)
-        }
+    @objc func completedJsonParsing(_ notification:Notification) {
+        self.video = notification.userInfo?["video"] as! [Video]
+        collectionView.reloadData()
     }
     
     @objc func segconChanged(segCon: UISegmentedControl) {
         switch segCon.selectedSegmentIndex {
         case 0:
             currentType = .original
-            loadData(type: currentType)
+            json.parsing(type: currentType)
         case 1:
             currentType = .live
-            loadData(type: currentType)
+            json.parsing(type: currentType)
         default:
             return
         }
@@ -60,15 +55,15 @@ class MainViewController: UIViewController {
 
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.originals.count
+        return self.video.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         if (self.currentType == .original) {
-            cell.setOriginalData(video: originals[indexPath.row])
+            cell.setOriginalData(video: video[indexPath.row])
         } else {
-            cell.setLiveData(video: originals[indexPath.row])
+            cell.setLiveData(video: video[indexPath.row])
         }
         return cell
     }
