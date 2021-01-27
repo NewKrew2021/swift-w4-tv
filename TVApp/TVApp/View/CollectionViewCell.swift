@@ -17,14 +17,14 @@ class CollectionViewCell: UICollectionViewCell {
     func setOriginalData(video: Video) {
         thumbnailImageView.image = UIImage(named: video.clip?.thumbnailUrl ?? "")
         titleLabel.text = video.clip?.title
-        durationLabel.setText(text: convertDuration(duration: video.clip?.duration ?? 0))
+        durationLabel.setTextAndFixSize(text: convertDuration(duration: video.clip?.duration ?? 0))
         subInfoLabel.text = "\(video.channel.name)  ▶︎ \(convertVisitCount(visitCount: video.channel.visitCount))  • \(convertCreateTime(createTime: video.createTime))"
     }
     
     func setLiveData(video: Video) {
         thumbnailImageView.image = UIImage(named: video.live?.thumbnailUrl ?? "")
         titleLabel.text = video.live?.title
-        durationLabel.setText(text: "🎧\(video.live?.playCount ?? 0)")
+        durationLabel.setTextAndFixSize(text: "🎧\(video.live?.playCount ?? 0)")
         subInfoLabel.text = "\(video.channel.name)  ▶︎ \(convertVisitCount(visitCount: video.channel.visitCount))  • \(convertCreateTime(createTime: video.live!.createTime))"
     }
     
