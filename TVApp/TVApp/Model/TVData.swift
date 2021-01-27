@@ -9,24 +9,32 @@
 import Foundation
 import UIKit
 
-class TVData {
+protocol TVDataProtocol {
+    var originalTVs: [OriginalTV] { get }
+    var liveTVs: [LiveTV] { get }
+}
+
+class TVData : TVDataProtocol{
     
-    private var originalTVs = [OriginalTV]()
-    private var liveTVs = [LiveTV]()
+    private(set) var originalTVs: [OriginalTV]
+    private(set) var liveTVs: [LiveTV]
     
     init() {
         
+        originalTVs = [OriginalTV]()
+        liveTVs = [LiveTV]()
         let decoder = JSONDecoder()
         if let originalData = NSDataAsset(name: "original", bundle: Bundle.main) {
             do {
-                self.addOriginalData(ordiginalTVs: try decoder.decode([OriginalTV].self, from: originalData.data))
+                self.addOriginalData(ordiginalTVArr: try decoder.decode([OriginalTV].self, from: originalData.data))
+                print("1")
             } catch {
                 print(error.localizedDescription)
             }
         }
         if let liveData = NSDataAsset(name: "live", bundle: Bundle.main) {
             do {
-                self.addLiveData(liveTVs: try decoder.decode([LiveTV].self, from: liveData.data))
+                self.addLiveData(liveTVArr: try decoder.decode([LiveTV].self, from: liveData.data))
             } catch {
                 print(error.localizedDescription)
             }
@@ -34,14 +42,14 @@ class TVData {
         
     }
     
-    func addOriginalData(ordiginalTVs: [OriginalTV]) {
-        for originalTV in originalTVs {
+    func addOriginalData(ordiginalTVArr: [OriginalTV]) {
+        for originalTV in ordiginalTVArr {
             self.originalTVs.append(originalTV)
         }
     }
     
-    func addLiveData(liveTVs: [LiveTV]) {
-        for liveTV in liveTVs {
+    func addLiveData(liveTVArr: [LiveTV]) {
+        for liveTV in liveTVArr {
             self.liveTVs.append(liveTV)
         }
     }
