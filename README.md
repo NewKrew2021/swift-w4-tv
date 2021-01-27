@@ -1,7 +1,12 @@
 # swift-w4-tv
 모바일 4주차 TV 저장소
 
-#2022.01.26
+#2021.01.27
+1. 오토레이아웃 설정 ( 스토리보드 및 코드 )
+2. 디바이스 종류 & 화면 너비에 따른 표시될 셀 개수 설정
+3. 피드백 수정 및 개선
+
+#2021.01.26
 1. search bar 추가
 2. segmentcontrol 추가
 3. json data parsing using codable

@@ -8,75 +8,138 @@
 
 import UIKit
 
+enum ProgramTypes : String {
+    case Original = "Original"
+    case Live = "Live"
+    
+    static let programTypes = [Original, Live]
+}
+
 class MainViewController: UIViewController {
-    
-    private let screenWidth = UIScreen.main.bounds.size.width
-    private let screenHeight = UIScreen.main.bounds.size.height
-    
+    private var type : ProgramTypes = .Original
     private var jsonData = JsonParsing()
-    private var programType : String = "Original"
     
-    private let myNaviBar = NavigationBar()
-    private let mySearchBar = SearchBar()
-    private let mySegmentBar = SegmentControl()
-    private let myCollectionView = CollectionView()
+    @IBOutlet weak var mySearchBar: UISearchBar!
+    @IBOutlet weak var mySegmentBar: UISegmentedControl!
+    @IBOutlet weak var myCollectionView: UICollectionView!
+    
+    private var cellwidth = CGFloat()
+    private var cellheight = CGFloat()
+    
+    private var flag = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initMainViewController()
     }
-    
     func initMainViewController(){
-        myNaviBar.initNavigationBar(view: self)
-        mySearchBar.initSearchBar(view: self)
-        mySegmentBar.initSegmentControl(view: self)
-        myCollectionView.initCollectionVIew(view: self)
+        initNavigationBar()
+        initSearchBar()
+        initSegmentControl()
+        initCollectionView()
+    }
+    
+    func initSegmentControl(){
+        mySegmentBar.setTitle("Original", forSegmentAt: 0)
+        mySegmentBar.setTitle("Live", forSegmentAt: 1)
+        mySegmentBar.selectedSegmentIndex = 0
+        mySegmentBar.addTarget(self, action: #selector(self.segmentBtnPressed(_:)), for: .valueChanged)
+    }
+    
+    func initNavigationBar(){
+        let rightButton: UIBarButtonItem = {
+            let button = UIBarButtonItem()
+            button.image = UIImage(systemName: "heart.fill")
+            button.style = .plain
+            return button
+        }()
+        
+        rightButton.target = self
+        rightButton.action = #selector(buttonPressed)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.topItem?.title = "kakaoTV"
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
+    }
+    
+    func initSearchBar(){
+        mySearchBar.placeholder = "Search"
+    }
+    
+    func initCollectionView(){
+        let flowLayout = UICollectionViewFlowLayout()
+        myCollectionView.collectionViewLayout = flowLayout
+        myCollectionView.register(ProgramCollectionViewCell.self, forCellWithReuseIdentifier: ProgramCollectionViewCell.cellIdentifier)
+        myCollectionView.delegate = self
+        myCollectionView.dataSource = self
+    }
+    
+    @objc func buttonPressed(){
+        
+    }
+    
+    func reloadData(){
+        myCollectionView.reloadData()
     }
     
     @objc func segmentBtnPressed(_ sender: UISegmentedControl){
-        print(sender.selectedSegmentIndex)
         switch sender.selectedSegmentIndex {
         case 0:
-            programType  = "Original"
-            myCollectionView.reloadData()
+            type  = .Original
+            reloadData()
         default:
-            programType  = "Live"
-            myCollectionView.reloadData()
+            type  = .Live
+            reloadData()
         }
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        flag = !flag
+        self.reloadData()
     }
 }
 
 extension MainViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if programType == "Original" {
-            return jsonData.getOrgCnt
-        }
-        else {
-            return jsonData.getliveCnt
-        }
+        return jsonData.getCnt(type: type)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if programType == "Original" {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OriginalCollectionViewCell.cellIdentifier, for: indexPath) as! OriginalCollectionViewCell
-            cell.setSubViews(indexPath: indexPath, data: jsonData)
-            cell.layer.borderWidth = 1
-            
-            return cell
-        }
-        else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LiveCollectionViewCell.cellIdentifier, for: indexPath) as! LiveCollectionViewCell
-            cell.setSubViews(indexPath: indexPath, data: jsonData)
-            cell.layer.borderWidth = 1
-            
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCollectionViewCell.cellIdentifier, for: indexPath) as! ProgramCollectionViewCell
+        cell.setSubViews(indexPath: indexPath, data: jsonData, dataTypeIndex: type)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
-        let height = collectionView.frame.height
-        return CGSize(width: width * 0.9, height: height / 2)
+        
+        if flag {
+            calculateWidth()
+            cellheight = cellwidth * 0.8
+            flag = !flag
+        }
+        
+        return CGSize(width: cellwidth, height: cellheight)
+    }
+    
+    func calculateWidth(){
+        switch (UIDevice.current.userInterfaceIdiom, UIDevice.current.orientation) {
+        case (.phone, UIDeviceOrientation.portrait):
+            cellwidth = UIScreen.main.bounds.width - 60
+        case (.phone, .landscapeLeft):
+            cellwidth = UIScreen.main.bounds.width/2 - 60
+        case (.phone, .landscapeRight):
+            cellwidth = UIScreen.main.bounds.width/2 - 60
+        case (.pad, .portrait):
+            cellwidth = (UIScreen.main.bounds.width - 50)/2
+        case (.pad, .portraitUpsideDown):
+            cellwidth = (UIScreen.main.bounds.width - 50)/2
+        case (.pad, .landscapeLeft):
+            cellwidth = (UIScreen.main.bounds.width - 90)/3
+        case (.pad, .landscapeRight):
+            cellwidth = (UIScreen.main.bounds.width - 90)/3
+        default:
+            cellwidth = 0
+        }
+        cellheight = cellwidth * 0.8
     }
 }
 
