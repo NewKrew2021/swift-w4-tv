@@ -31,6 +31,11 @@ class MainViewController: UIViewController {
         videoType = videoType == .CLIP ? .LIVE : .CLIP
         videoCollectionView.reloadData()
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        videoCollectionView.reloadData()
+    }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -52,7 +57,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 setLiveCell(target: videoCell, by: live)
             }
         }
-
+        
         return videoCell
     }
     
@@ -101,13 +106,27 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         var height: CGFloat
         var size: CGSize
         if isPad() {
-            width = (collectionView.frame.width - 20)/2.1
-            height = collectionView.frame.height/3
+            if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown{
+                width = (collectionView.frame.width - 20)/2
+                height = collectionView.frame.height/3
+            }
+            else {
+                
+                width = (collectionView.frame.width - 20)/3
+                height = collectionView.frame.height/2
+            }
             size = CGSize(width: width, height: height)
+            
         }
         else{
+            if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown{
             width = collectionView.frame.width - 20
             height = collectionView.frame.height/2
+            }
+            else {
+                width = (collectionView.frame.width - 20)/2
+                height = collectionView.frame.height
+            }
             size = CGSize(width: width, height: height)
         }
         return size
