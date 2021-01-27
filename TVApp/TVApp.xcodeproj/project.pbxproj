@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32743EFC25C1144100645DEF /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32743EFB25C1144100645DEF /* Convert.swift */; };
+		32743F1025C11D2A00645DEF /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32743F0F25C11D2A00645DEF /* Json.swift */; };
 		3276442025BFA8F2002A935C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3276441F25BFA8F2002A935C /* CollectionViewCell.swift */; };
 		32A3024E25C0205E00D035AE /* DurationUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3024D25C0205E00D035AE /* DurationUILabel.swift */; };
 		32B9DC1B25BEADF3005C4186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DC1A25BEADF3005C4186 /* AppDelegate.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32743EFB25C1144100645DEF /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
+		32743F0F25C11D2A00645DEF /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		3276441F25BFA8F2002A935C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		32A3024D25C0205E00D035AE /* DurationUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationUILabel.swift; sourceTree = "<group>"; };
 		32B9DC1725BEADF3005C4186 /* TVApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +162,8 @@
 				32B9DC5625BEC051005C4186 /* Live.swift */,
 				32B9DC5B25BEC062005C4186 /* Channel.swift */,
 				32B9DC6025BEC06D005C4186 /* Clip.swift */,
+				32743EFB25C1144100645DEF /* Convert.swift */,
+				32743F0F25C11D2A00645DEF /* Json.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,10 +307,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B9DC1F25BEADF3005C4186 /* MainViewController.swift in Sources */,
+				32743EFC25C1144100645DEF /* Convert.swift in Sources */,
 				32B9DC6125BEC06D005C4186 /* Clip.swift in Sources */,
 				3276442025BFA8F2002A935C /* CollectionViewCell.swift in Sources */,
 				32B9DC5C25BEC062005C4186 /* Channel.swift in Sources */,
 				32B9DC1B25BEADF3005C4186 /* AppDelegate.swift in Sources */,
+				32743F1025C11D2A00645DEF /* Json.swift in Sources */,
 				32B9DC4F25BEB852005C4186 /* Video.swift in Sources */,
 				32B9DC5725BEC051005C4186 /* Live.swift in Sources */,
 				32B9DC1D25BEADF3005C4186 /* SceneDelegate.swift in Sources */,

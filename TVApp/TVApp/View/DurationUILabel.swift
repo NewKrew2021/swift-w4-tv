@@ -19,7 +19,7 @@ class DurationUILabel: UILabel {
         super.drawText(in: rect.inset(by: insets))
     }
     
-    func setText(text: String) {
+    func setTextAndFixSize(text: String) {
         self.text = text
         adjustsFontSizeToFitWidth = true
         sizeToFit()
