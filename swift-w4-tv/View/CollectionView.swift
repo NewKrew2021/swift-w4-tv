@@ -11,23 +11,20 @@ import UIKit
 
 class CollectionView {
     
-    var myCollectionView: UICollectionView!
+    var myView: UICollectionView!
     
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
-    func initCollectionVIew(view: MainViewController){
+    init(){
         let flowLayout = UICollectionViewFlowLayout()
-        myCollectionView = UICollectionView(frame: CGRect(x: 0, y: self.screenHeight/5, width: self.screenWidth, height: self.screenHeight*4/5), collectionViewLayout: flowLayout)
-        myCollectionView.delegate = view
-        myCollectionView.dataSource = view
-        myCollectionView.backgroundColor = .white
-        myCollectionView.register(OriginalCollectionViewCell.self, forCellWithReuseIdentifier: OriginalCollectionViewCell.cellIdentifier)
-        myCollectionView.register(LiveCollectionViewCell.self, forCellWithReuseIdentifier: LiveCollectionViewCell.cellIdentifier)
-        view.view.addSubview(myCollectionView)
+        myView = UICollectionView(frame: CGRect(x: 0, y: self.screenHeight/5, width: self.screenWidth, height: self.screenHeight*4/5), collectionViewLayout: flowLayout)
+        myView.backgroundColor = .white
+        myView.register(OriginalCollectionViewCell.self, forCellWithReuseIdentifier: OriginalCollectionViewCell.cellIdentifier)
+        myView.register(LiveCollectionViewCell.self, forCellWithReuseIdentifier: LiveCollectionViewCell.cellIdentifier)
     }
     
     func reloadData(){
-        myCollectionView.reloadData()
+        myView.reloadData()
     }
 }

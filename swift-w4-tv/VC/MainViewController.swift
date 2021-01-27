@@ -16,21 +16,64 @@ class MainViewController: UIViewController {
     private var jsonData = JsonParsing()
     private var programType : String = "Original"
     
-    private let myNaviBar = NavigationBar()
-    private let mySearchBar = SearchBar()
-    private let mySegmentBar = SegmentControl()
+    private let myNaviBar = UINavigationBar()
+    private let mySearchBar = UISearchBar()
+    private let mySegmentBar = UISegmentedControl(items: ["Original", "Live"])
+    
     private let myCollectionView = CollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        overrideUserInterfaceStyle = .dark
+        
         initMainViewController()
+    }
+    func initSegmentControl(){
+        mySegmentBar.frame = CGRect(x: screenWidth * 0.1, y: self.topbarHeight + screenHeight / 20 , width: screenWidth * 0.8, height: screenHeight / 30 )
+        mySegmentBar.selectedSegmentIndex = 0
+        mySegmentBar.addTarget(self, action: #selector(self.segmentBtnPressed(_:)), for: .valueChanged)
+        self.view.addSubview(mySegmentBar)
     }
     
     func initMainViewController(){
-        myNaviBar.initNavigationBar(view: self)
-        mySearchBar.initSearchBar(view: self)
-        mySegmentBar.initSegmentControl(view: self)
-        myCollectionView.initCollectionVIew(view: self)
+        initNavigationBar()
+        initSearchBar()
+        initSegmentControl()
+        initCollectionView()
+    }
+    
+    func initNavigationBar(){
+        let rightButton: UIBarButtonItem = {
+            let button = UIBarButtonItem()
+            button.image = UIImage(systemName: "heart.fill")
+            button.style = .plain
+            return button
+        }()
+        
+        rightButton.target = self
+        rightButton.action = #selector(buttonPressed)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.topItem?.title = "kakaoTV"
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightButton
+    }
+    
+    func initSearchBar(){
+        mySearchBar.placeholder = "Search"
+        mySearchBar.backgroundColor = .white
+        mySearchBar.translatesAutoresizingMaskIntoConstraints = false
+        mySearchBar.frame = CGRect(x: 0, y: self.topbarHeight, width: screenWidth, height: screenHeight / 20 )
+        self.view.addSubview(mySearchBar)
+    }
+    
+    func initCollectionView(){
+        myCollectionView.myView.delegate = self
+        myCollectionView.myView.dataSource = self
+        self.view.addSubview(myCollectionView.myView)
+    }
+    
+    @objc func buttonPressed(){
+        
     }
     
     @objc func segmentBtnPressed(_ sender: UISegmentedControl){
