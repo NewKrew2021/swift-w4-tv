@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
         videoTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
         videoTypeSegmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
     }
+    
     @IBAction func changeSegment(_ sender: Any) {
         videoType = videoType == .CLIP ? .LIVE : .CLIP
         videoCollectionView.reloadData()

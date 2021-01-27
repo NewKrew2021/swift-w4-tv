@@ -15,6 +15,34 @@ class Convert {
     }
     
     static func getDistFromCurrentTime(time: String) -> String {
-        return ""
+        var distance: String = ""
+        guard let createTime = time.toDate(format: "yyyy-MM-dd HH:mm:ss") else { return distance }
+        let dateDistance = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: createTime, to: Date())
+        print(dateDistance)
+        if let day = dateDistance.day {
+            if day != 0 {
+                distance = "\(day)일 전"
+            }
+            return distance
+        }
+        if let hour = dateDistance.hour {
+            if hour != 0 {
+                distance = "\(hour)시간 전"
+            }
+            return distance
+        }
+        if let minute = dateDistance.minute {
+            if minute != 0 {
+                distance = "\(minute)분 전"
+            }
+            return distance
+        }
+        if let second = dateDistance.second {
+            if second != 0 {
+                distance = "\(second)초 전"
+            }
+            return distance
+        }
+        return distance
     }
 }
