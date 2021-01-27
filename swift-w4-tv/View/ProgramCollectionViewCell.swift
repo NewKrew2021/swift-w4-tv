@@ -10,8 +10,8 @@ import UIKit
 
 class ProgramCollectionViewCell: UICollectionViewCell {
     static var cellIdentifier = "myProgramCell"
-    var tvImage: UIImageView = UIImageView()
     
+    private var tvImage: UIImageView = UIImageView()
     private var titleLabel = UILabel()
     private var channelNameLabel = UILabel()
     private var visitCountLabel = UILabel()
@@ -45,7 +45,7 @@ class ProgramCollectionViewCell: UICollectionViewCell {
             tvImage.image = UIImage(named: data.originalPrograms[indexPath[1]].clip.thumbnailURL)
             channelNameLabel.text = data.originalPrograms[indexPath[1]].channel.name
             visitCountLabel.text = "▶︎" + String(data.originalPrograms[indexPath[1]].channel.visitCount)
-            durationOrPlayCount.text = convertDuration(duration: data.originalPrograms[indexPath[1]].clip.duration)
+            durationOrPlayCount.text = convertDurationToString(duration: data.originalPrograms[indexPath[1]].clip.duration)
             createTimeLabel.text = "•" + convertChannelCreateTime(channelCreateTime: data.originalPrograms[indexPath[1]].channel.createTime)
         default:
             titleLabel.text = data.livePrograms[indexPath[1]].live.title
@@ -54,20 +54,6 @@ class ProgramCollectionViewCell: UICollectionViewCell {
             visitCountLabel.text = "▶︎" + String(data.livePrograms[indexPath[1]].channel.visitCount)
             durationOrPlayCount.text = "☊ \(data.livePrograms[indexPath[1]].live.playCount)"
             createTimeLabel.text = "•" + convertChannelCreateTime(channelCreateTime: data.livePrograms[indexPath[1]].channel.createTime)
-        }
-    }
-    
-    func convertDuration(duration : Int) -> String{
-        let H = duration/3600
-        let M = duration%3600/60
-        let S = duration%60
-        let strH = String(H)
-        let strM = M >= 10 ? String(M) : "0\(String(M))"
-        let strS = S >= 10 ? String(S) : "0\(String(S))"
-        if H > 0 {
-            return "\(strH):\(strM):\(strS)"
-        } else {
-            return "\(strM):\(strS)"
         }
     }
     
@@ -129,13 +115,25 @@ class ProgramCollectionViewCell: UICollectionViewCell {
         durationOrPlayCount.font = UIFont.systemFont(ofSize: 12)
         durationOrPlayCount.backgroundColor = .systemGray
         durationOrPlayCount.textColor = .white
-        
         durationOrPlayCount.translatesAutoresizingMaskIntoConstraints = false
         durationOrPlayCount.trailingAnchor.constraint(equalTo: standardView.trailingAnchor, constant: -padding * 8).isActive = true
         durationOrPlayCount.bottomAnchor.constraint(equalTo: tvImage.bottomAnchor, constant: -padding * 8).isActive = true
         durationOrPlayCount.sizeToFit()
     }
     
+    func convertDurationToString(duration : Int) -> String{
+        let Hour = duration / 3600
+        let Minute = (duration % 3600) / 60
+        let Second = duration % 60
+        let strH = String(Hour)
+        let strM = Minute >= 10 ? String(Minute) : "0\(String(Minute))"
+        let strS = Second >= 10 ? String(Second) : "0\(String(Second))"
+        if Hour > 0 {
+            return "\(strH):\(strM):\(strS)"
+        } else {
+            return "\(strM):\(strS)"
+        }
+    }
     
     func convertChannelCreateTime(channelCreateTime : String) -> String {
         let dateFormatter = DateFormatter()
