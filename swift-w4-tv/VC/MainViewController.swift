@@ -8,38 +8,41 @@
 
 import UIKit
 
+enum ProgramTypes : String {
+    case Original = "Original"
+    case Live = "Live"
+    
+    static let programTypes = [Original, Live]
+}
+
 class MainViewController: UIViewController {
     
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
+    var type : ProgramTypes = .Original
     private var jsonData = JsonParsing()
-    private var programType : String = "Original"
     
-    private let myNaviBar = UINavigationBar()
-    private let mySearchBar = UISearchBar()
-    private let mySegmentBar = UISegmentedControl(items: ["Original", "Live"])
-    
-    private let myCollectionView = CollectionView()
+    @IBOutlet weak var mySearchBar: UISearchBar!
+    @IBOutlet weak var mySegmentBar: UISegmentedControl!
+    @IBOutlet weak var myCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        overrideUserInterfaceStyle = .dark
-        
         initMainViewController()
     }
-    func initSegmentControl(){
-        mySegmentBar.frame = CGRect(x: screenWidth * 0.1, y: self.topbarHeight + screenHeight / 20 , width: screenWidth * 0.8, height: screenHeight / 30 )
-        mySegmentBar.selectedSegmentIndex = 0
-        mySegmentBar.addTarget(self, action: #selector(self.segmentBtnPressed(_:)), for: .valueChanged)
-        self.view.addSubview(mySegmentBar)
-    }
-    
     func initMainViewController(){
         initNavigationBar()
         initSearchBar()
         initSegmentControl()
         initCollectionView()
+    }
+    
+    func initSegmentControl(){
+        mySegmentBar.setTitle("Original", forSegmentAt: 0)
+        mySegmentBar.setTitle("Live", forSegmentAt: 1)
+        mySegmentBar.selectedSegmentIndex = 0
+        mySegmentBar.addTarget(self, action: #selector(self.segmentBtnPressed(_:)), for: .valueChanged)
     }
     
     func initNavigationBar(){
@@ -60,66 +63,66 @@ class MainViewController: UIViewController {
     
     func initSearchBar(){
         mySearchBar.placeholder = "Search"
-        mySearchBar.backgroundColor = .white
-        mySearchBar.translatesAutoresizingMaskIntoConstraints = false
-        mySearchBar.frame = CGRect(x: 0, y: self.topbarHeight, width: screenWidth, height: screenHeight / 20 )
-        self.view.addSubview(mySearchBar)
     }
     
     func initCollectionView(){
-        myCollectionView.myView.delegate = self
-        myCollectionView.myView.dataSource = self
-        self.view.addSubview(myCollectionView.myView)
+        let flowLayout = UICollectionViewFlowLayout()
+        myCollectionView.collectionViewLayout = flowLayout
+        myCollectionView.register(ProgramCollectionViewCell.self, forCellWithReuseIdentifier: ProgramCollectionViewCell.cellIdentifier)
+        myCollectionView.delegate = self
+        myCollectionView.dataSource = self
     }
     
     @objc func buttonPressed(){
         
     }
     
+    func reloadData(){
+        myCollectionView.reloadData()
+    }
+    
     @objc func segmentBtnPressed(_ sender: UISegmentedControl){
         print(sender.selectedSegmentIndex)
         switch sender.selectedSegmentIndex {
         case 0:
-            programType  = "Original"
-            myCollectionView.reloadData()
+            type  = .Original
+            reloadData()
         default:
-            programType  = "Live"
-            myCollectionView.reloadData()
+            type  = .Live
+            reloadData()
         }
     }
 }
 
 extension MainViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if programType == "Original" {
-            return jsonData.getOrgCnt
-        }
-        else {
-            return jsonData.getliveCnt
-        }
+        return jsonData.getCnt(type: type)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if programType == "Original" {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OriginalCollectionViewCell.cellIdentifier, for: indexPath) as! OriginalCollectionViewCell
-            cell.setSubViews(indexPath: indexPath, data: jsonData)
-            cell.layer.borderWidth = 1
-            
-            return cell
-        }
-        else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LiveCollectionViewCell.cellIdentifier, for: indexPath) as! LiveCollectionViewCell
-            cell.setSubViews(indexPath: indexPath, data: jsonData)
-            cell.layer.borderWidth = 1
-            
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCollectionViewCell.cellIdentifier, for: indexPath) as! ProgramCollectionViewCell
+        cell.setSubViews(indexPath: indexPath, data: jsonData, dataTypeIndex: type)
+        cell.layer.borderWidth = 1
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
-        let height = collectionView.frame.height
-        return CGSize(width: width * 0.9, height: height / 2)
+        var width: CGFloat
+        var height: CGFloat
+        var size: CGSize
+        if(UIDevice.current.userInterfaceIdiom == .pad){
+            width = (collectionView.frame.width * 0.9)/2.1
+            height = collectionView.frame.height/3
+            size = CGSize(width: width, height: height)
+        }
+        else{
+            width = (screenWidth * 0.9)
+            height = screenWidth * 0.5
+            size = CGSize(width: width, height: height)
+            
+            print(width , height, size)
+        }
+        return size
     }
 }
 
