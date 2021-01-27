@@ -11,7 +11,7 @@
         <!--kakaoTV-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TVApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="TVApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,10 +99,10 @@
                                         <size key="customSize" width="371" height="392"/>
                                         <connections>
                                             <outlet property="channelName" destination="45B-AQ-DfT" id="61U-ta-Vkm"/>
-                                            <outlet property="channelViewCount" destination="Wa4-cx-3NS" id="hND-xc-r46"/>
+                                            <outlet property="createTime" destination="xLa-oR-ctJ" id="Yb5-QH-cFu"/>
                                             <outlet property="thumbnail" destination="01U-re-R4D" id="5cL-eS-oJU"/>
                                             <outlet property="title" destination="SoQ-qK-k5t" id="lyR-TH-Omy"/>
-                                            <outlet property="videoCreateTime" destination="xLa-oR-ctJ" id="Yb5-QH-cFu"/>
+                                            <outlet property="viewCount" destination="Wa4-cx-3NS" id="hND-xc-r46"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

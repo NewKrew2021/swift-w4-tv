@@ -7,18 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var videoTypeSegmentControl: UISegmentedControl!
     @IBOutlet weak var videoCollectionView: UICollectionView!
-    
-    var originals: [OriginalCell] = []
-    var lives: [LiveCell] = []
-    
+    let videoManager = VideoManager.instance
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
-        getJSON(from: "original")
+//        originals[0].getFormattedCreateTime()
     }
     
     func initView() {
@@ -28,54 +26,60 @@ class ViewController: UIViewController {
         videoTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
         videoTypeSegmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
     }
-    
-    func getJSON(from: String) {
-        let decoder = JSONDecoder()
-        guard let json = NSDataAsset(name: from) else {return}
-        
-        switch from {
-        case "live":
-            do {
-                lives = try decoder.decode([LiveCell].self, from: json.data)
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-        case "original":
-            do {
-                originals = try decoder.decode([OriginalCell].self, from: json.data)
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-        default:
-            return
-        }
-    }
-    
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return originals.count
+        return videoManager.originalCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath)
         guard let videoCell = cell as? VideoCollectionViewCell else {return cell}
-        let original = originals[indexPath.item]
-        videoCell.setThumbnail(thumbnail: UIImage(named: original.clip.thumbnailUrl))
-        videoCell.title.sizeToFit()
-        videoCell.setTitle(title: original.displayTitle)
-        videoCell.setChannelName(channelName: original.channel.name)
-        videoCell.setChannelViewCount(viewCount: original.channel.visitCount)
-        videoCell.setVideoCreateTime(createTime: original.clip.createTime)
+        if let original = videoManager.getOriginalContent(at: indexPath.item){
+            setOriginalCell(target: videoCell, by: original)
+        }
+//        videoCell.setThumbnail(thumbnail: UIImage(named: original.clip.thumbnailUrl))
+//        videoCell.title.sizeToFit()
+//        videoCell.setTitle(title: original.displayTitle)
+//        videoCell.setChannelName(channelName: original.channel.name)
+//        videoCell.setChannelViewCount(viewCount: original.channel.visitCount)
+//        videoCell.setVideoCreateTime(createTime: original.clip.createTime)
         return videoCell
+    }
+    
+    func setOriginalCell(target: VideoCollectionViewCell, by: Video) {
+        let viewCount = "▶︎ \(Convert.getStringNumToCommaFormat(number: by.channel.visitCount))"
+        let creatTime = "• \(Convert.getDistFromCurrentTime(time: by.createTime))"
+        var thumbnail: UIImage?
+        if let thumbnailUrl = by.clip?.thumbnailUrl {
+            thumbnail = UIImage(named: thumbnailUrl)
+        }
+        target.setTitle(title: by.displayTitle)
+        target.setThumbnail(thumbnail: thumbnail)
+        target.setChannelName(channelName: by.channel.name)
+        target.setViewCount(viewCount: viewCount)
+        target.setCreateTime(createTime: creatTime)
+    }
+    
+    func setLiveCell(target: VideoCollectionViewCell, by: Video) {
+        var viewCount = ""
+        let creatTime = "• \(Convert.getDistFromCurrentTime(time: by.createTime))"
+        var thumbnail: UIImage?
+        if let live = by.live {
+            viewCount = "▶︎ \(Convert.getStringNumToCommaFormat(number: live.playCount))"
+            thumbnail = UIImage(named: live.thumbnailUrl)
+        }
+        target.setTitle(title: by.displayTitle)
+        target.setChannelName(channelName: by.channel.name)
+        target.setCreateTime(createTime: creatTime)
+        target.setThumbnail(thumbnail: thumbnail)
+        target.setViewCount(viewCount: viewCount)
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
@@ -89,7 +93,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         var width: CGFloat
         var height: CGFloat
         var size: CGSize
-        if(UIDevice.current.userInterfaceIdiom == .pad){
+        if isPad() {
             width = (collectionView.frame.width - 20)/2.1
             height = collectionView.frame.height/3
             size = CGSize(width: width, height: height)
@@ -100,5 +104,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             size = CGSize(width: width, height: height)
         }
         return size
+    }
+    
+    func isPad() -> Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad ? true : false
     }
 }
