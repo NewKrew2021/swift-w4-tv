@@ -30,12 +30,13 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
 
     func setSubViews() {
-        setThumbnailImage(standardView: contentView, padding: 10)
-        setDurationOrPlayCount(standardView: thumbnailImage, padding: 8)
-        setTitle(standardView: contentView, padding: 10)
-        setChannelName(standradView: contentView, padding: 10)
-        setChannelVisitCount(standardView: contentView, padding: 10)
-        setChannelCreateTime(standardView: contentView, padding: 10)
+        let padding = frame.width/30
+        setThumbnailImage(standardView: contentView, padding: padding)
+        setDurationOrPlayCount(standardView: thumbnailImage, fontSize: padding)
+        setTitle(standardView: contentView, padding: padding)
+        setChannelName(standradView: contentView, padding: padding)
+        setChannelVisitCount(standardView: contentView, padding: padding)
+        setChannelCreateTime(standardView: contentView, padding: padding)
 
     }
     
@@ -48,7 +49,6 @@ class TVCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(channelCreateTime)
     }
     
-
     func setCellData(segmentIndex : Int, dataIn : Any) {
         if segmentIndex == 0 {
             setOriginalData(data: dataIn as! TVOriginal)
@@ -78,7 +78,7 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
     
     func setChannelCreateTime(standardView : UIView, padding : CGFloat) {
-        channelCreateTime.font = UIFont.systemFont(ofSize: 15)
+        channelCreateTime.font = UIFont.systemFont(ofSize: padding * 1.3)
         
         channelCreateTime.translatesAutoresizingMaskIntoConstraints = false
         channelCreateTime.topAnchor.constraint(equalTo: channelName.topAnchor).isActive = true
@@ -89,7 +89,7 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
     
     func setChannelVisitCount(standardView : UIView, padding : CGFloat) {
-        channelVisitCount.font = UIFont.systemFont(ofSize: 15)
+        channelVisitCount.font = UIFont.systemFont(ofSize: padding * 1.3)
         
         channelVisitCount.translatesAutoresizingMaskIntoConstraints = false
         channelVisitCount.topAnchor.constraint(equalTo: channelName.topAnchor).isActive = true
@@ -98,7 +98,7 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
     
     func setChannelName(standradView : UIView, padding : CGFloat) {
-        channelName.font = UIFont.systemFont(ofSize: 15)
+        channelName.font = UIFont.systemFont(ofSize: padding*1.3)
         
         channelName.translatesAutoresizingMaskIntoConstraints = false
         channelName.topAnchor.constraint(equalTo: title.bottomAnchor, constant: padding).isActive = true
@@ -110,6 +110,7 @@ class TVCollectionViewCell: UICollectionViewCell {
         title.preferredMaxLayoutWidth = frame.width - 2*padding
         title.lineBreakMode = .byTruncatingTail
         title.numberOfLines = 2
+        title.font = UIFont.systemFont(ofSize: padding * 1.6)
         
         title.translatesAutoresizingMaskIntoConstraints = false
         title.topAnchor.constraint(equalTo: thumbnailImage.bottomAnchor, constant: padding).isActive = true
@@ -117,14 +118,15 @@ class TVCollectionViewCell: UICollectionViewCell {
         title.sizeToFit()
     }
     
-    func setDurationOrPlayCount(standardView : UIView, padding : CGFloat) {
-        durationOrPlayCount.font = UIFont.systemFont(ofSize: 12)
+    func setDurationOrPlayCount(standardView : UIView, fontSize : CGFloat) {
+//        durationOrPlayCount.font = UIFont.systemFont(ofSize: 12)
+        durationOrPlayCount.font = UIFont.systemFont(ofSize: fontSize)
         durationOrPlayCount.backgroundColor = .systemGray
         durationOrPlayCount.textColor = .white
         
         durationOrPlayCount.translatesAutoresizingMaskIntoConstraints = false
-        durationOrPlayCount.trailingAnchor.constraint(equalTo: standardView.trailingAnchor, constant: -padding).isActive = true
-        durationOrPlayCount.bottomAnchor.constraint(equalTo: standardView.bottomAnchor, constant: -padding).isActive = true
+        durationOrPlayCount.trailingAnchor.constraint(equalTo: standardView.trailingAnchor, constant: -8).isActive = true
+        durationOrPlayCount.bottomAnchor.constraint(equalTo: standardView.bottomAnchor, constant: -8).isActive = true
         durationOrPlayCount.sizeToFit()
     }
     
@@ -134,8 +136,10 @@ class TVCollectionViewCell: UICollectionViewCell {
         thumbnailImage.backgroundColor = .brown
         thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
         thumbnailImage.topAnchor.constraint(equalTo: standardView.topAnchor, constant: padding).isActive = true
-        thumbnailImage.leadingAnchor.constraint(equalTo: standardView.leadingAnchor, constant: padding).isActive = true
+        thumbnailImage.centerXAnchor.constraint(equalTo: standardView.centerXAnchor).isActive = true
+//        thumbnailImage.leadingAnchor.constraint(equalTo: standardView.leadingAnchor, constant: padding).isActive = true
         thumbnailImage.trailingAnchor.constraint(equalTo: standardView.trailingAnchor, constant: -padding).isActive = true
-        thumbnailImage.heightAnchor.constraint(equalToConstant: standardView.frame.height * 0.65).isActive = true
+        thumbnailImage.heightAnchor.constraint(equalTo: thumbnailImage.widthAnchor, multiplier: 15/28).isActive = true
+//        thumbnailImage.heightAnchor.constraint(equalToConstant: standardView.frame.height * 0.65).isActive = true
     }
 }

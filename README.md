@@ -96,5 +96,14 @@
 
 - collectionView가 호출될 때마다 segnemtIndex를 비교하여 count method를 호출하던 방식에서 index를 비교하고 count method를 계속 호출하는 문제점을 보완하기 위해 viewDidLoad()와 segmentControlChanged() 메소드에 옮김으로써 비교와 메소드 호출을 줄임
 
+### ColectionViewCell의 InnerView들의 값 조정
+
+- UIImage의 높이 이미지 비율에 맞게 수정
+- UILabel의 fontSize 또한 미리 지정된 padding에 맞게 동적으로 설정
+
+![image-20210127165917416](README.assets/image-20210127165917416.png)
+
+
+
 
 

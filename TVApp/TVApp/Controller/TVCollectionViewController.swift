@@ -20,7 +20,7 @@ class TVCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        overrideUserInterfaceStyle = .dark
+//        overrideUserInterfaceStyle = .dark
         navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: nil), animated: true)
         
         guard let layout = TVCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
