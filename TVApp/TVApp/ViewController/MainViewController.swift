@@ -80,10 +80,20 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var width = self.collectionView.frame.size.width
-        if (UIDevice.current.orientation.isLandscape) {
-            width = width / 2 - 10
-            return CGSize(width: width, height: width * 0.90)
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            if (UIDevice.current.orientation.isPortrait) {
+                width = width / 2 - 10
+                return CGSize(width: width, height: width * 0.85)
+            } else {
+                width = width / 3 - 10
+                return CGSize(width: width, height: width * 0.85)
+            }
+        } else {
+            if (UIDevice.current.orientation.isLandscape) {
+                width = width / 2 - 10
+                return CGSize(width: width, height: width * 0.90)
+            }
+            return CGSize(width: width, height: width * 0.85)
         }
-        return CGSize(width: width, height: width * 0.85)
     }
 }
