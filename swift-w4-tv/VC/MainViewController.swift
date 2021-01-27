@@ -20,12 +20,20 @@ class MainViewController: UIViewController {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
-    var type : ProgramTypes = .Original
+    private var type : ProgramTypes = .Original
     private var jsonData = JsonParsing()
     
     @IBOutlet weak var mySearchBar: UISearchBar!
     @IBOutlet weak var mySegmentBar: UISegmentedControl!
     @IBOutlet weak var myCollectionView: UICollectionView!
+    
+    
+    private var cellwidth = CGFloat()
+    private var cellheight = CGFloat()
+    
+    private var flag = true
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +90,6 @@ class MainViewController: UIViewController {
     }
     
     @objc func segmentBtnPressed(_ sender: UISegmentedControl){
-        print(sender.selectedSegmentIndex)
         switch sender.selectedSegmentIndex {
         case 0:
             type  = .Original
@@ -91,6 +98,10 @@ class MainViewController: UIViewController {
             type  = .Live
             reloadData()
         }
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        flag = !flag
+        self.reloadData()
     }
 }
 
@@ -102,27 +113,40 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCollectionViewCell.cellIdentifier, for: indexPath) as! ProgramCollectionViewCell
         cell.setSubViews(indexPath: indexPath, data: jsonData, dataTypeIndex: type)
-        cell.layer.borderWidth = 1
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width: CGFloat
-        var height: CGFloat
-        var size: CGSize
-        if(UIDevice.current.userInterfaceIdiom == .pad){
-            width = (collectionView.frame.width * 0.9)/2.1
-            height = collectionView.frame.height/3
-            size = CGSize(width: width, height: height)
+        
+        if flag {
+            calculateWidth()
+            cellheight = cellwidth * 0.8
+            flag = !flag
         }
-        else{
-            width = (screenWidth * 0.9)
-            height = screenWidth * 0.5
-            size = CGSize(width: width, height: height)
-            
-            print(width , height, size)
+        
+        return CGSize(width: cellwidth, height: cellheight)
+    }
+    
+    func calculateWidth(){
+        switch (UIDevice.current.userInterfaceIdiom, UIDevice.current.orientation) {
+        case (.phone, UIDeviceOrientation.portrait):
+            cellwidth = UIScreen.main.bounds.width - 60
+        case (.phone, .landscapeLeft):
+            cellwidth = UIScreen.main.bounds.width/2 - 60
+        case (.phone, .landscapeRight):
+            cellwidth = UIScreen.main.bounds.width/2 - 60
+        case (.pad, .portrait):
+            cellwidth = (UIScreen.main.bounds.width - 50)/2
+        case (.pad, .portraitUpsideDown):
+            cellwidth = (UIScreen.main.bounds.width - 50)/2
+        case (.pad, .landscapeLeft):
+            cellwidth = (UIScreen.main.bounds.width - 90)/3
+        case (.pad, .landscapeRight):
+            cellwidth = (UIScreen.main.bounds.width - 90)/3
+        default:
+            cellwidth = 0
         }
-        return size
+        cellheight = cellwidth * 0.8
     }
 }
 
