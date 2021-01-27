@@ -16,25 +16,4 @@ struct ProgramOrgElement: Codable {
     }
 }
 
-struct Channel: Codable {
-    let name: String
-    let visitCount: Int
-    let createTime: String
-
-    enum CodingKeys: String, CodingKey {
-        case name, visitCount, createTime
-    }
-}
-
-struct Clip: Codable {
-   
-    let title: String
-    let duration: Int
-    let thumbnailURL: String
-  
-    enum CodingKeys: String, CodingKey {
-        case title, duration, thumbnailURL = "thumbnailUrl"
-    }
-}
-
 typealias ProgramOrg = [ProgramOrgElement]

@@ -9,33 +9,11 @@
 import Foundation
 
 struct ProgramLiveElement: Codable {
-    let channel: liveChannel
+    let channel: Channel
     let live: Live
 
     enum CodingKeys: String, CodingKey {
         case channel, live
-    }
-}
-
-struct liveChannel: Codable {
- 
-    let name: String
-    let visitCount: Int
-    let createTime: String
-
-    enum CodingKeys: String, CodingKey {
-        case name, visitCount, createTime
-    }
-}
-
-struct Live: Codable {
-    
-    let title: String
-    let playCount: Int
-    let thumbnailURL: String
-
-    enum CodingKeys: String, CodingKey {
-        case title, playCount, thumbnailURL = "thumbnailUrl"
     }
 }
 
