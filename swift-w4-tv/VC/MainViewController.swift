@@ -31,7 +31,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initMainViewController()
+        setLongPressGestureRecognizer()
     }
+    
     func initMainViewController(){
         initNavigationBar()
         initSearchBar()
@@ -140,6 +142,26 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
             cellwidth = 0
         }
         cellheight = cellwidth * 0.8
+    }
+}
+
+extension MainViewController {
+    func setLongPressGestureRecognizer(){
+        let LongPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.LongPressView(_:)))
+        LongPress.minimumPressDuration = 2
+        self.view.addGestureRecognizer(LongPress)
+    }
+    
+    @objc func LongPressView(_ sender: UILongPressGestureRecognizer){
+        if let indexPath = self.myCollectionView?.indexPathForItem(at: sender.location(in: self.myCollectionView)) {
+            let cell = self.myCollectionView?.cellForItem(at: indexPath)
+            
+            if  (sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled || sender.state == UIGestureRecognizer.State.failed
+                || sender.state == UIGestureRecognizer.State.changed) { return }
+            else{
+                print("you can do something with the cell or index path here")
+            }
+        }
     }
 }
 
