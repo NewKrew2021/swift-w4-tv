@@ -12,8 +12,9 @@ struct Live: Codable {
     let title: String
     let playCount: Int
     let thumbnailURL: String
-
+    let createTime: String
+    let id: Int
     enum CodingKeys: String, CodingKey {
-        case title, playCount, thumbnailURL = "thumbnailUrl"
+        case title, playCount, thumbnailURL = "thumbnailUrl", createTime, id
     }
 }
