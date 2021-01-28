@@ -13,17 +13,15 @@
 		F73A00B425BE79FE00A7F70A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73A00B225BE79FE00A7F70A /* Main.storyboard */; };
 		F73A00B625BE7A0100A7F70A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73A00B525BE7A0100A7F70A /* Assets.xcassets */; };
 		F73A00B925BE7A0100A7F70A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73A00B725BE7A0100A7F70A /* LaunchScreen.storyboard */; };
-		F73A010325BEC46200A7F70A /* LiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A010225BEC46200A7F70A /* LiveCell.swift */; };
-		F73A010A25BEC8DE00A7F70A /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A010925BEC8DE00A7F70A /* Live.swift */; };
-		F73A010E25BEC98900A7F70A /* OriginalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A010D25BEC98900A7F70A /* OriginalCell.swift */; };
-		F73A011125BEC99100A7F70A /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A011025BEC99100A7F70A /* Clip.swift */; };
 		F73A012125BFD38100A7F70A /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A012025BFD38100A7F70A /* VideoCollectionViewCell.swift */; };
-		F73A012525BFDCE200A7F70A /* ViewCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A012425BFDCE200A7F70A /* ViewCollectionViewLayout.swift */; };
 		F73A012925BFDD2800A7F70A /* VideoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A012825BFDD2800A7F70A /* VideoCollectionView.swift */; };
 		F73A012C25C000C100A7F70A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A012B25C000C100A7F70A /* Channel.swift */; };
-		F73A013125C019D900A7F70A /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A013025C019D900A7F70A /* Int+.swift */; };
 		F73A013525C01A8D00A7F70A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A013425C01A8D00A7F70A /* String+.swift */; };
 		F73A013825C01B0000A7F70A /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A013725C01B0000A7F70A /* DateFormatter+.swift */; };
+		F73A013F25C0FE6C00A7F70A /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A013E25C0FE6C00A7F70A /* VideoManager.swift */; };
+		F753ACEF25C16C94002D1491 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753ACEE25C16C94002D1491 /* JSON.swift */; };
+		F753ACF325C1A7C7002D1491 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753ACF225C1A7C7002D1491 /* Video.swift */; };
+		F753ACF925C1AEBD002D1491 /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753ACF825C1AEBD002D1491 /* Convert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,17 +33,15 @@
 		F73A00B525BE7A0100A7F70A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F73A00B825BE7A0100A7F70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F73A00BA25BE7A0100A7F70A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F73A010225BEC46200A7F70A /* LiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCell.swift; sourceTree = "<group>"; };
-		F73A010925BEC8DE00A7F70A /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
-		F73A010D25BEC98900A7F70A /* OriginalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalCell.swift; sourceTree = "<group>"; };
-		F73A011025BEC99100A7F70A /* Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
 		F73A012025BFD38100A7F70A /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
-		F73A012425BFDCE200A7F70A /* ViewCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCollectionViewLayout.swift; sourceTree = "<group>"; };
 		F73A012825BFDD2800A7F70A /* VideoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionView.swift; sourceTree = "<group>"; };
 		F73A012B25C000C100A7F70A /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		F73A013025C019D900A7F70A /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		F73A013425C01A8D00A7F70A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		F73A013725C01B0000A7F70A /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
+		F73A013E25C0FE6C00A7F70A /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		F753ACEE25C16C94002D1491 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		F753ACF225C1A7C7002D1491 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		F753ACF825C1AEBD002D1491 /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				F73A012F25C019C900A7F70A /* Extension */,
-				F73A012325BFDCAD00A7F70A /* Layout */,
 				F73A00FF25BEC43C00A7F70A /* Protocol */,
 				F73A00FE25BEC41400A7F70A /* Model */,
 				F73A00FD25BEC40D00A7F70A /* Controller */,
@@ -114,11 +109,11 @@
 		F73A00FE25BEC41400A7F70A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F73A010225BEC46200A7F70A /* LiveCell.swift */,
-				F73A010925BEC8DE00A7F70A /* Live.swift */,
-				F73A010D25BEC98900A7F70A /* OriginalCell.swift */,
-				F73A011025BEC99100A7F70A /* Clip.swift */,
 				F73A012B25C000C100A7F70A /* Channel.swift */,
+				F73A013E25C0FE6C00A7F70A /* VideoManager.swift */,
+				F753ACEE25C16C94002D1491 /* JSON.swift */,
+				F753ACF225C1A7C7002D1491 /* Video.swift */,
+				F753ACF825C1AEBD002D1491 /* Convert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,18 +125,9 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		F73A012325BFDCAD00A7F70A /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-				F73A012425BFDCE200A7F70A /* ViewCollectionViewLayout.swift */,
-			);
-			path = Layout;
-			sourceTree = "<group>";
-		};
 		F73A012F25C019C900A7F70A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F73A013025C019D900A7F70A /* Int+.swift */,
 				F73A013425C01A8D00A7F70A /* String+.swift */,
 				F73A013725C01B0000A7F70A /* DateFormatter+.swift */,
 			);
@@ -219,19 +205,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F73A012925BFDD2800A7F70A /* VideoCollectionView.swift in Sources */,
+				F753ACF925C1AEBD002D1491 /* Convert.swift in Sources */,
+				F73A013F25C0FE6C00A7F70A /* VideoManager.swift in Sources */,
 				F73A00B125BE79FE00A7F70A /* MainViewController.swift in Sources */,
 				F73A012C25C000C100A7F70A /* Channel.swift in Sources */,
-				F73A010325BEC46200A7F70A /* LiveCell.swift in Sources */,
-				F73A011125BEC99100A7F70A /* Clip.swift in Sources */,
 				F73A00AD25BE79FE00A7F70A /* AppDelegate.swift in Sources */,
+				F753ACEF25C16C94002D1491 /* JSON.swift in Sources */,
 				F73A00AF25BE79FE00A7F70A /* SceneDelegate.swift in Sources */,
-				F73A010E25BEC98900A7F70A /* OriginalCell.swift in Sources */,
-				F73A012525BFDCE200A7F70A /* ViewCollectionViewLayout.swift in Sources */,
 				F73A012125BFD38100A7F70A /* VideoCollectionViewCell.swift in Sources */,
 				F73A013825C01B0000A7F70A /* DateFormatter+.swift in Sources */,
+				F753ACF325C1A7C7002D1491 /* Video.swift in Sources */,
 				F73A013525C01A8D00A7F70A /* String+.swift in Sources */,
-				F73A010A25BEC8DE00A7F70A /* Live.swift in Sources */,
-				F73A013125C019D900A7F70A /* Int+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

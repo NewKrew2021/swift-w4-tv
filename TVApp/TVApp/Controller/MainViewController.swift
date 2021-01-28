@@ -7,98 +7,119 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var videoTypeSegmentControl: UISegmentedControl!
-    @IBOutlet weak var videoCollectionView: UICollectionView!
-    
-    var originals: [OriginalCell] = []
-    var lives: [LiveCell] = []
-    
+class MainViewController: UIViewController {
+    @IBOutlet var videoTypeSegmentControl: UISegmentedControl!
+    @IBOutlet var videoCollectionView: UICollectionView!
+    private let videoManager = VideoManager.instance
+    private var videoType: Video.VideoType = .CLIP
+    private var cellSize = CGSize()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
-        getJSON(from: "original")
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        calculateCellSize(viewWidth: nil)
+//        videoCollectionView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadContents(_:)), name: .contentsChanged, object: nil)
     }
-    
+
     func initView() {
-        self.videoCollectionView.delegate = self
-        self.videoCollectionView.dataSource = self
-        
+        videoCollectionView.delegate = self
+        videoCollectionView.dataSource = self
+
         videoTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
-        videoTypeSegmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
+        videoTypeSegmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2 / 3).isActive = true
     }
-    
-    func getJSON(from: String) {
-        let decoder = JSONDecoder()
-        guard let json = NSDataAsset(name: from) else {return}
-        
-        switch from {
-        case "live":
-            do {
-                lives = try decoder.decode([LiveCell].self, from: json.data)
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        calculateCellSize(viewWidth: size.width)
+//        videoCollectionView.reloadData()
+        NotificationCenter.default.post(name: .contentsChanged, object: nil)
+    }
+
+    @IBAction func changeSegment(_: Any) {
+        videoType = videoType == .CLIP ? .LIVE : .CLIP
+//        videoCollectionView.reloadData()
+        NotificationCenter.default.post(name: .contentsChanged, object: nil)
+    }
+
+    func calculateCellSize(viewWidth: CGFloat?) {
+        var width = (viewWidth ?? UIScreen.main.bounds.width) - 20
+        var height: CGFloat
+        if isPhone() {
+            if UIDevice.current.orientation.isLandscape {
+                width /= 2
             }
-            catch {
-                print(error.localizedDescription)
+        } else {
+            if UIDevice.current.orientation.isLandscape {
+                width /= 3
             }
-        case "original":
-            do {
-                originals = try decoder.decode([OriginalCell].self, from: json.data)
+            else{
+                width /= 2
             }
-            catch {
-                print(error.localizedDescription)
-            }
-        default:
-            return
         }
+        height = width * 0.75
+        cellSize = CGSize(width: width, height: height)
     }
-    
+
+    func isPhone() -> Bool {
+        return UIDevice.current.userInterfaceIdiom == .phone ? true : false
+    }
+
+    @objc func reloadContents(_: Notification) {
+        videoCollectionView.reloadData()
+    }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return originals.count
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+        return videoType == Video.VideoType.CLIP ? videoManager.originalCount : videoManager.liveCount
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath)
-        guard let videoCell = cell as? VideoCollectionViewCell else {return cell}
-        let original = originals[indexPath.item]
-        videoCell.setThumbnail(thumbnail: UIImage(named: original.clip.thumbnailUrl))
-        videoCell.title.sizeToFit()
-        videoCell.setTitle(title: original.displayTitle)
-        videoCell.setChannelName(channelName: original.channel.name)
-        videoCell.setChannelViewCount(viewCount: original.channel.visitCount)
-        videoCell.setVideoCreateTime(createTime: original.clip.createTime)
+        guard let videoCell = cell as? VideoCollectionViewCell else { return cell }
+        let video = videoType == .CLIP ? videoManager.getOriginalContent(at: indexPath.item) : videoManager.getLiveContent(at: indexPath.item)
+        setCell(target: videoCell, by: video)
         return videoCell
+    }
+
+    func setCell(target: VideoCollectionViewCell, by: Video) {
+        let viewCount = "▶︎ \(Convert.getStringNumToCommaFormat(number: by.visitCount))"
+        let creatTime = "• \(Convert.getDistFromCurrentTime(time: by.createTime))"
+        let thumbnail = UIImage(named: by.thumbnailUrl)
+
+        if videoType == .CLIP {
+            target.hideLiveBadge()
+        }
+        else {
+            target.showLiveBadge()
+        }
+        
+        target.setTitle(title: by.displayTitle)
+        target.setThumbnail(thumbnail: thumbnail)
+        target.setChannelName(channelName: by.channel.name)
+        target.setViewCount(viewCount: viewCount)
+        target.setCreateTime(createTime: creatTime)
+        target.setContentInfo(contentInfo: by.contentInfo)
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumLineSpacingForSectionAt _: Int) -> CGFloat {
         return 5
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumInteritemSpacingForSectionAt _: Int) -> CGFloat {
+        return 5
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width: CGFloat
-        var height: CGFloat
-        var size: CGSize
-        if(UIDevice.current.userInterfaceIdiom == .pad){
-            width = (collectionView.frame.width - 20)/2.1
-            height = collectionView.frame.height/3
-            size = CGSize(width: width, height: height)
-        }
-        else{
-            width = collectionView.frame.width - 20
-            height = collectionView.frame.height/2
-            size = CGSize(width: width, height: height)
-        }
-        return size
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+        return cellSize
     }
+}
+
+extension Notification.Name {
+    static let contentsChanged = Notification.Name("contentsChanged")
 }
