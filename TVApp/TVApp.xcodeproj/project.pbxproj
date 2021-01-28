@@ -75,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				F73A012F25C019C900A7F70A /* Extension */,
-				F73A012325BFDCAD00A7F70A /* Layout */,
 				F73A00FF25BEC43C00A7F70A /* Protocol */,
 				F73A00FE25BEC41400A7F70A /* Model */,
 				F73A00FD25BEC40D00A7F70A /* Controller */,
@@ -124,13 +123,6 @@
 			children = (
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		F73A012325BFDCAD00A7F70A /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Layout;
 			sourceTree = "<group>";
 		};
 		F73A012F25C019C900A7F70A /* Extension */ = {

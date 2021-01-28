@@ -18,7 +18,6 @@ class Convert {
         var distance: String = ""
         guard let createTime = time.toDate(format: "yyyy-MM-dd HH:mm:ss") else { return distance }
         let dateDistance = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: createTime, to: Date())
-        print(dateDistance)
         if let day = dateDistance.day {
             if day != 0 {
                 distance = "\(day)일 전"

@@ -14,6 +14,22 @@ struct Video: Codable {
     let clip: Clip?
     let createTime: String
     let videoType: VideoType
+    var visitCount: Int {
+        if let live = live {
+            return live.playCount
+        }
+        return channel.visitCount
+    }
+    var thumbnailUrl: String {
+        if let live = live {
+            return live.thumbnailUrl
+        }
+        else if let clip = clip {
+            return clip.thumbnailUrl
+        }
+        return ""
+    }
+    
     struct Live: Codable {
         let playCount, duration: Int
         let thumbnailUrl: String

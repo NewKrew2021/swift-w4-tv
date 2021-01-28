@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
     }
     
     func initView() {
@@ -50,44 +51,26 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch videoType {
         case .CLIP:
             if let original = videoManager.getOriginalContent(at: indexPath.item){
-                setOriginalCell(target: videoCell, by: original)
+                setCell(target: videoCell, by: original)
             }
         case .LIVE:
             if let live = videoManager.getLiveContent(at: indexPath.item){
-                setLiveCell(target: videoCell, by: live)
+                setCell(target: videoCell, by: live)
             }
         }
         
         return videoCell
     }
     
-    func setOriginalCell(target: VideoCollectionViewCell, by: Video) {
-        let viewCount = "▶︎ \(Convert.getStringNumToCommaFormat(number: by.channel.visitCount))"
+    func setCell(target: VideoCollectionViewCell, by: Video) {
+        let viewCount = "▶︎ \(Convert.getStringNumToCommaFormat(number: by.visitCount))"
         let creatTime = "• \(Convert.getDistFromCurrentTime(time: by.createTime))"
-        var thumbnail: UIImage?
-        if let thumbnailUrl = by.clip?.thumbnailUrl {
-            thumbnail = UIImage(named: thumbnailUrl)
-        }
+        let thumbnail = UIImage(named: by.thumbnailUrl)
         target.setTitle(title: by.displayTitle)
         target.setThumbnail(thumbnail: thumbnail)
         target.setChannelName(channelName: by.channel.name)
         target.setViewCount(viewCount: viewCount)
         target.setCreateTime(createTime: creatTime)
-    }
-    
-    func setLiveCell(target: VideoCollectionViewCell, by: Video) {
-        var viewCount = ""
-        let creatTime = "• \(Convert.getDistFromCurrentTime(time: by.createTime))"
-        var thumbnail: UIImage?
-        if let live = by.live {
-            viewCount = "▶︎ \(Convert.getStringNumToCommaFormat(number: live.playCount))"
-            thumbnail = UIImage(named: live.thumbnailUrl)
-        }
-        target.setTitle(title: by.displayTitle)
-        target.setChannelName(channelName: by.channel.name)
-        target.setCreateTime(createTime: creatTime)
-        target.setThumbnail(thumbnail: thumbnail)
-        target.setViewCount(viewCount: viewCount)
     }
 }
 
@@ -106,22 +89,20 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         var height: CGFloat
         var size: CGSize
         if isPad() {
-            if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown{
+            if UIDevice.current.orientation.isPortrait {
                 width = (collectionView.frame.width - 20)/2
                 height = collectionView.frame.height/3
             }
             else {
-                
                 width = (collectionView.frame.width - 20)/3
                 height = collectionView.frame.height/2
             }
             size = CGSize(width: width, height: height)
-            
         }
         else{
-            if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown{
-            width = collectionView.frame.width - 20
-            height = collectionView.frame.height/2
+            if UIDevice.current.orientation.isPortrait {
+                width = collectionView.frame.width - 20
+                height = collectionView.frame.height/2
             }
             else {
                 width = (collectionView.frame.width - 20)/2
