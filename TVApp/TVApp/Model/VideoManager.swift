@@ -24,11 +24,11 @@ class VideoManager {
         liveContents = JSON.parsingVideoJson(from: "live")
     }
     
-    func getOriginalContent(at: Int) -> Video? {
+    func getOriginalContent(at: Int) -> Video {
         return originalContents[at]
     }
     
-    func getLiveContent(at: Int) -> Video? {
+    func getLiveContent(at: Int) -> Video {
         return liveContents[at]
     }
     

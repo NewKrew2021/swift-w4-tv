@@ -8,64 +8,88 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
-    @IBOutlet weak var videoTypeSegmentControl: UISegmentedControl!
-    @IBOutlet weak var videoCollectionView: UICollectionView!
-    let videoManager = VideoManager.instance
-    var videoType: Video.VideoType = .CLIP
-    
+    @IBOutlet var videoTypeSegmentControl: UISegmentedControl!
+    @IBOutlet var videoCollectionView: UICollectionView!
+    private let videoManager = VideoManager.instance
+    private var videoType: Video.VideoType = .CLIP
+    private var cellSize = CGSize()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        calculateCellSize(viewWidth: nil)
+//        videoCollectionView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadContents(_:)), name: .contentsChanged, object: nil)
     }
-    
+
     func initView() {
-        self.videoCollectionView.delegate = self
-        self.videoCollectionView.dataSource = self
-        
+        videoCollectionView.delegate = self
+        videoCollectionView.dataSource = self
+
         videoTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
-        videoTypeSegmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
+        videoTypeSegmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2 / 3).isActive = true
     }
-    
-    @IBAction func changeSegment(_ sender: Any) {
-        videoType = videoType == .CLIP ? .LIVE : .CLIP
-        videoCollectionView.reloadData()
-    }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        calculateCellSize(viewWidth: size.width)
+//        videoCollectionView.reloadData()
+        NotificationCenter.default.post(name: .contentsChanged, object: nil)
+    }
+
+    @IBAction func changeSegment(_: Any) {
+        videoType = videoType == .CLIP ? .LIVE : .CLIP
+//        videoCollectionView.reloadData()
+        NotificationCenter.default.post(name: .contentsChanged, object: nil)
+    }
+
+    func calculateCellSize(viewWidth: CGFloat?) {
+        var width = (viewWidth ?? UIScreen.main.bounds.width) - 20
+        var height: CGFloat
+        if isPhone() {
+            if UIDevice.current.orientation.isLandscape {
+                width /= 2
+            }
+        } else {
+            if UIDevice.current.orientation.isLandscape {
+                width /= 3
+            }
+            else{
+                width /= 2
+            }
+        }
+        height = width * 0.75
+        cellSize = CGSize(width: width, height: height)
+    }
+
+    func isPhone() -> Bool {
+        return UIDevice.current.userInterfaceIdiom == .phone ? true : false
+    }
+
+    @objc func reloadContents(_: Notification) {
         videoCollectionView.reloadData()
     }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return videoType == Video.VideoType.CLIP ? videoManager.originalCount : videoManager.liveCount
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath)
-        guard let videoCell = cell as? VideoCollectionViewCell else {return cell}
-        switch videoType {
-        case .CLIP:
-            if let original = videoManager.getOriginalContent(at: indexPath.item){
-                setCell(target: videoCell, by: original)
-            }
-        case .LIVE:
-            if let live = videoManager.getLiveContent(at: indexPath.item){
-                setCell(target: videoCell, by: live)
-            }
-        }
-        
+        guard let videoCell = cell as? VideoCollectionViewCell else { return cell }
+        let video = videoType == .CLIP ? videoManager.getOriginalContent(at: indexPath.item) : videoManager.getLiveContent(at: indexPath.item)
+        setCell(target: videoCell, by: video)
         return videoCell
     }
-    
+
     func setCell(target: VideoCollectionViewCell, by: Video) {
         let viewCount = "▶︎ \(Convert.getStringNumToCommaFormat(number: by.visitCount))"
         let creatTime = "• \(Convert.getDistFromCurrentTime(time: by.createTime))"
         let thumbnail = UIImage(named: by.thumbnailUrl)
+
         target.setTitle(title: by.displayTitle)
         target.setThumbnail(thumbnail: thumbnail)
         target.setChannelName(channelName: by.channel.name)
@@ -75,45 +99,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumLineSpacingForSectionAt _: Int) -> CGFloat {
         return 5
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumInteritemSpacingForSectionAt _: Int) -> CGFloat {
+        return 5
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width: CGFloat
-        var height: CGFloat
-        var size: CGSize
-        if isPad() {
-            if UIDevice.current.orientation.isPortrait {
-                width = (collectionView.frame.width - 20)/2
-                height = collectionView.frame.height/3
-            }
-            else {
-                width = (collectionView.frame.width - 20)/3
-                height = collectionView.frame.height/2
-            }
-            size = CGSize(width: width, height: height)
-        }
-        else{
-            if UIDevice.current.orientation.isPortrait {
-                width = collectionView.frame.width - 20
-                height = collectionView.frame.height/2
-            }
-            else {
-                width = (collectionView.frame.width - 20)/2
-                height = collectionView.frame.height
-            }
-            size = CGSize(width: width, height: height)
-        }
-        return size
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+        return cellSize
     }
-    
-    func isPad() -> Bool {
-        return UIDevice.current.userInterfaceIdiom == .pad ? true : false
-    }
+}
+
+extension Notification.Name {
+    static let contentsChanged = Notification.Name("contentsChanged")
 }
