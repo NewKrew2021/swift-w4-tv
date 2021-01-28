@@ -12,8 +12,9 @@ struct Clip: Codable {
     let title: String
     let duration: Int
     let thumbnailURL: String
-  
+    let createTime: String
+    let id: Int
     enum CodingKeys: String, CodingKey {
-        case title, duration, thumbnailURL = "thumbnailUrl"
+        case title, duration, thumbnailURL = "thumbnailUrl", createTime, id
     }
 }

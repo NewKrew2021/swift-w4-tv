@@ -27,11 +27,19 @@ class MainViewController: UIViewController {
     private var cellheight = CGFloat()
     
     private var flag = true
+    private var favoritePrograms = favorite()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initMainViewController()
+        setLongPressGestureRecognizer()
+        NotificationCenter.default.addObserver(self, selector: #selector(saveFunc(_:)), name: NSNotification.Name("saveData"), object: nil)
     }
+    
+    @objc func saveFunc(_ notification: Notification){
+        favoritePrograms.saveUserDefault()
+    }
+    
     func initMainViewController(){
         initNavigationBar()
         initSearchBar()
@@ -140,6 +148,38 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
             cellwidth = 0
         }
         cellheight = cellwidth * 0.8
+    }
+}
+
+extension MainViewController {
+    func setLongPressGestureRecognizer(){
+        let LongPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.LongPressView(_:)))
+        LongPress.minimumPressDuration = 2
+        self.view.addGestureRecognizer(LongPress)
+    }
+    
+    @objc func LongPressView(_ sender: UILongPressGestureRecognizer){
+        if let indexPath = self.myCollectionView?.indexPathForItem(at: sender.location(in: self.myCollectionView)) {
+            let cell = self.myCollectionView?.cellForItem(at: indexPath)
+            
+            if  (sender.state != UIGestureRecognizer.State.ended && sender.state != UIGestureRecognizer.State.cancelled && sender.state != UIGestureRecognizer.State.failed
+                && sender.state != UIGestureRecognizer.State.changed) {
+                let title : String
+                let name : String
+                let id : Int
+                switch type {
+                case .Original:
+                    title = jsonData.originalPrograms[indexPath[1]].clip.title
+                    name = jsonData.originalPrograms[indexPath[1]].channel.name
+                    id = jsonData.originalPrograms[indexPath[1]].clip.id
+                default:
+                    title = jsonData.livePrograms[indexPath[1]].live.title
+                    name = jsonData.livePrograms[indexPath[1]].channel.name
+                    id = jsonData.livePrograms[indexPath[1]].live.id
+                }
+                favoritePrograms.addOrRemoveProgram(title: title, channelName: name, id: id)
+            }
+        }
     }
 }
 
