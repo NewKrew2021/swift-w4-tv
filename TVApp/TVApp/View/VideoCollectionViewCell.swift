@@ -14,6 +14,9 @@ class VideoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var channelName: UILabel!
     @IBOutlet weak var viewCount: UILabel!
     @IBOutlet weak var createTime: UILabel!
+    @IBOutlet weak var contentInfo: UILabel!
+    @IBOutlet weak var liveBadge: UILabel!
+    
     func setThumbnail(thumbnail: UIImage?) {
         self.thumbnail.image = thumbnail
     }
@@ -32,5 +35,17 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     func setCreateTime(createTime: String) {
         self.createTime.text = createTime
+    }
+    
+    func setContentInfo(contentInfo: String) {
+        self.contentInfo.text = contentInfo
+    }
+    
+    func showLiveBadge() {
+        liveBadge.isHidden = false
+    }
+    
+    func hideLiveBadge() {
+        liveBadge.isHidden = true
     }
 }

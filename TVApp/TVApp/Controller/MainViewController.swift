@@ -90,11 +90,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let creatTime = "• \(Convert.getDistFromCurrentTime(time: by.createTime))"
         let thumbnail = UIImage(named: by.thumbnailUrl)
 
+        if videoType == .CLIP {
+            target.hideLiveBadge()
+        }
+        else {
+            target.showLiveBadge()
+        }
+        
         target.setTitle(title: by.displayTitle)
         target.setThumbnail(thumbnail: thumbnail)
         target.setChannelName(channelName: by.channel.name)
         target.setViewCount(viewCount: viewCount)
         target.setCreateTime(createTime: creatTime)
+        target.setContentInfo(contentInfo: by.contentInfo)
     }
 }
 

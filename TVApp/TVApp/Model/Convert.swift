@@ -44,4 +44,10 @@ class Convert {
         }
         return distance
     }
+    
+    static func durationToString(duration: Int) -> String {
+        let hour = duration / 60
+        let minute = duration % 60
+        return "\(hour):\(minute)"
+    }
 }

@@ -84,26 +84,46 @@
                                                         <constraint firstItem="Wa4-cx-3NS" firstAttribute="top" secondItem="z5v-0z-rtH" secondAttribute="top" id="uOk-vD-mzS"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0q-Bt-dge">
+                                                    <rect key="frame" x="319.66666666666669" y="182.66666666666666" width="35.333333333333314" height="17"/>
+                                                    <color key="backgroundColor" red="0.44504061612215906" green="0.44504061612215906" blue="0.44504061612215906" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Live " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyN-EY-9zY">
+                                                    <rect key="frame" x="15.999999999999996" y="16" width="36.666666666666657" height="18"/>
+                                                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <viewLayoutGuide key="safeArea" id="MaC-Rl-HtU"/>
                                         <constraints>
+                                            <constraint firstItem="xyN-EY-9zY" firstAttribute="leading" secondItem="01U-re-R4D" secondAttribute="leading" constant="8" id="48F-sI-M5Y"/>
                                             <constraint firstItem="01U-re-R4D" firstAttribute="top" secondItem="Ry7-YJ-ivF" secondAttribute="topMargin" id="5Xw-BD-yTu"/>
                                             <constraint firstAttribute="trailing" secondItem="z5v-0z-rtH" secondAttribute="trailing" id="76d-WH-XoZ"/>
                                             <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="z5v-0z-rtH" secondAttribute="bottom" constant="5" id="Fd6-0C-Wji"/>
                                             <constraint firstItem="SoQ-qK-k5t" firstAttribute="leading" secondItem="01U-re-R4D" secondAttribute="leading" id="HQi-3i-Tzt"/>
                                             <constraint firstItem="SoQ-qK-k5t" firstAttribute="top" secondItem="01U-re-R4D" secondAttribute="bottom" constant="5" id="IUS-AB-QV8"/>
+                                            <constraint firstItem="xyN-EY-9zY" firstAttribute="top" secondItem="01U-re-R4D" secondAttribute="top" constant="8" id="Ovu-6X-WnN"/>
                                             <constraint firstAttribute="trailing" secondItem="SoQ-qK-k5t" secondAttribute="trailing" id="WK6-4J-nD9"/>
+                                            <constraint firstItem="01U-re-R4D" firstAttribute="bottom" secondItem="P0q-Bt-dge" secondAttribute="bottom" constant="8" id="ZWR-gq-ueR"/>
                                             <constraint firstItem="01U-re-R4D" firstAttribute="leading" secondItem="Ry7-YJ-ivF" secondAttribute="leadingMargin" id="aWR-Bc-0Db"/>
                                             <constraint firstItem="z5v-0z-rtH" firstAttribute="top" secondItem="SoQ-qK-k5t" secondAttribute="bottom" constant="5" id="fOR-YN-tTL"/>
                                             <constraint firstItem="z5v-0z-rtH" firstAttribute="leading" secondItem="SoQ-qK-k5t" secondAttribute="leading" id="j8R-X8-uKV"/>
+                                            <constraint firstItem="01U-re-R4D" firstAttribute="trailing" secondItem="P0q-Bt-dge" secondAttribute="trailing" constant="8" id="jsK-Nn-0co"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="01U-re-R4D" secondAttribute="trailing" id="red-Jj-RCc"/>
                                         </constraints>
                                         <size key="customSize" width="371" height="392"/>
                                         <connections>
                                             <outlet property="channelName" destination="45B-AQ-DfT" id="61U-ta-Vkm"/>
+                                            <outlet property="contentInfo" destination="P0q-Bt-dge" id="FFo-4M-m52"/>
                                             <outlet property="createTime" destination="xLa-oR-ctJ" id="Yb5-QH-cFu"/>
-                                            <outlet property="thumbnail" destination="01U-re-R4D" id="5cL-eS-oJU"/>
+                                            <outlet property="liveBadge" destination="xyN-EY-9zY" id="GlG-zF-hde"/>
+                                            <outlet property="thumbnail" destination="01U-re-R4D" id="xPV-ko-qut"/>
                                             <outlet property="title" destination="SoQ-qK-k5t" id="lyR-TH-Omy"/>
                                             <outlet property="viewCount" destination="Wa4-cx-3NS" id="hND-xc-r46"/>
                                         </connections>
@@ -179,6 +199,9 @@
         <image name="live01" width="480" height="270"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

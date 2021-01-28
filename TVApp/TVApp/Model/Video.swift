@@ -15,9 +15,6 @@ struct Video: Codable {
     let createTime: String
     let videoType: VideoType
     var visitCount: Int {
-        if let live = live {
-            return live.playCount
-        }
         return channel.visitCount
     }
     var thumbnailUrl: String {
@@ -26,6 +23,15 @@ struct Video: Codable {
         }
         else if let clip = clip {
             return clip.thumbnailUrl
+        }
+        return ""
+    }
+    var contentInfo: String {
+        if let live = live {
+            return "🎧\(live.playCount)"
+        }
+        else if let clip = clip {
+            return Convert.durationToString(duration: clip.duration)
         }
         return ""
     }
