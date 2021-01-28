@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
     }
     
     func initView() {
-        mainCollectionView.initView()
+        mainCollectionView.initView(device: UIDevice.current)
     }
     
     @IBAction func mainSegmentChanged(_ sender: UISegmentedControl) {
@@ -35,4 +35,10 @@ class MainViewController: UIViewController {
         mainCollectionView.reloadData()
         
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        mainCollectionView.setLayout(device: UIDevice.current)
+    }
+
 }
