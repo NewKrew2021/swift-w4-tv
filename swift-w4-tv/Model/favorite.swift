@@ -21,6 +21,8 @@ class favorite {
     init(){
         favoriteList = UserDefault.getData()
         listCnt = favoriteList.count
+        
+        printAll()
     }
     
     func addOrRemoveProgram(title: String, channelName: String, id: Int){
@@ -34,16 +36,28 @@ class favorite {
     }
     
     func addProgram(title: String, channelName: String, id: Int){
+        print("추가")
         favoriteList.append(favoriteProgram(title: title, channelName: channelName, id: id))
+        printAll()
     }
     
     func remove(index: Int){
         favoriteList.remove(at: index)
+        
+        print("삭제")
+        printAll()
     }
     
     func saveUserDefault(){
-        UserDefaults.standard.removeObject(forKey: "histories")
+        UserDefaults.standard.removeObject(forKey: "favorite")
         UserDefault.addData(self.favoriteList)
+        printAll()
+    }
+    
+    func printAll(){
+        for t in favoriteList {
+            print("\(t.title) \(t.id)")
+        }
     }
 }
 

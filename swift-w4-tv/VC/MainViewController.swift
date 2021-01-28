@@ -33,6 +33,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         initMainViewController()
         setLongPressGestureRecognizer()
+        NotificationCenter.default.addObserver(self, selector: #selector(saveFunc(_:)), name: NSNotification.Name("saveData"), object: nil)
+    }
+    
+    @objc func saveFunc(_ notification: Notification){
+        favoritePrograms.saveUserDefault()
     }
     
     func initMainViewController(){
