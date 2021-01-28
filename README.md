@@ -33,7 +33,3 @@
 ![Simulator Screen Shot - iPad (7th generation) - 2021-01-28 at 16 29 30](https://user-images.githubusercontent.com/28801805/106104659-17ef4200-6186-11eb-8724-acf53dcef959.png)
 ![Simulator Screen Shot - iPhone 11 - 2021-01-28 at 16 29 52](https://user-images.githubusercontent.com/28801805/106104666-19b90580-6186-11eb-8983-a4411d76594d.png)
 ![Simulator Screen Shot - iPhone 11 - 2021-01-28 at 16 29 57](https://user-images.githubusercontent.com/28801805/106104676-1b82c900-6186-11eb-991b-b23a223c77e4.png)
-![Simulator Screen Shot - iPad (7th generation) - 2021-01-28 at 16 29 30](https://user-images.githubusercontent.com/28801805/106104687-1e7db980-6186-11eb-9369-9119779165a7.png)
-![Simulator Screen Shot - iPhone 11 - 2021-01-28 at 16 29 52](https://user-images.githubusercontent.com/28801805/106104702-22114080-6186-11eb-91db-54c3bc9ec8ba.png)
-![Simulator Screen Shot - iPhone 11 - 2021-01-28 at 16 29 57](https://user-images.githubusercontent.com/28801805/106104707-23db0400-6186-11eb-8a10-2853287bfdd1.png)
-
