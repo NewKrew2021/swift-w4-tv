@@ -19,12 +19,14 @@ struct Clip : Codable {
     let thumbnailUrl : String
     let duration : Int
     let title : String
+    let id : Int
 }
 
 struct Live : Codable {
     let thumbnailUrl : String
     let playCount : Int
     let title : String
+    let id : Int
 }
 
 struct TVOriginal : Codable {
@@ -54,6 +56,10 @@ struct TVOriginal : Codable {
     func getClipTitle() -> String {
         return clip.title
     }
+    
+    func getIClipId() -> Int {
+        return clip.id
+    }
 }
 
 struct TVLive : Codable {
@@ -82,5 +88,9 @@ struct TVLive : Codable {
     
     func getLiveTitle() -> String {
         return live.title
+    }
+    
+    func getLiveId() -> Int {
+        return live.id
     }
 }

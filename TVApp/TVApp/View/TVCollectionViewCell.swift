@@ -16,6 +16,7 @@ class TVCollectionViewCell: UICollectionViewCell {
     private var channelName = UILabel()
     private var channelVisitCount = UILabel()
     private var channelCreateTime = UILabel()
+    private var clipOrLiveId = UILabel()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -30,13 +31,14 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
 
     func setSubViews() {
+        self.layer.borderWidth = 3
         setThumbnailImage(standardView: contentView, padding: 10)
         setDurationOrPlayCount(standardView: thumbnailImage)
         setTitle(standardView: contentView, padding: 10)
         setChannelName(standradView: contentView, padding: 10)
         setChannelVisitCount(standardView: contentView, padding: 10)
         setChannelCreateTime(standardView: contentView, padding: 10)
-
+        setClipOrLiveId()
     }
     
     func addSubviews() {
@@ -46,6 +48,7 @@ class TVCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(channelName)
         contentView.addSubview(channelVisitCount)
         contentView.addSubview(channelCreateTime)
+        contentView.addSubview(clipOrLiveId)
     }
     
     func setCellData(segmentIndex : Int, dataIn : Any) {
@@ -65,6 +68,7 @@ class TVCollectionViewCell: UICollectionViewCell {
         self.channelName.text = data.getChannelName()
         self.channelVisitCount.text = MyConverter.convertChannelVisitCountToString(channelVisitCount: data.getVisitCount())
         self.channelCreateTime.text = MyConverter.convertChannelCreateTime(channelCreateTime: data.getCreateTime())
+        self.clipOrLiveId.text = String(data.getIClipId())
     }
     
     func setLiveData(data : TVLive) {
@@ -74,6 +78,11 @@ class TVCollectionViewCell: UICollectionViewCell {
         self.channelName.text = data.getChannelName()
         self.channelVisitCount.text = MyConverter.convertChannelVisitCountToString(channelVisitCount: data.getVisitCount())
         self.channelCreateTime.text = MyConverter.convertChannelCreateTime(channelCreateTime: data.getCreateTime())
+        self.clipOrLiveId.text = String(data.getLiveId())
+    }
+    
+    func setClipOrLiveId() {
+        clipOrLiveId.isHidden = true
     }
     
     func setChannelCreateTime(standardView : UIView, padding : CGFloat) {
@@ -138,7 +147,16 @@ class TVCollectionViewCell: UICollectionViewCell {
         thumbnailImage.centerXAnchor.constraint(equalTo: standardView.centerXAnchor).isActive = true
 //        thumbnailImage.leadingAnchor.constraint(equalTo: standardView.leadingAnchor, constant: padding).isActive = true
         thumbnailImage.trailingAnchor.constraint(equalTo: standardView.trailingAnchor, constant: -padding).isActive = true
+//        thumbnailImage.trailingAnchor.constraint(equalTo: standardView.trailingAnchor, constant: -padding).isActive = true
         thumbnailImage.heightAnchor.constraint(equalTo: thumbnailImage.widthAnchor, multiplier: 15/28).isActive = true
 //        thumbnailImage.heightAnchor.constraint(equalToConstant: standardView.frame.height * 0.65).isActive = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.next?.touchesBegan(touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.next?.touchesEnded(touches, with: event)
     }
 }

@@ -116,5 +116,14 @@
 
 ![image-20210127212215048](README.assets/image-20210127212215048.png)
 
+### 즐겨찾기
+
+- 즐겨찾기 기능을 추가하기 위해 새로운 모델 생성 : Like structure, Likes class
+- 즐겨찾기 기능을 추가하기 위해 responder chain을 활용, 2초동안 누른 상태를 구현하기 위해 DispatchQueue의 async 활용
+- 테이블 뷰 클래스 생성
+- 테이블 뷰 셀 클래스(+ xib) 생성
+
+![image-20210128235517579](README.assets/image-20210128235517579.png)
+
 
 
