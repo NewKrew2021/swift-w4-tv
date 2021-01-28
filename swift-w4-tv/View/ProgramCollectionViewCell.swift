@@ -36,6 +36,7 @@ class ProgramCollectionViewCell: UICollectionViewCell {
         initVisitCountLabel(standardView: contentView, padding: 1)
         initCreateTimeLabel(standardView: contentView, padding: 1)
         initDurationOrPlayCount(standardView: contentView, padding: 1)
+        
     }
     
     func setSubViews(indexPath: IndexPath, data: JsonParsing, dataTypeIndex: ProgramTypes) {
@@ -46,14 +47,14 @@ class ProgramCollectionViewCell: UICollectionViewCell {
             channelNameLabel.text = data.originalPrograms[indexPath[1]].channel.name
             visitCountLabel.text = "▶︎" + String(data.originalPrograms[indexPath[1]].channel.visitCount)
             durationOrPlayCount.text = convertDurationToString(duration: data.originalPrograms[indexPath[1]].clip.duration)
-            createTimeLabel.text = "•" + convertChannelCreateTime(channelCreateTime: data.originalPrograms[indexPath[1]].channel.createTime)
+            createTimeLabel.text = "•" + convertChannelCreateTime(channelCreateTime: data.originalPrograms[indexPath[1]].clip.createTime)
         default:
             titleLabel.text = data.livePrograms[indexPath[1]].live.title
             tvImage.image = UIImage(named: data.livePrograms[indexPath[1]].live.thumbnailURL)
             channelNameLabel.text = data.livePrograms[indexPath[1]].channel.name
             visitCountLabel.text = "▶︎" + String(data.livePrograms[indexPath[1]].channel.visitCount)
             durationOrPlayCount.text = "☊ \(data.livePrograms[indexPath[1]].live.playCount)"
-            createTimeLabel.text = "•" + convertChannelCreateTime(channelCreateTime: data.livePrograms[indexPath[1]].channel.createTime)
+            createTimeLabel.text = "•" + convertChannelCreateTime(channelCreateTime: data.livePrograms[indexPath[1]].live.createTime)
         }
     }
     
