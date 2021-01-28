@@ -48,7 +48,7 @@ class SQLite {
         let insertQuery = "insert into Favorite (ID, TITLE, CHANNEL) values (?,?,?)"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare(db, insertQuery, -1, &insertStatement, nil) == SQLITE_OK {
-            
+
             sqlite3_bind_int(insertStatement, 1, Int32(favorite.id))
             sqlite3_bind_text(insertStatement, 2, (favorite.title as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 3, (favorite.channel as NSString).utf8String, -1, nil)
