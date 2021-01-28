@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
     private var cellheight = CGFloat()
     
     private var flag = true
+    private var favoritePrograms = favorite()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,10 +157,22 @@ extension MainViewController {
         if let indexPath = self.myCollectionView?.indexPathForItem(at: sender.location(in: self.myCollectionView)) {
             let cell = self.myCollectionView?.cellForItem(at: indexPath)
             
-            if  (sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled || sender.state == UIGestureRecognizer.State.failed
-                || sender.state == UIGestureRecognizer.State.changed) { return }
-            else{
-                print("you can do something with the cell or index path here")
+            if  (sender.state != UIGestureRecognizer.State.ended && sender.state != UIGestureRecognizer.State.cancelled && sender.state != UIGestureRecognizer.State.failed
+                && sender.state != UIGestureRecognizer.State.changed) {
+                let title : String
+                let name : String
+                let id : Int
+                switch type {
+                case .Original:
+                    title = jsonData.originalPrograms[indexPath[1]].clip.title
+                    name = jsonData.originalPrograms[indexPath[1]].channel.name
+                    id = jsonData.originalPrograms[indexPath[1]].clip.id
+                default:
+                    title = jsonData.livePrograms[indexPath[1]].live.title
+                    name = jsonData.livePrograms[indexPath[1]].channel.name
+                    id = jsonData.livePrograms[indexPath[1]].live.id
+                }
+                favoritePrograms.addOrRemoveProgram(title: title, channelName: name, id: id)
             }
         }
     }
