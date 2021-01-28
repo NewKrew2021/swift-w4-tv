@@ -14,25 +14,33 @@ class MainCollectionView: UICollectionView {
     private var TVDatas = TVData()
     var currentSegment = EnumModel.VideoType.original
     
-    func initView() {
+    func initView(device: UIDevice) {
         
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.delegate = self
         self.dataSource = self
-        initLayout()
+        setLayout(device: device)
         
     }
     
-    func initLayout() {
+    func setLayout(device: UIDevice) {
+        
+        var itemCount = 1
+        if((device.userInterfaceIdiom == .phone && device.orientation.isLandscape) || (device.userInterfaceIdiom == .pad && !device.orientation.isLandscape)) {
+            itemCount = 2
+        }
+        else if(device.userInterfaceIdiom == .pad && device.orientation.isLandscape) {
+            itemCount = 3
+        }
         
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             //item 높이: 사진의 높이 + 텍스트 높이 + view 간격 합
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(self.frame.width * 37/62 + 40 + 25))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(self.frame.width / CGFloat(itemCount) * (37/62) + 40 + 25))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: itemSize.heightDimension)
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: itemCount)
 
             let section = NSCollectionLayoutSection(group: group)
             return section
