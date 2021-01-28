@@ -33,3 +33,10 @@
 ![Simulator Screen Shot - iPad (7th generation) - 2021-01-28 at 16 29 30](https://user-images.githubusercontent.com/28801805/106104659-17ef4200-6186-11eb-8724-acf53dcef959.png)
 ![Simulator Screen Shot - iPhone 11 - 2021-01-28 at 16 29 52](https://user-images.githubusercontent.com/28801805/106104666-19b90580-6186-11eb-8983-a4411d76594d.png)
 ![Simulator Screen Shot - iPhone 11 - 2021-01-28 at 16 29 57](https://user-images.githubusercontent.com/28801805/106104676-1b82c900-6186-11eb-991b-b23a223c77e4.png)
+
+
+
+7. make Favorite Table
+- SQLite Favorite Table 생성
+![스크린샷 2021-01-28 오후 6 03 41](https://user-images.githubusercontent.com/28801805/106114711-3871c900-6193-11eb-86de-d7d15ce5a75e.png)
+

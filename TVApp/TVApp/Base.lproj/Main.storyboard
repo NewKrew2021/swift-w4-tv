@@ -154,7 +154,7 @@
                     <navigationItem key="navigationItem" title="kakaoTV" id="erh-mI-6iI">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="heart.fill" catalog="system" id="aWh-T8-jbo">
                             <connections>
-                                <segue destination="pI8-Gn-Lko" kind="show" id="Jrb-a2-i9I"/>
+                                <segue destination="pI8-Gn-Lko" kind="presentation" id="3ve-XJ-2wZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -167,12 +167,12 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="122.54464285714285"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Favorit View Controller-->
         <scene sceneID="VmK-JB-hp1">
             <objects>
-                <tableViewController id="pI8-Gn-Lko" sceneMemberID="viewController">
+                <tableViewController id="pI8-Gn-Lko" customClass="FavoritViewController" customModule="TVApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vvj-gD-dEn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
