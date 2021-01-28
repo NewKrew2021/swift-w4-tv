@@ -21,6 +21,11 @@
 		D263E91F25BEEDE1001F4F30 /* TVCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */; };
 		D263E92925BEF328001F4F30 /* TVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E92825BEF328001F4F30 /* TVCollectionViewCell.swift */; };
 		D263E92E25BF0DBA001F4F30 /* TVCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263E92D25BF0DBA001F4F30 /* TVCellData.swift */; };
+		D268F48225C2D74D001DDF58 /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268F48125C2D74D001DDF58 /* MyCollectionView.swift */; };
+		D268F48725C2EB12001DDF58 /* Likes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268F48625C2EB12001DDF58 /* Likes.swift */; };
+		D268F48C25C2F6B6001DDF58 /* LikesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268F48B25C2F6B6001DDF58 /* LikesTableViewController.swift */; };
+		D268F49A25C2F93D001DDF58 /* LikesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268F49825C2F93D001DDF58 /* LikesTableViewCell.swift */; };
+		D268F49B25C2F93D001DDF58 /* LikesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D268F49925C2F93D001DDF58 /* LikesTableViewCell.xib */; };
 		D2D6FD0425C10A8B00029F0D /* MyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D6FD0325C10A8B00029F0D /* MyConverter.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +67,11 @@
 		D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCollectionViewController.swift; sourceTree = "<group>"; };
 		D263E92825BEF328001F4F30 /* TVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCollectionViewCell.swift; sourceTree = "<group>"; };
 		D263E92D25BF0DBA001F4F30 /* TVCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCellData.swift; sourceTree = "<group>"; };
+		D268F48125C2D74D001DDF58 /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
+		D268F48625C2EB12001DDF58 /* Likes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Likes.swift; sourceTree = "<group>"; };
+		D268F48B25C2F6B6001DDF58 /* LikesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesTableViewController.swift; sourceTree = "<group>"; };
+		D268F49825C2F93D001DDF58 /* LikesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesTableViewCell.swift; sourceTree = "<group>"; };
+		D268F49925C2F93D001DDF58 /* LikesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikesTableViewCell.xib; sourceTree = "<group>"; };
 		D2D6FD0325C10A8B00029F0D /* MyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +162,7 @@
 			children = (
 				D263E90925BEB570001F4F30 /* TVCellModel.swift */,
 				D263E92D25BF0DBA001F4F30 /* TVCellData.swift */,
+				D268F48625C2EB12001DDF58 /* Likes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				D263E92825BEF328001F4F30 /* TVCollectionViewCell.swift */,
+				D268F48125C2D74D001DDF58 /* MyCollectionView.swift */,
+				D268F49825C2F93D001DDF58 /* LikesTableViewCell.swift */,
+				D268F49925C2F93D001DDF58 /* LikesTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +183,7 @@
 			children = (
 				D251F5C925BE63A500E8783B /* ViewController.swift */,
 				D263E91E25BEEDE1001F4F30 /* TVCollectionViewController.swift */,
+				D268F48B25C2F6B6001DDF58 /* LikesTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,6 +317,7 @@
 			files = (
 				D251F5D225BE63A800E8783B /* LaunchScreen.storyboard in Resources */,
 				D251F5CF25BE63A800E8783B /* Assets.xcassets in Resources */,
+				D268F49B25C2F93D001DDF58 /* LikesTableViewCell.xib in Resources */,
 				D263E90025BEB4DD001F4F30 /* original.json in Resources */,
 				D263E90525BEB4E2001F4F30 /* live.json in Resources */,
 				D251F5CD25BE63A500E8783B /* Main.storyboard in Resources */,
@@ -331,9 +347,13 @@
 			files = (
 				D263E91F25BEEDE1001F4F30 /* TVCollectionViewController.swift in Sources */,
 				D251F5CA25BE63A500E8783B /* ViewController.swift in Sources */,
+				D268F49A25C2F93D001DDF58 /* LikesTableViewCell.swift in Sources */,
 				D2D6FD0425C10A8B00029F0D /* MyConverter.swift in Sources */,
+				D268F48C25C2F6B6001DDF58 /* LikesTableViewController.swift in Sources */,
 				D251F5C625BE63A500E8783B /* AppDelegate.swift in Sources */,
+				D268F48725C2EB12001DDF58 /* Likes.swift in Sources */,
 				D251F5C825BE63A500E8783B /* SceneDelegate.swift in Sources */,
+				D268F48225C2D74D001DDF58 /* MyCollectionView.swift in Sources */,
 				D263E90A25BEB570001F4F30 /* TVCellModel.swift in Sources */,
 				D263E92925BEF328001F4F30 /* TVCollectionViewCell.swift in Sources */,
 				D263E92E25BF0DBA001F4F30 /* TVCellData.swift in Sources */,

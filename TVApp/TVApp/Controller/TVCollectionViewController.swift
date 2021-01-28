@@ -11,18 +11,19 @@ class TVCollectionViewController: UIViewController {
     private let originalData = OriginalData()
     private let liveData = LiveData()
     private var segmentIndex = 0
+    private var cellcount = 0
     private var cellwidth = CGFloat()
     private var cellheight = CGFloat()
-    private var cellcount = 0
     private var flag = false
+    private var workItem = DispatchWorkItem() {}
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var TVCollectionView: UICollectionView!
+    @IBOutlet weak var TVCollectionView: MyCollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        overrideUserInterfaceStyle = .dark
-        navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: nil), animated: true)
+        navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(likesButtonTouched)), animated: true)
         
         guard let layout = TVCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         layout.estimatedItemSize = .zero
@@ -32,7 +33,7 @@ class TVCollectionViewController: UIViewController {
 
         TVCollectionView.delegate = self
         TVCollectionView.dataSource = self
-    }
+        }
 
     @IBAction func segmentControlChanged(_ sender: Any) {
         segmentIndex = segmentControl.selectedSegmentIndex
@@ -45,7 +46,24 @@ class TVCollectionViewController: UIViewController {
         TVCollectionView.reloadData()
     }
 
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touchedContentView = touches.first?.view else { return }
+        guard let titleLabel = touchedContentView.subviews[2] as? UILabel else { return }
+        guard let channelNameLabel = touchedContentView.subviews[3] as? UILabel else { return }
+        guard let idLabel = touchedContentView.subviews[6] as? UILabel else { return }
+        let title = titleLabel.text ?? ""
+        let channelName = channelNameLabel.text ?? ""
+        guard let id = Int(idLabel.text!) else { return }
+        let time = DispatchTime.now() + .seconds(2)
+        workItem = DispatchWorkItem() {
+            Likes.insertOrDelete(like: Like(title: title, channelName: channelName, id: id))
+        }
+        DispatchQueue.main.asyncAfter(deadline: time, execute : workItem)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        workItem.cancel()
+    }
 }
 
 extension TVCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -90,5 +108,9 @@ extension TVCollectionViewController : UICollectionViewDataSource, UICollectionV
         }
         cellheight = cellwidth * 0.8
     }
+    
+    @objc func likesButtonTouched() {
+        let likesTableViewController = LikesTableViewController()
+        present(likesTableViewController, animated: true, completion: nil)
+    }
 }
-
