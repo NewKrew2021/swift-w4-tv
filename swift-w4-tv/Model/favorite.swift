@@ -23,33 +23,29 @@ class favorite {
         listCnt = favoriteList.count
     }
     
-    func addProgram(title: String, channelName: String, id: Int){
-        favoriteList.append(favoriteProgram(title: title, channelName: channelName, id: id))
-        printAll()
-    }
-    
-    func remove(id: Int){
+    func addOrRemoveProgram(title: String, channelName: String, id: Int){
         for t in 0..<favoriteList.count {
             if favoriteList[t].id == id {
-                favoriteList.remove(at: t)
+                remove(index: t)
                 return
             }
         }
-        printAll()
+        addProgram(title: title, channelName: channelName, id: id)
+    }
+    
+    func addProgram(title: String, channelName: String, id: Int){
+        favoriteList.append(favoriteProgram(title: title, channelName: channelName, id: id))
+    }
+    
+    func remove(index: Int){
+        favoriteList.remove(at: index)
     }
     
     func saveUserDefault(){
         UserDefaults.standard.removeObject(forKey: "histories")
         UserDefault.addData(self.favoriteList)
     }
-    
-    func printAll(){
-        for t in favoriteList{
-            print("\(t.title)  \(t.channelName)  \(t.id)")
-        }
-    }
 }
-
 
 struct UserDefault {
     
@@ -69,9 +65,4 @@ struct UserDefault {
             UserDefault.db.set(data, forKey: "favorite")
         }
     }
-}
-
-struct History: Codable {
-    let title: String
-    let date: String
 }
