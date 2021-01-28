@@ -7,50 +7,34 @@
 
 import Foundation
 
-protocol TvModelListType {
-    var list: [TvModel] { get }
-    var count: Int { get }
-    subscript(index: Int) -> TvModel { get set }
-}
+struct TvModel: Codable, Hashable {
 
-class TvModelList: TvModelListType {
-    var list: [TvModel]
-    var count: Int {
-        return list.count
-    }
-    init(list: [TvModel]) {
-        self.list = list
-    }
-    init() {
-        self.list = [TvModel]()
-    }
-    subscript(index: Int) -> TvModel {
-        get {
-            return self.list[index]
-        }
-        set {
-            self.list[index] = newValue
-        }
-    }
-}
-
-struct TvModel: Codable {
-    
     enum VideoType: String, Codable {
         case CLIP, LIVE
     }
-    
+
     let id: Int
     let channelId: Int
     let clipId: Int?
     let liveId: Int?
-    let displayTitle: String?
+    let displayTitle: String
     let createTime: String?
     let channel: Channel
     let clip: Clip?
     let live: Live?
     let videoType: VideoType
-    let duration: Int
+    let identifier = UUID()
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+    static func == (lhs: TvModel, rhs: TvModel) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+    func contains(_ filter: String?) -> Bool {
+        guard let filterText = filter else { return true }
+        if filterText.isEmpty { return true }
+        return displayTitle.contains(filterText)
+    }
 }
 
 struct Live: Codable {
