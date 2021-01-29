@@ -22,6 +22,10 @@ class Likes {
         }
     }
     
+    static func isIn(key : Int) -> Bool {
+        return likes[key] != nil ? true : false
+    }
+    
     static func getKeys() -> Dictionary<Int, Like>.Keys {
         return likes.keys
     }

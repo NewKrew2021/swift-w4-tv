@@ -17,6 +17,8 @@ class TVCollectionViewCell: UICollectionViewCell {
     private var channelVisitCount = UILabel()
     private var channelCreateTime = UILabel()
     private var clipOrLiveId = UILabel()
+    private let heartImage = UIImage(systemName: "heart.fill")
+    private let heartImageView = UIImageView()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -39,6 +41,7 @@ class TVCollectionViewCell: UICollectionViewCell {
         setChannelVisitCount(standardView: contentView, padding: 10)
         setChannelCreateTime(standardView: contentView, padding: 10)
         setClipOrLiveId()
+        setHeartImage()
     }
     
     func addSubviews() {
@@ -49,6 +52,7 @@ class TVCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(channelVisitCount)
         contentView.addSubview(channelCreateTime)
         contentView.addSubview(clipOrLiveId)
+        contentView.addSubview(heartImageView)
     }
     
     func setCellData(segmentIndex : Int, dataIn : Any) {
@@ -79,6 +83,17 @@ class TVCollectionViewCell: UICollectionViewCell {
         self.channelVisitCount.text = MyConverter.convertChannelVisitCountToString(channelVisitCount: data.getVisitCount())
         self.channelCreateTime.text = MyConverter.convertChannelCreateTime(channelCreateTime: data.getCreateTime())
         self.clipOrLiveId.text = String(data.getLiveId())
+    }
+    
+    func setHeartImage() {
+        heartImageView.image = heartImage
+        heartImageView.translatesAutoresizingMaskIntoConstraints = false
+        heartImageView.centerXAnchor.constraint(equalTo: thumbnailImage.centerXAnchor).isActive = true
+        heartImageView.centerYAnchor.constraint(equalTo: thumbnailImage.centerYAnchor).isActive = true
+        heartImageView.widthAnchor.constraint(equalTo: thumbnailImage.widthAnchor, multiplier: 0.4).isActive = true
+        heartImageView.heightAnchor.constraint(equalTo: thumbnailImage.widthAnchor, multiplier: 0.3).isActive = true
+        heartImageView.tintColor = .systemRed
+        heartImageView.isHidden = true
     }
     
     func setClipOrLiveId() {
