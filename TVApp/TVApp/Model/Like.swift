@@ -9,6 +9,9 @@ import Foundation
 
 struct Likes {
     private static var data = LikeData.getData() ?? [Int : Like]()
+    static var count : Int {
+        return data.count
+    }
     
     static func addOrRemoveLike(id : Int, like : Like) {
         if data[id] == nil {

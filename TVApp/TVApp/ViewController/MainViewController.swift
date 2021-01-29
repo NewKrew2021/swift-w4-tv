@@ -23,11 +23,12 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "suit.heart.fill"), style: .plain, target: self, action: #selector(clickedFavorite))
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.isUserInteractionEnabled = true
         
         NotificationCenter.default.addObserver(self,
                     selector: #selector(completedJsonParsing),
@@ -66,21 +67,21 @@ class MainViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         touchBeganTime = event?.timestamp ?? 0
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         let touchEndedTime = event?.timestamp ?? 0
         if touchEndedTime - touchBeganTime >= 1 {
-            let touchesCell : CollectionViewCell? = touches.first?.view?.superview?.superview?.findCollectionViewCell()
+            let touchesCell : CollectionViewCell? = touches.first?.view?.findCollectionViewCell()
             let cellData : Video? = touchesCell?.video
             var title = ""; var channelName = ""
             if currentType == .original {
                 title = cellData?.clip?.title ?? ""
                 channelName = cellData?.channel.name ?? ""
             }
-            print(title)
-            print(channelName)
         }
     }
 }

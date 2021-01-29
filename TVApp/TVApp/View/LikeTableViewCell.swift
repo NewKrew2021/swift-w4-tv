@@ -9,15 +9,11 @@ import UIKit
 
 class LikeTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subInfoLabel: UILabel!
+    
+    func setData(title:String, channelName:String, id:Int) {
+        self.titleLabel.text = title
+        self.subInfoLabel.text = "\(channelName) (\(id))"
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

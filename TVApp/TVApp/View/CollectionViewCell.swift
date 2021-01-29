@@ -33,10 +33,10 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.next?.touchesBegan(touches, with: event)
+        super.touchesBegan(touches, with: event)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.next?.touchesEnded(touches, with: event)
+        super.touchesEnded(touches, with: event)
     }
 }

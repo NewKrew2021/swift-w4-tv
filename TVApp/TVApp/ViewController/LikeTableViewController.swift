@@ -15,14 +15,21 @@ class LikeTableViewController: UITableViewController {
         
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "likeTableViewCell", for: indexPath) as! LikeTableViewCell
+        let likeId : Int = Array(Likes.getKeys())[indexPath.row]
+        let like : Like = Likes.getItem(key: likeId) ?? Like(title: "", channelName: "")
+        
+        cell.setData(title: like.title, channelName: like.channelName, id: likeId)
+        
+        return cell
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Likes.count
     }
 }
