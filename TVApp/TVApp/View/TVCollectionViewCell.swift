@@ -33,7 +33,6 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
 
     func setSubViews() {
-        self.layer.borderWidth = 3
         setThumbnailImage(standardView: contentView, padding: 10)
         setDurationOrPlayCount(standardView: thumbnailImage)
         setTitle(standardView: contentView, padding: 10)

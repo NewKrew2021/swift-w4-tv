@@ -144,3 +144,9 @@
 - sceneDidBecomeActive일 떄 UserDefault에서 데이터 가져오기
 - sceneWillResignActive일 때 UserDefault에 데이터 저장하기
 
+### SearchBar 생성
+
+- 스토리보드에서 searchbar 생성
+
+  ![image-20210129174419154](README.assets/image-20210129174419154.png)
+
