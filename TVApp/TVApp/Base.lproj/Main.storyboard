@@ -161,12 +161,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="61" id="fUo-lQ-18S">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="likeTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likeTableViewCell" rowHeight="61" id="fUo-lQ-18S" customClass="LikeTableViewCell" customModule="TVApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fUo-lQ-18S" id="2yy-Rv-nQ4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUM-6W-h0Q">
+                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUI-kF-ZgT">
+                                            <rect key="frame" x="20" y="34" width="374" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sUM-6W-h0Q" firstAttribute="top" secondItem="2yy-Rv-nQ4" secondAttribute="topMargin" id="6gC-EX-6Wk"/>
+                                        <constraint firstItem="mUI-kF-ZgT" firstAttribute="trailing" secondItem="2yy-Rv-nQ4" secondAttribute="trailingMargin" id="CeU-kT-lS0"/>
+                                        <constraint firstItem="sUM-6W-h0Q" firstAttribute="leading" secondItem="2yy-Rv-nQ4" secondAttribute="leadingMargin" id="Pb8-bD-4Ut"/>
+                                        <constraint firstItem="mUI-kF-ZgT" firstAttribute="bottom" secondItem="2yy-Rv-nQ4" secondAttribute="bottomMargin" id="a2O-fI-J32"/>
+                                        <constraint firstItem="mUI-kF-ZgT" firstAttribute="top" secondItem="sUM-6W-h0Q" secondAttribute="bottom" constant="2" id="cEm-bS-NS5"/>
+                                        <constraint firstItem="sUM-6W-h0Q" firstAttribute="trailing" secondItem="2yy-Rv-nQ4" secondAttribute="trailingMargin" id="d1P-U2-EKR"/>
+                                        <constraint firstItem="mUI-kF-ZgT" firstAttribute="leading" secondItem="2yy-Rv-nQ4" secondAttribute="leadingMargin" id="qT7-DP-ygB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
