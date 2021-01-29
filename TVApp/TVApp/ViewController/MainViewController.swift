@@ -77,11 +77,15 @@ class MainViewController: UIViewController {
         if touchEndedTime - touchBeganTime >= 1 {
             let touchesCell : CollectionViewCell? = touches.first?.view?.findCollectionViewCell()
             let cellData : Video? = touchesCell?.video
-            var title = ""; var channelName = ""
+            var title = ""
             if currentType == .original {
                 title = cellData?.clip?.title ?? ""
-                channelName = cellData?.channel.name ?? ""
+            } else {
+                title = cellData?.live?.title ?? ""
             }
+            let channelName = cellData?.channel.name ?? ""
+            let id = cellData?.id ?? 0
+            Likes.addOrRemoveLike(id: id, like: Like(title: title, channelName: channelName))
         }
     }
 }
