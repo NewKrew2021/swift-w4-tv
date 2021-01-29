@@ -104,6 +104,15 @@ class MainViewController: UIViewController {
         flag = !flag
         self.reloadData()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.next?.touchesBegan(touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.next?.touchesEnded(touches, with: event)
+    }
+    
 }
 
 extension MainViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
