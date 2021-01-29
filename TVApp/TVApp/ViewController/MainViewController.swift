@@ -61,7 +61,8 @@ class MainViewController: UIViewController {
     }
     
     @objc func clickedFavorite() {
-        
+        let likeVc = self.storyboard?.instantiateViewController(identifier: "likeViewController")
+        self.present(likeVc ?? UITableViewController(), animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
