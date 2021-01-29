@@ -51,12 +51,25 @@ class TVCollectionViewController: UIViewController {
         guard let titleLabel = touchedContentView.subviews[2] as? UILabel else { return }
         guard let channelNameLabel = touchedContentView.subviews[3] as? UILabel else { return }
         guard let idLabel = touchedContentView.subviews[6] as? UILabel else { return }
+        guard let heartImageView = touchedContentView.subviews[7] as? UIImageView else { return }
         let title = titleLabel.text ?? ""
         let channelName = channelNameLabel.text ?? ""
         guard let id = Int(idLabel.text!) else { return }
+        let likeIsIn = Likes.isIn(key: id)
+
+        
         let time = DispatchTime.now() + .seconds(2)
         workItem = DispatchWorkItem() {
             Likes.insertOrDelete(like: Like(title: title, channelName: channelName, id: id))
+            heartImageView.alpha = likeIsIn ? 1 : 0
+            heartImageView.isHidden = false
+            let duration = TimeInterval(0.7)
+            let animation = {
+                heartImageView.alpha = likeIsIn ? 0 : 1
+            }
+            UIView.animate(withDuration: duration, animations: animation) {_ in
+                heartImageView.isHidden = true
+            }
         }
         DispatchQueue.main.asyncAfter(deadline: time, execute : workItem)
     }

@@ -1,4 +1,4 @@
-# ㅎswift-w4-tv
+# swift-w4-tv
 모바일 4주차 TV 저장소
 
 
@@ -125,5 +125,28 @@
 
 ![image-20210128235517579](README.assets/image-20210128235517579.png)
 
+### 즐겨찾기 추가 / 삭제 시 애니메이션 추가
 
+- 셀의 subView로 ImageLabel 추가
+- Likes클래스에 해당 key값에 해당하는 데이터가 존재하는지 확인하는 isIn메소드 추가
+- UIView의 animate메소드를 활용하여 즐겨찾기 추가 / 삭제를 시각적으로 표현
+
+![image-20210129135823742](README.assets/image-20210129135823742.png)
+
+![image-20210129140044894](README.assets/image-20210129140044894.png)
+
+
+
+### UserDefault 활용
+
+- UserDefault 클래스 생성
+- Model에 Codable 상속
+- sceneDidBecomeActive일 떄 UserDefault에서 데이터 가져오기
+- sceneWillResignActive일 때 UserDefault에 데이터 저장하기
+
+### SearchBar 생성
+
+- 스토리보드에서 searchbar 생성
+
+  ![image-20210129174419154](README.assets/image-20210129174419154.png)
 
