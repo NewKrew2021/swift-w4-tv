@@ -28,7 +28,7 @@
                                     <segment title="라이브"/>
                                 </segments>
                             </segmentedControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OZo-CX-j2n">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OZo-CX-j2n" customClass="CollectionView" customModule="TVApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="191" width="374" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NEU-Mp-fQQ">
@@ -54,7 +54,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCx-zD-9vq">
                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="196"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMn-yb-W46">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMn-yb-W46" customClass="ThumbnailUIImageView" customModule="TVApp" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="333" height="196"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4S-cu-YMh" customClass="DurationUILabel" customModule="TVApp" customModuleProvider="target">

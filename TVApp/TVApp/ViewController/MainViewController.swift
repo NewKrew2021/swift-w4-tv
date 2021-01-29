@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     private var video : [Video] = []
     private var currentType : VideoType = .original
     private let json = Json()
+    private var workItem = DispatchWorkItem() {}
+    private var touchBeganTime : TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +63,25 @@ class MainViewController: UIViewController {
     @objc func clickedFavorite() {
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchBeganTime = event?.timestamp ?? 0
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touchEndedTime = event?.timestamp ?? 0
+        if touchEndedTime - touchBeganTime >= 1 {
+            let touchesCell : CollectionViewCell? = touches.first?.view?.superview?.superview?.findCollectionViewCell()
+            let cellData : Video? = touchesCell?.video
+            var title = ""; var channelName = ""
+            if currentType == .original {
+                title = cellData?.clip?.title ?? ""
+                channelName = cellData?.channel.name ?? ""
+            }
+            print(title)
+            print(channelName)
+        }
+    }
 }
 
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -70,6 +91,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+        cell.isUserInteractionEnabled = true
         if (self.currentType == .original) {
             cell.setOriginalData(video: video[indexPath.row])
         } else {
