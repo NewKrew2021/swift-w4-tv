@@ -137,3 +137,10 @@
 
 
 
+### UserDefault 활용
+
+- UserDefault 클래스 생성
+- Model에 Codable 상속
+- sceneDidBecomeActive일 떄 UserDefault에서 데이터 가져오기
+- sceneWillResignActive일 때 UserDefault에 데이터 저장하기
+

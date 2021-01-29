@@ -33,9 +33,17 @@ class Likes {
     static func getLkieItem(key : Int) -> Like{
         return likes[key]!
     }
+    
+    static func setLikes(dict : Dictionary<Int, Like>) {
+        likes = dict
+    }
+    
+    static func getLikes() -> Dictionary<Int, Like> {
+        return likes
+    }
 }
 
-struct Like : Hashable{
+struct Like : Hashable, Codable{
     let title : String
     let channelName : String
     let id : Int
