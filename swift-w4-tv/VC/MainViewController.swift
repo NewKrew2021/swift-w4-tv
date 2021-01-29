@@ -105,12 +105,26 @@ class MainViewController: UIViewController {
         self.reloadData()
     }
     
+    private var workItem = DispatchWorkItem() {}
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.next?.touchesBegan(touches, with: event)
+        guard let touchedContentView = touches.first?.view  else { return }
+
+                  guard let titleLabel = touchedContentView.subviews[1] as? UILabel else { return }
+                  guard let channelNameLabel = touchedContentView.subviews[2] as? UILabel else { return }
+                  guard let idLabel = touchedContentView.subviews[6] as? UILabel else { return }
+                  let title = titleLabel.text ?? ""
+                  let channelName = channelNameLabel.text ?? ""
+                  guard let id = Int(idLabel.text!) else { return }
+                  let time = DispatchTime.now() + .seconds(2)
+                  workItem = DispatchWorkItem() {
+                    favorite.addOrRemoveProgram(title: title, channelName: channelName, id: id)
+                  }
+                  DispatchQueue.main.asyncAfter(deadline: time, execute : workItem)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.next?.touchesEnded(touches, with: event)
+                  workItem.cancel()
     }
     
 }
