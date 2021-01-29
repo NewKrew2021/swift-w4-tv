@@ -14,18 +14,10 @@ struct favoriteProgram: Codable {
     var id : Int
 }
 
-class favorite {
-    var favoriteList : [favoriteProgram]
-    var listCnt : Int
+struct favorite {
+    static var favoriteList : [favoriteProgram] = UserDefault.getData()
     
-    init(){
-        favoriteList = UserDefault.getData()
-        listCnt = favoriteList.count
-        
-        printAll()
-    }
-    
-    func addOrRemoveProgram(title: String, channelName: String, id: Int){
+    static func addOrRemoveProgram(title: String, channelName: String, id: Int){
         for t in 0..<favoriteList.count {
             if favoriteList[t].id == id {
                 remove(index: t)
@@ -35,26 +27,26 @@ class favorite {
         addProgram(title: title, channelName: channelName, id: id)
     }
     
-    func addProgram(title: String, channelName: String, id: Int){
+    static func addProgram(title: String, channelName: String, id: Int){
         print("추가")
-        favoriteList.append(favoriteProgram(title: title, channelName: channelName, id: id))
+        self.favoriteList.append(favoriteProgram(title: title, channelName: channelName, id: id))
         printAll()
     }
     
-    func remove(index: Int){
-        favoriteList.remove(at: index)
+    static func remove(index: Int){
+        self.favoriteList.remove(at: index)
         
         print("삭제")
         printAll()
     }
     
-    func saveUserDefault(){
+    static func saveUserDefault(){
         UserDefaults.standard.removeObject(forKey: "favorite")
         UserDefault.addData(self.favoriteList)
         printAll()
     }
     
-    func printAll(){
+    static func printAll(){
         for t in favoriteList {
             print("\(t.title) \(t.id)")
         }
