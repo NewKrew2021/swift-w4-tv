@@ -13,6 +13,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var durationLabel: DurationUILabel!
     @IBOutlet weak var subInfoLabel: UILabel!
+    @IBOutlet weak var animationImageView: UIImageView!
     private let convert = Convert()
     var video : Video? = nil
     

@@ -64,14 +64,24 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c0W-x8-Sy6">
+                                                            <rect key="frame" x="141.5" y="73" width="50" height="50"/>
+                                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="2L9-zf-99H"/>
+                                                                <constraint firstAttribute="height" constant="50" id="SUg-Zl-519"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="c0W-x8-Sy6" firstAttribute="centerY" secondItem="QCx-zD-9vq" secondAttribute="centerY" id="0Tb-M0-1mu"/>
                                                         <constraint firstItem="XMn-yb-W46" firstAttribute="leading" secondItem="QCx-zD-9vq" secondAttribute="leading" id="CxL-I2-nbr"/>
                                                         <constraint firstItem="XMn-yb-W46" firstAttribute="top" secondItem="QCx-zD-9vq" secondAttribute="top" id="GNv-8e-3Qh"/>
                                                         <constraint firstAttribute="width" secondItem="QCx-zD-9vq" secondAttribute="height" multiplier="1.7:1" id="Urb-is-1MQ"/>
                                                         <constraint firstItem="z4S-cu-YMh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QCx-zD-9vq" secondAttribute="leading" constant="8" id="bac-MD-KsW"/>
                                                         <constraint firstAttribute="bottom" secondItem="z4S-cu-YMh" secondAttribute="bottom" constant="8" id="bxd-j9-oT2"/>
+                                                        <constraint firstItem="c0W-x8-Sy6" firstAttribute="centerX" secondItem="QCx-zD-9vq" secondAttribute="centerX" id="lCx-kQ-8dh"/>
                                                         <constraint firstAttribute="trailing" secondItem="z4S-cu-YMh" secondAttribute="trailing" constant="8" id="mGf-VT-MuP"/>
                                                         <constraint firstAttribute="bottom" secondItem="XMn-yb-W46" secondAttribute="bottom" id="rom-9I-WWl"/>
                                                         <constraint firstAttribute="trailing" secondItem="XMn-yb-W46" secondAttribute="trailing" id="ttb-Nw-uRp"/>
@@ -99,6 +109,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="333" height="262"/>
                                         <connections>
+                                            <outlet property="animationImageView" destination="c0W-x8-Sy6" id="etB-7Z-TJg"/>
                                             <outlet property="durationLabel" destination="z4S-cu-YMh" id="WOq-wH-6Uq"/>
                                             <outlet property="subInfoLabel" destination="tDY-tL-6yN" id="5uM-sY-Z9d"/>
                                             <outlet property="thumbnailImageView" destination="XMn-yb-W46" id="Fcv-ej-I4y"/>
@@ -161,7 +172,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likeTableViewCell" rowHeight="61" id="fUo-lQ-18S" customClass="LikeTableViewCell" customModule="TVApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="likeTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likeTableViewCell" rowHeight="61" id="fUo-lQ-18S" customClass="LikeTableViewCell" customModule="TVApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fUo-lQ-18S" id="2yy-Rv-nQ4">
@@ -211,6 +222,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

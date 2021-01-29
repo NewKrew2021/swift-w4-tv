@@ -16,8 +16,10 @@ struct Likes {
     static func addOrRemoveLike(id : Int, like : Like) {
         if data[id] == nil {
             data[id] = like
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "likeAnimation"),object: nil, userInfo: ["doLike" : true])
         } else {
             data.removeValue(forKey: id)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "likeAnimation"),object: nil, userInfo: ["doLike" : false])
         }
         LikeData.updateData(data)
     }

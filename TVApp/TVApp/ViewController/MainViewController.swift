@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     private let json = Json()
     private var workItem = DispatchWorkItem() {}
     private var touchBeganTime : TimeInterval = 0
+    private var animationImageView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                     selector: #selector(completedJsonParsing),
                     name: NSNotification.Name(rawValue: "jsonParsing"),
+                    object: nil)
+        NotificationCenter.default.addObserver(self,
+                    selector: #selector(likeAnimation),
+                    name: NSNotification.Name(rawValue: "likeAnimation"),
                     object: nil)
         
         json.parsing(type: currentType)
@@ -85,7 +90,24 @@ class MainViewController: UIViewController {
             }
             let channelName = cellData?.channel.name ?? ""
             let id = cellData?.id ?? 0
+            self.animationImageView = touchesCell?.animationImageView ?? UIImageView()
             Likes.addOrRemoveLike(id: id, like: Like(title: title, channelName: channelName))
+        }
+    }
+    
+    @objc func likeAnimation(_ notification:Notification) {
+        let doLike = notification.userInfo?["doLike"] as! Bool
+        if doLike {
+            self.animationImageView.image = UIImage(systemName: "heart.fill")
+        } else {
+            self.animationImageView.image = UIImage(systemName: "heart")
+        }
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.2, options: .allowUserInteraction, animations: {
+            self.animationImageView.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
+            self.animationImageView.alpha = 1.0
+        }) { finished in
+            self.animationImageView.alpha = 0.0
+            self.animationImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
     }
 }
@@ -103,6 +125,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
         } else {
             cell.setLiveData(video: video[indexPath.row])
         }
+        cell.bringSubviewToFront(cell.animationImageView)
         return cell
     }
     
