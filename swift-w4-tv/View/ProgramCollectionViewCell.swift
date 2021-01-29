@@ -18,6 +18,8 @@ class ProgramCollectionViewCell: UICollectionViewCell {
     private var createTimeLabel = UILabel()
     private var durationOrPlayCount = UILabel()
     
+    private var idLabel = UILabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initTvImage(standardView: contentView, padding: 1)
@@ -26,6 +28,7 @@ class ProgramCollectionViewCell: UICollectionViewCell {
         initVisitCountLabel(standardView: contentView, padding: 1)
         initCreateTimeLabel(standardView: contentView, padding: 1)
         initDurationOrPlayCount(standardView: contentView, padding: 1)
+        initId(standardView: contentView, padding: 1)
         
     }
     required init?(coder: NSCoder) {
@@ -36,6 +39,7 @@ class ProgramCollectionViewCell: UICollectionViewCell {
         initVisitCountLabel(standardView: contentView, padding: 1)
         initCreateTimeLabel(standardView: contentView, padding: 1)
         initDurationOrPlayCount(standardView: contentView, padding: 1)
+        initId(standardView: contentView, padding: 1)
         
     }
     
@@ -48,6 +52,7 @@ class ProgramCollectionViewCell: UICollectionViewCell {
             visitCountLabel.text = "▶︎" + String(data.originalPrograms[indexPath[1]].channel.visitCount)
             durationOrPlayCount.text = convertDurationToString(duration: data.originalPrograms[indexPath[1]].clip.duration)
             createTimeLabel.text = "•" + convertChannelCreateTime(channelCreateTime: data.originalPrograms[indexPath[1]].clip.createTime)
+            idLabel.text = String(data.originalPrograms[indexPath[1]].clip.id)
         default:
             titleLabel.text = data.livePrograms[indexPath[1]].live.title
             tvImage.image = UIImage(named: data.livePrograms[indexPath[1]].live.thumbnailURL)
@@ -55,7 +60,12 @@ class ProgramCollectionViewCell: UICollectionViewCell {
             visitCountLabel.text = "▶︎" + String(data.livePrograms[indexPath[1]].channel.visitCount)
             durationOrPlayCount.text = "☊ \(data.livePrograms[indexPath[1]].live.playCount)"
             createTimeLabel.text = "•" + convertChannelCreateTime(channelCreateTime: data.livePrograms[indexPath[1]].live.createTime)
+            idLabel.text = String(data.livePrograms[indexPath[1]].live.id)
         }
+    }
+    func initId(standardView : UIView, padding : CGFloat) {
+        standardView.addSubview(idLabel)
+        idLabel.isHidden = true
     }
     
     func initTvImage(standardView : UIView, padding : CGFloat) {
@@ -155,5 +165,13 @@ class ProgramCollectionViewCell: UICollectionViewCell {
         default:
             return " \(diff/86400)일 전"
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.next?.touchesBegan(touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.next?.touchesEnded(touches, with: event)
     }
 }

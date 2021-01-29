@@ -27,17 +27,15 @@ class MainViewController: UIViewController {
     private var cellheight = CGFloat()
     
     private var flag = true
-    private var favoritePrograms = favorite()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initMainViewController()
-        setLongPressGestureRecognizer()
         NotificationCenter.default.addObserver(self, selector: #selector(saveFunc(_:)), name: NSNotification.Name("saveData"), object: nil)
     }
     
     @objc func saveFunc(_ notification: Notification){
-        favoritePrograms.saveUserDefault()
+        favorite.saveUserDefault()
     }
     
     func initMainViewController(){
@@ -83,7 +81,9 @@ class MainViewController: UIViewController {
     }
     
     @objc func buttonPressed(){
-        
+        let favoriteVC = FavoriteTableViewController()
+        present(favoriteVC, animated: true, completion: nil)
+        favorite.saveUserDefault()
     }
     
     func reloadData(){
@@ -104,6 +104,29 @@ class MainViewController: UIViewController {
         flag = !flag
         self.reloadData()
     }
+    
+    private var workItem = DispatchWorkItem() {}
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touchedContentView = touches.first?.view  else { return }
+
+                  guard let titleLabel = touchedContentView.subviews[1] as? UILabel else { return }
+                  guard let channelNameLabel = touchedContentView.subviews[2] as? UILabel else { return }
+                  guard let idLabel = touchedContentView.subviews[6] as? UILabel else { return }
+                  let title = titleLabel.text ?? ""
+                  let channelName = channelNameLabel.text ?? ""
+                  guard let id = Int(idLabel.text!) else { return }
+                  let time = DispatchTime.now() + .seconds(2)
+                  workItem = DispatchWorkItem() {
+                    favorite.addOrRemoveProgram(title: title, channelName: channelName, id: id)
+                  }
+                  DispatchQueue.main.asyncAfter(deadline: time, execute : workItem)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+                  workItem.cancel()
+    }
+    
 }
 
 extension MainViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -148,38 +171,6 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
             cellwidth = 0
         }
         cellheight = cellwidth * 0.8
-    }
-}
-
-extension MainViewController {
-    func setLongPressGestureRecognizer(){
-        let LongPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.LongPressView(_:)))
-        LongPress.minimumPressDuration = 2
-        self.view.addGestureRecognizer(LongPress)
-    }
-    
-    @objc func LongPressView(_ sender: UILongPressGestureRecognizer){
-        if let indexPath = self.myCollectionView?.indexPathForItem(at: sender.location(in: self.myCollectionView)) {
-            let cell = self.myCollectionView?.cellForItem(at: indexPath)
-            
-            if  (sender.state != UIGestureRecognizer.State.ended && sender.state != UIGestureRecognizer.State.cancelled && sender.state != UIGestureRecognizer.State.failed
-                && sender.state != UIGestureRecognizer.State.changed) {
-                let title : String
-                let name : String
-                let id : Int
-                switch type {
-                case .Original:
-                    title = jsonData.originalPrograms[indexPath[1]].clip.title
-                    name = jsonData.originalPrograms[indexPath[1]].channel.name
-                    id = jsonData.originalPrograms[indexPath[1]].clip.id
-                default:
-                    title = jsonData.livePrograms[indexPath[1]].live.title
-                    name = jsonData.livePrograms[indexPath[1]].channel.name
-                    id = jsonData.livePrograms[indexPath[1]].live.id
-                }
-                favoritePrograms.addOrRemoveProgram(title: title, channelName: name, id: id)
-            }
-        }
     }
 }
 
