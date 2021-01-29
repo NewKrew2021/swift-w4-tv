@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
 
@@ -13,6 +14,7 @@ class MainViewController: UIViewController {
     var mainTopView: MainTopView!
     let tvModelController = TvModelController()
     let touchHandler = TouchHandler()
+    let coreDataManger = CoreDataManager()
     var dataSource: UICollectionViewDiffableDataSource<Section, TvModel>!
     var nameFilter: String?
     let topViewHeight: CGFloat = 120
@@ -57,7 +59,7 @@ class MainViewController: UIViewController {
     }
     
     @objc private func goToFavoriteView(_ sender: Any) {
-
+        self.performSegue(withIdentifier: "goToFavoriteView", sender: sender)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,9 +68,27 @@ class MainViewController: UIViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchHandler.determineGestureType(touches, with: event) {type in
+        touchHandler.determineGestureType(touches, with: event) { [weak self] type in
             if type == .longPress {
-                // to-do: Handle Long Press Event
+                if let cell = touches.first?.view as? TvCollectionViewCell {
+                    guard let tvModel = self?.tvModelController.findById(id: cell.id) else { return }
+                    self?.coreDataManger.deleteAll()
+                    self?.coreDataManger.save(tvModel: tvModel)
+                    cell.animationImage.image = UIImage(systemName: "heart.fill")
+                    
+                    let defaultValue = cell.animationImage.frame.origin
+                    let animation = {
+                        cell.animationImage.alpha = 1
+                        cell.animationImage.frame.origin = defaultValue
+                    }
+                    UIView.animate(withDuration: TimeInterval(1), delay: 0, usingSpringWithDamping: CGFloat(0.5), initialSpringVelocity: CGFloat(0.5), options: .curveLinear, animations: animation)
+                    {_ in
+                        UIView.animate(withDuration: TimeInterval(0.5), animations: {cell.animationImage.alpha = 0 }, completion: nil)
+                    }
+                    
+                    
+                    
+                }
             }
         }
     }
@@ -77,15 +97,8 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainTopViewDelegate {
     func didSegmentChange(segmentControl: UISegmentedControl) {
-        switch segmentControl.selectedSegmentIndex {
-        case 0:
-            performQuery(with: TvModel.VideoType.CLIP)
-        case 1:
-            performQuery(with: TvModel.VideoType.LIVE)
-        default:
-            performQuery(with: TvModel.VideoType.CLIP)
-
-        }
+        let index = segmentControl.selectedSegmentIndex
+        performQuery(with: TvModel.VideoType(rawValue: ["CLIP", "LIVE"][index]))
     }
 }
 
@@ -100,12 +113,8 @@ extension MainViewController {
     enum Section: CaseIterable {
         case main
     }
+    
     func configureDataSource() {
-        let cellRegistration = TvCollectionView.CellRegistration
-        <TvCollectionViewCell, TvModel> { (cell, _, tvModel) in
-            cell.config(viewModel: TvCollectionViewCellModel(tvModel: tvModel))
-        }
-
         dataSource = UICollectionViewDiffableDataSource<Section, TvModel>(collectionView: tvCollectionView) { [weak self]
             (collectionView: UICollectionView, indexPath: IndexPath, tvModel: TvModel) -> UICollectionViewCell? in
             guard let self = self else { return TvCollectionViewCell() }

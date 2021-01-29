@@ -37,6 +37,9 @@
                                 <segment title="오리지널"/>
                                 <segment title="라이브"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentChanged:" destination="COq-OF-srm" eventType="valueChanged" id="Tbf-hk-NfG"/>
+                            </connections>
                         </segmentedControl>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,7 +74,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="segmentController" destination="RZu-JX-xYL" id="IcH-TY-cgy"/>
+                <outlet property="segmentControl" destination="RZu-JX-xYL" id="IcH-TY-cgy"/>
             </connections>
             <point key="canvasLocation" x="244.92753623188409" y="575.89285714285711"/>
         </view>

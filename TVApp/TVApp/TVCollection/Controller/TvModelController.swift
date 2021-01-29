@@ -8,8 +8,8 @@
 import Foundation
 
 class TvModelController {
-    var tvList: [TvModel] = [TvModel]()
-    let bundleManager: BundleManager = BundleManager()
+    private var tvList: [TvModel] = [TvModel]()
+    private let bundleManager: BundleManager = BundleManager()
 
     init() {
         getTvList()
@@ -26,6 +26,12 @@ class TvModelController {
         }
     }
 
+    func findById(id: Int) -> TvModel? {
+        let filtered = tvList.filter { $0.id == id }
+        guard filtered.count > 0 else { return nil }
+        return filtered[0]
+    }
+    
     func get(index: Int) -> TvModel {
         return tvList[index]
     }
