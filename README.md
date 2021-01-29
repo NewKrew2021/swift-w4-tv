@@ -25,3 +25,15 @@
 <img width="350" alt="sc3" src="https://user-images.githubusercontent.com/46565404/105967480-39d6bf00-60c9-11eb-8fc7-5a37286a9454.png">
 
 <img width="755" alt="sc4" src="https://user-images.githubusercontent.com/46565404/105967501-40653680-60c9-11eb-8e45-5223fb1995c7.png">
+
+## Step3
+1/29 20:47
+1. responder chain을 통해 상위뷰의 Long Press를 ViewController레벨에서 구현
+2. 터치된 Video의 정보를 UserDefault에 저장
+3. UserDefault의 정보를 즐겨찾기 TableViewController에 구현
+4. 즐겨찾기 등록/해제 시 하트 애니메이션 추가
+
+<img width="347" alt="sc1" src="https://user-images.githubusercontent.com/46565404/106271633-27988480-6273-11eb-99b6-56fc05ee0076.png">
+<img width="353" alt="sc2" src="https://user-images.githubusercontent.com/46565404/106271646-2f582900-6273-11eb-8abc-8c6ef94fa170.png">
+<img width="349" alt="sc3" src="https://user-images.githubusercontent.com/46565404/106271650-30895600-6273-11eb-9806-31bd4cf550f3.png">
+

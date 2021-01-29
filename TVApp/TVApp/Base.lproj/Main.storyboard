@@ -28,7 +28,7 @@
                                     <segment title="라이브"/>
                                 </segments>
                             </segmentedControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OZo-CX-j2n">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OZo-CX-j2n" customClass="CollectionView" customModule="TVApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="191" width="374" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NEU-Mp-fQQ">
@@ -54,7 +54,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCx-zD-9vq">
                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="196"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMn-yb-W46">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMn-yb-W46" customClass="ThumbnailUIImageView" customModule="TVApp" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="333" height="196"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4S-cu-YMh" customClass="DurationUILabel" customModule="TVApp" customModuleProvider="target">
@@ -64,14 +64,24 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c0W-x8-Sy6">
+                                                            <rect key="frame" x="141.5" y="73" width="50" height="50"/>
+                                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="2L9-zf-99H"/>
+                                                                <constraint firstAttribute="height" constant="50" id="SUg-Zl-519"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="c0W-x8-Sy6" firstAttribute="centerY" secondItem="QCx-zD-9vq" secondAttribute="centerY" id="0Tb-M0-1mu"/>
                                                         <constraint firstItem="XMn-yb-W46" firstAttribute="leading" secondItem="QCx-zD-9vq" secondAttribute="leading" id="CxL-I2-nbr"/>
                                                         <constraint firstItem="XMn-yb-W46" firstAttribute="top" secondItem="QCx-zD-9vq" secondAttribute="top" id="GNv-8e-3Qh"/>
                                                         <constraint firstAttribute="width" secondItem="QCx-zD-9vq" secondAttribute="height" multiplier="1.7:1" id="Urb-is-1MQ"/>
                                                         <constraint firstItem="z4S-cu-YMh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QCx-zD-9vq" secondAttribute="leading" constant="8" id="bac-MD-KsW"/>
                                                         <constraint firstAttribute="bottom" secondItem="z4S-cu-YMh" secondAttribute="bottom" constant="8" id="bxd-j9-oT2"/>
+                                                        <constraint firstItem="c0W-x8-Sy6" firstAttribute="centerX" secondItem="QCx-zD-9vq" secondAttribute="centerX" id="lCx-kQ-8dh"/>
                                                         <constraint firstAttribute="trailing" secondItem="z4S-cu-YMh" secondAttribute="trailing" constant="8" id="mGf-VT-MuP"/>
                                                         <constraint firstAttribute="bottom" secondItem="XMn-yb-W46" secondAttribute="bottom" id="rom-9I-WWl"/>
                                                         <constraint firstAttribute="trailing" secondItem="XMn-yb-W46" secondAttribute="trailing" id="ttb-Nw-uRp"/>
@@ -99,6 +109,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="333" height="262"/>
                                         <connections>
+                                            <outlet property="animationImageView" destination="c0W-x8-Sy6" id="etB-7Z-TJg"/>
                                             <outlet property="durationLabel" destination="z4S-cu-YMh" id="WOq-wH-6Uq"/>
                                             <outlet property="subInfoLabel" destination="tDY-tL-6yN" id="5uM-sY-Z9d"/>
                                             <outlet property="thumbnailImageView" destination="XMn-yb-W46" id="Fcv-ej-I4y"/>
@@ -152,10 +163,68 @@
             </objects>
             <point key="canvasLocation" x="-197.10144927536234" y="60.9375"/>
         </scene>
+        <!--Like Table View Controller-->
+        <scene sceneID="8KM-rI-GBv">
+            <objects>
+                <tableViewController storyboardIdentifier="likeViewController" id="SV8-US-yte" customClass="LikeTableViewController" customModule="TVApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kkR-qy-E35">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="likeTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likeTableViewCell" rowHeight="61" id="fUo-lQ-18S" customClass="LikeTableViewCell" customModule="TVApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="61"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fUo-lQ-18S" id="2yy-Rv-nQ4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUM-6W-h0Q">
+                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUI-kF-ZgT">
+                                            <rect key="frame" x="20" y="34" width="374" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sUM-6W-h0Q" firstAttribute="top" secondItem="2yy-Rv-nQ4" secondAttribute="topMargin" id="6gC-EX-6Wk"/>
+                                        <constraint firstItem="mUI-kF-ZgT" firstAttribute="trailing" secondItem="2yy-Rv-nQ4" secondAttribute="trailingMargin" id="CeU-kT-lS0"/>
+                                        <constraint firstItem="sUM-6W-h0Q" firstAttribute="leading" secondItem="2yy-Rv-nQ4" secondAttribute="leadingMargin" id="Pb8-bD-4Ut"/>
+                                        <constraint firstItem="mUI-kF-ZgT" firstAttribute="bottom" secondItem="2yy-Rv-nQ4" secondAttribute="bottomMargin" id="a2O-fI-J32"/>
+                                        <constraint firstItem="mUI-kF-ZgT" firstAttribute="top" secondItem="sUM-6W-h0Q" secondAttribute="bottom" constant="2" id="cEm-bS-NS5"/>
+                                        <constraint firstItem="sUM-6W-h0Q" firstAttribute="trailing" secondItem="2yy-Rv-nQ4" secondAttribute="trailingMargin" id="d1P-U2-EKR"/>
+                                        <constraint firstItem="mUI-kF-ZgT" firstAttribute="leading" secondItem="2yy-Rv-nQ4" secondAttribute="leadingMargin" id="qT7-DP-ygB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subInfoLabel" destination="mUI-kF-ZgT" id="20D-8U-HUP"/>
+                                    <outlet property="titleLabel" destination="sUM-6W-h0Q" id="Qaj-DA-dc9"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SV8-US-yte" id="3PB-er-Lq0"/>
+                            <outlet property="delegate" destination="SV8-US-yte" id="DXK-VE-pTw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jS5-2h-xB6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602.8985507246377" y="60.9375"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
